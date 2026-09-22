@@ -11,8 +11,8 @@
   ],
   "apkUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
   "websiteUrl": "https://cinevaultapk.online/",
-  "mandatory": false,
-  "minVersion": "1.0.0",
+  "mandatory": true,
+  "minVersion": "2.5.0",
   "sha256": "d75c13f13e265a3f31852b3d447fd6a66ee4dc6c5d91269b7caf070c3f17d245",
   "fileSizeBytes": 9164956,
   "fileSizeMB": "8.7MB"

@@ -1,19 +1,18 @@
 {
-  "version": "2.5.0",
-  "versionCode": 2500,
+  "version": "2.5.1",
+  "versionCode": 2510,
   "releaseDate": "2026-09-22",
   "changelog": [
-    "Fixed video player landscape mode to fit full device frame",
-    "Instant touch response time and optimized navigation speed",
-    "Stream pre-warming and non-blocking background caching",
-    "Cinema-grade 4K HDR & AV1 hardware decoding",
-    "65+ Live TV channels with low-latency HLS"
+    "Fixed video player zoomed-in display in portrait mode",
+    "Fixed landscape screen fit not properly applying when toggling fit modes",
+    "Video player now auto-resets to proper fit when switching between portrait and landscape",
+    "Performance improvements and stability fixes"
   ],
   "apkUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
   "websiteUrl": "https://cinevaultapk.online/",
   "mandatory": true,
-  "minVersion": "2.5.0",
-  "sha256": "0841558f9f004408eff659280213b1e55d4fef25845590b04659f0d48605795f",
-  "fileSizeBytes": 9209090,
-  "fileSizeMB": "8.8MB"
+  "minVersion": "2.0.0",
+  "sha256": "c8b7f12873a2d126f629fd6985617ac9cddbc6a6b66fe24ad919f6a912be3c6c",
+  "fileSizeBytes": 9164960,
+  "fileSizeMB": "8.7MB"
 }

@@ -1,4 +1,9 @@
 {
+  "latestVersionCode": 2510,
+  "latestVersionName": "2.5.1",
+  "apkDownloadUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
+  "updateMessage": "Fixed video player zoomed-in display in portrait mode and landscape screen fit.",
+  "forceUpdate": false,
   "version": "2.5.1",
   "versionCode": 2510,
   "releaseDate": "2026-09-22",
@@ -10,7 +15,7 @@
   ],
   "apkUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
   "websiteUrl": "https://cinevaultapk.online/",
-  "mandatory": true,
+  "mandatory": false,
   "minVersion": "2.0.0",
   "sha256": "c8b7f12873a2d126f629fd6985617ac9cddbc6a6b66fe24ad919f6a912be3c6c",
   "fileSizeBytes": 9164960,

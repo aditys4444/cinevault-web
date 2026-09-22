@@ -1,0 +1,18 @@
+﻿{
+  "version": "2.4.0",
+  "versionCode": 2400,
+  "releaseDate": "2026-09-22",
+  "changelog": [
+    "Cinema-grade 4K HDR & AV1 hardware decoding",
+    "65+ Live TV channels with low-latency HLS",
+    "In-app update notification system connected to cinevaultapk.online",
+    "Zero telemetry and zero ads"
+  ],
+  "apkUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
+  "websiteUrl": "https://cinevaultapk.online/",
+  "mandatory": false,
+  "minVersion": "2.0.0",
+  "sha256": "13dbe65e5867a1472ddb6cb3f3de948ed64f50bdfa13deb9d595dd5dea180cc1",
+  "fileSizeBytes": 9198446,
+  "fileSizeMB": "8.8MB"
+}

@@ -122,7 +122,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const downloadBtns = document.querySelectorAll('.trigger-download');
   downloadBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      showToast('Downloading CineVault v2.4.0 (8.8 MB)...');
+      showToast('Downloading CineVault v2.5.4 (8.7 MB)...');
+    });
+  });
+
+  // 6. Telegram Channel Direct App Opener
+  const telegramBtns = document.querySelectorAll('.btn-nav-telegram, .btn-hero-telegram, .footer-link[href*="telegram"]');
+  telegramBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        setTimeout(() => {
+          window.location.href = 'tg://join?invite=0nZRFagm4wU1MDll';
+        }, 50);
+      }
     });
   });
 });

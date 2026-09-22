@@ -1,0 +1,36 @@
+﻿export async function onRequest(context) {
+  const responseData = {
+    version: "2.5.0",
+    versionCode: 2500,
+    releaseDate: "2026-09-22",
+    changelog: [
+      "Fixed video player landscape mode to fit full device frame",
+      "Instant touch response time and optimized navigation speed",
+      "Stream pre-warming and non-blocking background caching",
+      "Cinema-grade 4K HDR & AV1 hardware decoding",
+      "65+ Live TV channels with low-latency HLS"
+    ],
+    apkUrl: "https://cinevaultapk.online/downloads/CineVault.apk",
+    websiteUrl: "https://cinevaultapk.online/",
+    mandatory: true,
+    minVersion: "2.5.0",
+    sha256: "78f6f206d5e74123b64333ec78c023f24a442725a266eafb0bb44f6305c69b52",
+    fileSizeBytes: 9209123,
+    fileSizeMB: "8.8MB"
+  };
+
+  const headers = {
+    "Content-Type": "application/json; charset=utf-8",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
+    "Access-Control-Allow-Headers": "*",
+    "Access-Control-Max-Age": "86400",
+    "Cache-Control": "no-cache, no-store, must-revalidate"
+  };
+
+  if (context.request.method === "OPTIONS") {
+    return new Response(null, { status: 204, headers });
+  }
+
+  return new Response(JSON.stringify(responseData), { status: 200, headers });
+}

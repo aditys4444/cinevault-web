@@ -481,57 +481,6 @@ a {
   color: var(--telegram);
 }
 
-/* Device Compatibility Bar */
-.device-compatibility-row {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding-top: 14px;
-}
-
-.device-compat-label {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-faint);
-  font-weight: 600;
-}
-
-.device-compat-badges {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-}
-
-.compat-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 6px 12px;
-  background: var(--bg-surface-glass);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-full);
-  font-family: var(--font-mono);
-  font-size: 0.76rem;
-  color: var(--text-muted);
-  transition: var(--transition-smooth);
-}
-
-.compat-badge svg {
-  width: 14px;
-  height: 14px;
-  color: var(--gold);
-}
-
-.compat-badge:hover {
-  border-color: var(--border-hover);
-  color: var(--text-high);
-  background: var(--bg-surface-elevated);
-  transform: translateY(-1px);
-}
-
 /* Smartphone Mockup (Right Column) */
 .hero-mockup-wrapper {
   position: relative;
@@ -1680,15 +1629,6 @@ a {
   }
 
   .trust-meta-row {
-    justify-content: center;
-  }
-
-  .device-compatibility-row {
-    align-items: center;
-    text-align: center;
-  }
-
-  .device-compat-badges {
     justify-content: center;
   }
 

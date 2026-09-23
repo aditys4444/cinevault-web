@@ -1,24 +1,22 @@
 {
-  "latestVersionCode": 2550,
-  "latestVersionName": "2.5.5",
+  "latestVersionCode": 2560,
+  "latestVersionName": "2.5.6",
   "websiteUrl": "https://cinevaultapk.online/",
   "apkDownloadUrl": "https://cinevaultapk.online/",
   "directApkUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
-  "updateMessage": "Instant 0ms player start & non-blocking streaming",
-  "forceUpdate": false,
-  "version": "2.5.5",
-  "versionCode": 2550,
+  "updateMessage": "Performance improvements and bug fixes",
+  "forceUpdate": true,
+  "version": "2.5.6",
+  "versionCode": 2560,
   "releaseDate": "2026-09-23",
   "changelog": [
-    "Instant 0ms player start & non-blocking streaming",
-    "Fixed downloaded offline content buffering",
-    "Added new Live TV channels (Sports, Cinema, Music, News)",
-    "Clean card presentation"
+    "Performance improvements and bug fixes",
+    "Streaming stability updates"
   ],
   "apkUrl": "https://cinevaultapk.online/",
-  "mandatory": false,
+  "mandatory": true,
   "minVersion": "2.0.0",
-  "sha256": "f79e2ac582b077d10fc6558666127674d81563e9e6d654416f9706c0a9be055b",
-  "fileSizeBytes": 9170044,
+  "sha256": "e9d2bccc8e1eca8261277c1d229c7447a26e6338374fe92bc9a99c542d0f1aa6",
+  "fileSizeBytes": 9170272,
   "fileSizeMB": "8.7MB"
 }

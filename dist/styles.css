@@ -164,7 +164,22 @@ a {
 .nav-brand {
   display: flex;
   align-items: center;
+  gap: 11px;
   text-decoration: none;
+}
+
+.nav-brand-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.nav-brand:hover .nav-brand-logo {
+  transform: scale(1.05);
 }
 
 .brand-name {
@@ -1359,6 +1374,15 @@ a {
   letter-spacing: -0.03em;
 }
 
+.footer-brand-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+}
+
 .footer-nav-links {
   display: flex;
   flex-wrap: wrap;
@@ -1554,6 +1578,13 @@ a {
 
   .nav-brand {
     flex-shrink: 0;
+    gap: 8px;
+  }
+
+  .nav-brand-logo {
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
   }
 
   .brand-name {

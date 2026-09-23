@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const showcaseTitle = document.getElementById('showcaseViewTitle');
   const showcaseSpec = document.getElementById('showcaseSpecTag');
 
-  let currentActiveImg = 'assets/home_screenshot.png';
+  let currentActiveImg = 'assets/home_screenshot.webp';
 
   tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -136,5 +136,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 50);
       }
     });
+  });
+
+  // 7. Interactive FAQ Accordion
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const questionBtn = item.querySelector('.faq-question');
+    if (questionBtn) {
+      questionBtn.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        faqItems.forEach(other => {
+          if (other !== item) {
+            other.classList.remove('active');
+            const otherBtn = other.querySelector('.faq-question');
+            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
+        if (isActive) {
+          item.classList.remove('active');
+          questionBtn.setAttribute('aria-expanded', 'false');
+        } else {
+          item.classList.add('active');
+          questionBtn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    }
   });
 });

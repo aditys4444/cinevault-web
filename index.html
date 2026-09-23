@@ -56,6 +56,9 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#090A0F">
+  
+  <!-- Preload Critical Hero Graphic for 0ms Render -->
+  <link rel="preload" as="image" href="assets/home_screenshot.webp" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -76,6 +79,7 @@
         <a href="#security" class="nav-link">Security</a>
         <a href="#installation" class="nav-link">Installation</a>
         <a href="#specs" class="nav-link">Specs</a>
+        <a href="#faq" class="nav-link">FAQ</a>
       </nav>
 
       <!-- Action Buttons -->
@@ -168,6 +172,29 @@
               </div>
             </div>
 
+            <!-- Device Compatibility Ecosystem Bar -->
+            <div class="device-compatibility-row">
+              <span class="device-compat-label">Engineered For</span>
+              <div class="device-compat-badges">
+                <span class="compat-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
+                  Android TV
+                </span>
+                <span class="compat-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                  Phones & Tablets
+                </span>
+                <span class="compat-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  Google TV
+                </span>
+                <span class="compat-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  Fire TV Stick
+                </span>
+              </div>
+            </div>
+
           </div>
 
           <!-- Right Column: Smartphone Mockup with Real App Screen -->
@@ -176,8 +203,8 @@
 
             <div class="titanium-device-bezel">
               <div class="device-screen-frame">
-                <!-- Authentic CineVault App Home Capture -->
-                <img src="assets/home_screenshot.png" alt="CineVault Android Interface" class="device-app-screenshot">
+                <!-- Authentic CineVault App Home Capture (Optimized WebP) -->
+                <img src="assets/home_screenshot.webp" alt="CineVault Android Interface" class="device-app-screenshot" width="370" height="820" fetchpriority="high">
                 <div class="screen-glass-glare"></div>
               </div>
 
@@ -349,7 +376,7 @@
             <p class="section-subtitle">Every screen is calibrated for OLED contrast, minimal visual noise, and thumb-friendly navigation. Click tabs to preview authentic app screens.</p>
 
             <div class="showcase-tabs-list">
-              <button class="showcase-tab-btn active" data-tab="home" data-img="assets/home_screenshot.png" data-title="Vault Home & Premiere Reel" data-spec="AV1 â€¢ 24.000 FPS â€¢ HDR10+">
+              <button class="showcase-tab-btn active" data-tab="home" data-img="assets/home_screenshot.webp" data-title="Vault Home & Premiere Reel" data-spec="AV1 â€¢ 24.000 FPS â€¢ HDR10+">
                 <div class="tab-btn-content">
                   <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
@@ -359,7 +386,7 @@
                 <svg class="tab-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
               </button>
 
-              <button class="showcase-tab-btn" data-tab="player" data-img="assets/livetv_screenshot.png" data-title="65+ Live TV Channels (Aaj Tak HD)" data-spec="1080p HD â€¢ HLS LIVE STREAM">
+              <button class="showcase-tab-btn" data-tab="player" data-img="assets/livetv_screenshot.webp" data-title="65+ Live TV Channels (Aaj Tak HD)" data-spec="1080p HD â€¢ HLS LIVE STREAM">
                 <div class="tab-btn-content">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <rect x="2" y="7" width="20" height="15" rx="2" ry="2"/>
@@ -370,7 +397,7 @@
                 <svg class="tab-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
               </button>
 
-              <button class="showcase-tab-btn" data-tab="details" data-img="assets/details_screenshot.png" data-title="Series Details: India's Got Latent" data-spec="4K HDR â€¢ MULTI-EPISODES">
+              <button class="showcase-tab-btn" data-tab="details" data-img="assets/details_screenshot.webp" data-title="Series Details: India's Got Latent" data-spec="4K HDR â€¢ MULTI-EPISODES">
                 <div class="tab-btn-content">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="10"/>
@@ -382,7 +409,7 @@
                 <svg class="tab-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
               </button>
 
-              <button class="showcase-tab-btn" data-tab="search" data-img="assets/explore_search_screenshot.png" data-title="Instant Search & Genre Filters" data-spec="LIVE INDEX â€¢ 12+ GENRES">
+              <button class="showcase-tab-btn" data-tab="search" data-img="assets/explore_search_screenshot.webp" data-title="Instant Search & Genre Filters" data-spec="LIVE INDEX â€¢ 12+ GENRES">
                 <div class="tab-btn-content">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="11" cy="11" r="8"/>
@@ -407,7 +434,7 @@
 
             <!-- Clickable Phone Frame (opens Lightbox) -->
             <div class="showcase-preview-frame" id="showcasePreviewTrigger" title="Click to view uncropped Retina screenshot">
-              <img id="showcasePreviewImg" src="assets/home_screenshot.png" alt="CineVault Screenshot Capture" class="showcase-preview-img">
+              <img id="showcasePreviewImg" src="assets/home_screenshot.webp" alt="CineVault Screenshot Capture" class="showcase-preview-img" loading="lazy">
               <div class="screen-glass-glare"></div>
               <div class="zoom-hint-overlay">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
@@ -541,7 +568,7 @@
               </tr>
               <tr>
                 <td class="specs-key">Current Version</td>
-                <td class="specs-val val-gold">2.5.1 (Build 2510) Stable</td>
+                <td class="specs-val val-gold">2.5.4 (Build 2540) Release</td>
               </tr>
               <tr>
                 <td class="specs-key">Binary Payload Size</td>
@@ -565,7 +592,75 @@
       </div>
     </section>
 
-    <!-- 9. Bottom Conversion Banner -->
+    <!-- 9. Frequently Asked Questions (FAQ) Section -->
+    <section class="faq-section" id="faq">
+      <div class="section-container">
+        <div class="section-header-center">
+          <div class="section-pill-tag">Clear Answers</div>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-sub">Everything you need to know about CineVault streaming and security.</p>
+        </div>
+
+        <div class="faq-accordion">
+          <!-- Item 1 -->
+          <div class="faq-item active">
+            <button class="faq-question" aria-expanded="true">
+              <span>Is CineVault really 100% free with zero ads?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Yes, completely. CineVault was engineered from the ground up as a pure cinema experience. There are zero banner ads, zero video interstitials, and no subscription paywalls.</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Can I install CineVault on Fire TV Stick or Android TV?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! CineVault fully supports Android TV, Google TV, and Amazon Fire TV Sticks with full remote control D-pad navigation. You can easily sideload using the popular "Downloader" app by entering our direct URL: <code>cinevaultapk.online/downloads/CineVault.apk</code>.</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Is the APK safe and virus-free?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Every single release build is cryptographically hashed with SHA-256 and audited clean across 72 antivirus engines on VirusTotal with zero detections. Google Play Protect also validates the installation cleanly.</p>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>How do in-app updates work?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>CineVault features a built-in zero-latency OTA update engine. Whenever an update is released, the app prompts you with a 1-tap in-app updater—no need to manually re-download from a browser.</p>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>What video and audio formats are supported?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>CineVault supports hardware-accelerated AV1, HEVC (H.265), and AVC (H.264) video up to 4K Ultra-HD at 120Hz, along with Dolby Vision, HDR10+, and multi-channel Dolby Atmos audio passthrough.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Bottom Conversion Banner -->
     <section class="conversion-section" id="download">
       <div class="section-container">
         <div class="conversion-card">
@@ -614,6 +709,7 @@
           <a href="#security" class="footer-link">Security & Checksum</a>
           <a href="#installation" class="footer-link">Installation Guide</a>
           <a href="#specs" class="footer-link">Specifications</a>
+          <a href="#faq" class="footer-link">FAQ</a>
           <a href="https://telegram.me/+0nZRFagm4wU1MDll" target="_blank" rel="noopener" class="footer-link">Telegram Community</a>
         </div>
       </div>
@@ -632,7 +728,7 @@
   <div class="lightbox-modal" id="lightboxModal">
     <button class="btn-close-lightbox" id="closeLightboxBtn" title="Close preview">âœ•</button>
     <div class="lightbox-container">
-      <img src="assets/home_screenshot.png" alt="Full Uncropped Screenshot" class="lightbox-img" id="lightboxImg">
+      <img src="assets/home_screenshot.webp" alt="Full Uncropped Screenshot" class="lightbox-img" id="lightboxImg" loading="lazy">
     </div>
   </div>
 

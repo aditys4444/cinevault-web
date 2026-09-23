@@ -162,34 +162,64 @@
                   <!-- App Header -->
                   <div class="phone-ui-header">
                     <div class="phone-brand-title">
-                      CINE<span class="phone-brand-accent">VAULT</span>
+                      <img src="assets/favicon-48x48.png" alt="CineVault Logo" class="phone-brand-icon" width="22" height="22">
+                      <span>CINE<span class="phone-brand-accent">VAULT</span></span>
                     </div>
-                    <div class="phone-user-icon">
-                      <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                      </svg>
+                    <div class="phone-header-right">
+                      <div class="phone-live-indicator">
+                        <span class="live-dot-pulse"></span>
+                        <span>120+ LIVE</span>
+                      </div>
+                      <div class="phone-user-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                        </svg>
+                      </div>
                     </div>
                   </div>
 
                   <!-- Featured Card -->
                   <div class="phone-featured-hero">
                     <div class="featured-glow-fx"></div>
-                    <span class="featured-category-tag">FEATURED</span>
-                    <h3 class="featured-main-title">TOP PICKS THIS WEEK</h3>
+                    <div class="featured-tags-row">
+                      <span class="featured-category-tag">VAULT PREMIERE</span>
+                      <span class="featured-rating-pill">&starf; 8.9 &bull; 4K HDR</span>
+                    </div>
+                    <h3 class="featured-main-title">DUNE: PART TWO</h3>
+                    <p class="featured-meta-desc">Sci-Fi &bull; IMAX Enhanced &bull; Dolby Atmos</p>
+                    <div class="featured-action-pill">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+                      <span>Stream Now</span>
+                    </div>
                   </div>
 
                   <!-- Continue Watching Section -->
                   <div class="phone-content-block">
-                    <div class="phone-block-header">CONTINUE WATCHING</div>
+                    <div class="phone-block-header">
+                      <span>CONTINUE STREAMING</span>
+                      <span class="header-all-link">SEE ALL</span>
+                    </div>
                     <div class="phone-posters-strip">
-                      <div class="phone-poster-item poster-card-1">
-                        <div class="poster-badge-chip">4K HDR</div>
+                      <div class="phone-poster-item poster-card-1" title="Interstellar">
+                        <span class="poster-badge-chip">IMAX</span>
+                        <div class="poster-details">
+                          <span class="poster-name">Interstellar</span>
+                          <div class="poster-mini-bar"><div class="mini-bar-fill" style="width: 72%;"></div></div>
+                        </div>
                       </div>
-                      <div class="phone-poster-item poster-card-2">
-                        <div class="poster-badge-chip">DOLBY</div>
+                      <div class="phone-poster-item poster-card-2" title="Oppenheimer">
+                        <span class="poster-badge-chip">4K HDR</span>
+                        <div class="poster-details">
+                          <span class="poster-name">Oppenheimer</span>
+                          <div class="poster-mini-bar"><div class="mini-bar-fill" style="width: 45%;"></div></div>
+                        </div>
                       </div>
-                      <div class="phone-poster-item poster-card-3">
-                        <div class="poster-badge-chip">120 FPS</div>
+                      <div class="phone-poster-item poster-card-3" title="Aaj Tak HD Live">
+                        <span class="poster-badge-chip badge-live-tv"><span class="mini-live-dot"></span>LIVE</span>
+                        <div class="poster-details">
+                          <span class="poster-name">Aaj Tak HD</span>
+                          <span class="poster-subtext">1080p Stream</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -202,42 +232,21 @@
                           <polygon points="8 5 19 12 8 19 8 5"/>
                         </svg>
                       </div>
-                      <span class="now-playing-track-name">NOW PLAYING &mdash; EP. 4</span>
+                      <div class="now-playing-info">
+                        <span class="now-playing-track-name">NOW STREAMING: DUNE PART TWO</span>
+                        <span class="now-playing-codec-meta">4K AV1 &bull; Dolby Atmos 7.1 &bull; 01:24:18 / 02:46:00</span>
+                      </div>
                     </div>
                     <div class="now-playing-timeline">
                       <div class="now-playing-elapsed"></div>
                     </div>
                   </div>
+
+                  <!-- Home Gesture Indicator -->
+                  <div class="phone-home-indicator"></div>
                 </div>
 
                 <div class="screen-glass-glare"></div>
-              </div>
-
-              <!-- Floating Spec Badge 1: Dolby Atmos -->
-              <div class="floating-spec-badge badge-top-left">
-                <div class="badge-icon">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
-                  </svg>
-                </div>
-                <div class="badge-texts">
-                  <span class="badge-title">Dolby Atmos 7.1</span>
-                  <span class="badge-sub">Pass-through Bitstream</span>
-                </div>
-              </div>
-
-              <!-- Floating Spec Badge 2: 4K HDR AV1 -->
-              <div class="floating-spec-badge badge-bottom-right">
-                <div class="badge-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="7" width="20" height="15" rx="2" ry="2"/>
-                    <polyline points="17 2 12 7 7 2"/>
-                  </svg>
-                </div>
-                <div class="badge-texts">
-                  <span class="badge-title">4K Ultra HD</span>
-                  <span class="badge-sub">AV1 Hardware Decoding</span>
-                </div>
               </div>
             </div>
           </div>

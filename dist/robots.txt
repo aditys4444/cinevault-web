@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cinevaultapk.online/sitemap.xml
+Sitemap: https://www.cinevaultapk.online/sitemap.xml

@@ -1,9 +1,9 @@
 {
   "latestVersionCode": 2560,
   "latestVersionName": "2.5.6",
-  "websiteUrl": "https://cinevaultapk.online/",
-  "apkDownloadUrl": "https://cinevaultapk.online/",
-  "directApkUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
+  "websiteUrl": "https://www.cinevaultapk.online/",
+  "apkDownloadUrl": "https://www.cinevaultapk.online/",
+  "directApkUrl": "https://www.cinevaultapk.online/downloads/CineVault.apk",
   "updateMessage": "Performance improvements and bug fixes",
   "forceUpdate": true,
   "version": "2.5.6",
@@ -13,7 +13,7 @@
     "Performance improvements and bug fixes",
     "Streaming stability updates"
   ],
-  "apkUrl": "https://cinevaultapk.online/",
+  "apkUrl": "https://www.cinevaultapk.online/",
   "mandatory": true,
   "minVersion": "2.0.0",
   "sha256": "e9d2bccc8e1eca8261277c1d229c7447a26e6338374fe92bc9a99c542d0f1aa6",

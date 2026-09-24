@@ -118,18 +118,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Download Triggers Toast
+  // 5. Download Triggers Toast & Google Analytics Event
   const downloadBtns = document.querySelectorAll('.trigger-download');
   downloadBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      showToast('Downloading CineVault v2.5.4 (8.7 MB)...');
+      showToast('Downloading CineVault v2.5.6 (8.7 MB)...');
+      if (typeof gtag === 'function') {
+        gtag('event', 'apk_download', {
+          event_category: 'Downloads',
+          event_label: 'CineVault v2.5.6 APK',
+          value: 1
+        });
+      }
     });
   });
 
-  // 6. Telegram Channel Direct App Opener
+  // 6. Telegram Channel Direct App Opener & Google Analytics Event
   const telegramBtns = document.querySelectorAll('.btn-nav-telegram, .btn-hero-telegram, .footer-link[href*="telegram"]');
   telegramBtns.forEach(btn => {
     btn.addEventListener('click', () => {
+      if (typeof gtag === 'function') {
+        gtag('event', 'telegram_click', {
+          event_category: 'Community',
+          event_label: 'CineVault Telegram Channel'
+        });
+      }
       if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
         setTimeout(() => {
           window.location.href = 'tg://join?invite=0nZRFagm4wU1MDll';

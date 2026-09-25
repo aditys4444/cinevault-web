@@ -1,4 +1,4 @@
-/**
+﻿/**
  * CineVault — Official Website Interactive Logic
  * Design System: Obsidian Cinema
  */
@@ -122,11 +122,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const downloadBtns = document.querySelectorAll('.trigger-download');
   downloadBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      showToast('Downloading CineVault v2.6.1 (8.7 MB)...');
+      showToast('Downloading CineVault v2.6.3 (8.7 MB)...');
       if (typeof gtag === 'function') {
         gtag('event', 'apk_download', {
           event_category: 'Downloads',
-          event_label: 'CineVault v2.6.1 APK',
+          event_label: 'CineVault v2.6.3 APK',
           value: 1
         });
       }
@@ -176,3 +176,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+

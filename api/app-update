@@ -1,9 +1,9 @@
 {
   "latestVersionCode": 2610,
   "latestVersionName": "2.6.1",
-  "websiteUrl": "https://cinevaultapk.online/",
-  "apkDownloadUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
-  "directApkUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
+  "websiteUrl": "https://www.cinevaultapk.online/",
+  "apkDownloadUrl": "https://www.cinevaultapk.online/downloads/CineVault.apk",
+  "directApkUrl": "https://www.cinevaultapk.online/downloads/CineVault.apk",
   "updateMessage": "Pure player landscape mode, simplified Live TV & Downloads, clean section titles",
   "forceUpdate": true,
   "version": "2.6.1",
@@ -16,7 +16,7 @@
     "Simplified Downloads tab for effortless offline viewing",
     "Removed secondary badge text from all content section headers"
   ],
-  "apkUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
+  "apkUrl": "https://www.cinevaultapk.online/downloads/CineVault.apk",
   "mandatory": true,
   "minVersion": "2.0.0",
   "sha256": "49e0b81ff98c3bb35d18fd9605df5d6cf30b420dd837addcde2c3fc5bb338ec0",

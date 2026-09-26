@@ -1,4 +1,4 @@
-﻿export async function onRequest(context) {
+export async function onRequest(context) {
   const req = context.request;
   const secFetchDest = req.headers.get('sec-fetch-dest') || '';
   const upgradeInsecure = req.headers.get('upgrade-insecure-requests') || '';
@@ -25,5 +25,5 @@
   }
 
   // Any real browser opening this link gets smoothly redirected to the official website homepage!
-  return Response.redirect('https://cinevaultapk.online/', 302);
+  return Response.redirect('https://www.cinevaultapk.online/', 301);
 }

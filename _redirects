@@ -1,0 +1,4 @@
+# Force canonical www domain with permanent 301 redirect
+https://cinevaultapk.online/* https://www.cinevaultapk.online/:splat 301!
+http://cinevaultapk.online/* https://www.cinevaultapk.online/:splat 301!
+http://www.cinevaultapk.online/* https://www.cinevaultapk.online/:splat 301!

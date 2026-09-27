@@ -122,11 +122,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const downloadBtns = document.querySelectorAll('.trigger-download');
   downloadBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      showToast('Downloading CineVault v2.6.5 (8.79 MB)...');
+      showToast('Downloading CineVault v2.6.6 (8.79 MB)...');
       if (typeof gtag === 'function') {
         gtag('event', 'apk_download', {
           event_category: 'Downloads',
-          event_label: 'CineVault v2.6.5 APK',
+          event_label: 'CineVault v2.6.6 APK',
           value: 1
         });
       }

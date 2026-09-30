@@ -1,25 +1,24 @@
 {
-  "latestVersionCode": 2680,
-  "latestVersionName": "2.6.8",
+  "latestVersionCode": 2700,
+  "latestVersionName": "2.7.0",
   "websiteUrl": "https://cinevaultapk.online/",
   "apkDownloadUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
   "directApkUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
-  "updateMessage": "Edge-to-edge full screen video player for all mobile devices",
+  "updateMessage": "Lag elimination in 18+ Vault and smooth performance across all devices",
   "forceUpdate": true,
-  "version": "2.6.8",
-  "versionCode": 2680,
-  "releaseDate": "2026-09-29",
+  "version": "2.7.0",
+  "versionCode": 2700,
+  "releaseDate": "2026-09-30",
   "changelog": [
-    "Edge-to-edge full screen video player for all mobile devices",
-    "Screen Lock button & 3 Screen Fit modes (Full Screen, Fill Screen, Fit Screen)",
-    "Slim edge brightness & volume scrollbars with top percentage indicator",
-    "Single unified loading spinner with zero UI conflicts",
-    "60-120 FPS hardware-accelerated playback performance"
+    "Lag elimination in 18+ Vault and smooth performance across all devices",
+    "Video player portrait mode locked to contain aspect ratio with zero distortion",
+    "Quality, Audio Language, and Playback Speed menus enabled in all orientations",
+    "Edge-to-edge safe-area fit with responsive controls and collision-free bottom navigation"
   ],
   "apkUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
   "mandatory": true,
   "minVersion": "2.0.0",
-  "sha256": "b439f410d6ca17f45bd82aaf3e7143667d8a2b29cd3c8266b02b510df9a3fdc6",
-  "fileSizeBytes": 11416928,
+  "sha256": "219987a73a7e701478720d27152e99c299a2606856874a8cda72c8b26b7e6b77",
+  "fileSizeBytes": 11471940,
   "fileSizeMB": "10.9MB"
 }

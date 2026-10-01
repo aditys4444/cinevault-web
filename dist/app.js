@@ -1,43 +1,105 @@
 /**
  * CineVault — Official Website Interactive Logic
  * Design System: Obsidian Cinema
+ * Release: v2.7.0
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Interactive Showcase Tab Switcher
-  const tabButtons = document.querySelectorAll('.showcase-tab-btn');
-  const showcaseImg = document.getElementById('showcasePreviewImg');
-  const showcaseTitle = document.getElementById('showcaseViewTitle');
-  const showcaseSpec = document.getElementById('showcaseSpecTag');
+  // Current release constants (fallback if version.json is cached or offline)
+  const APP_CONFIG = {
+    version: '2.7.0',
+    sizeMB: '10.9 MB',
+    apkPath: 'downloads/CineVault.apk',
+    websiteUrl: 'https://cinevaultapk.online/'
+  };
 
-  let currentActiveImg = 'assets/home_screenshot.webp';
-
-  tabButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const targetImg = btn.dataset.img;
-      const targetTitle = btn.dataset.title;
-      const targetSpec = btn.dataset.spec;
-
-      if (targetImg && showcaseImg) {
-        currentActiveImg = targetImg;
-        showcaseImg.style.opacity = '0.3';
-        showcaseImg.style.transform = 'scale(0.98)';
-
-        setTimeout(() => {
-          showcaseImg.src = targetImg;
-          if (showcaseTitle && targetTitle) showcaseTitle.textContent = targetTitle;
-          if (showcaseSpec && targetSpec) showcaseSpec.textContent = targetSpec;
-          showcaseImg.style.opacity = '1';
-          showcaseImg.style.transform = 'scale(1)';
-        }, 150);
+  // Try to sync with latest version.json dynamically
+  fetch('version.json')
+    .then(res => res.json())
+    .then(data => {
+      if (data && data.version) {
+        APP_CONFIG.version = data.version;
+        if (data.fileSizeMB) APP_CONFIG.sizeMB = data.fileSizeMB;
       }
+    })
+    .catch(() => {
+      // Graceful fallback to default constants
+    });
+
+  // =========================================================================
+  // 1. Toast Feedback Helper
+  // =========================================================================
+  const toast = document.getElementById('toastNotice');
+  const toastMsg = document.getElementById('toastMessage');
+  let toastTimer = null;
+
+  function showToast(message) {
+    if (!toast || !toastMsg) return;
+    toastMsg.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2800);
+  }
+
+  // =========================================================================
+  // 2. Interactive App Preview Showcase (Filter Pills & Device Lightbox)
+  // =========================================================================
+  const filterPills = document.querySelectorAll('.showcase-filter-pill');
+  const deviceCards = document.querySelectorAll('.showcase-device-card');
+  const devicesGrid = document.getElementById('showcaseDevicesGrid');
+
+  filterPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      filterPills.forEach(p => {
+        p.classList.remove('active');
+        p.setAttribute('aria-selected', 'false');
+      });
+      pill.classList.add('active');
+      pill.setAttribute('aria-selected', 'true');
+
+      const filterVal = pill.dataset.filter;
+
+      if (devicesGrid) {
+        devicesGrid.classList.remove('view-all', 'view-player');
+        if (filterVal === 'all') devicesGrid.classList.add('view-all');
+        if (filterVal === 'player') devicesGrid.classList.add('view-player');
+      }
+
+      deviceCards.forEach(card => {
+        const cat = card.dataset.category;
+        if (filterVal === 'all') {
+          card.classList.remove('hidden-card');
+        } else if (filterVal === 'player') {
+          if (cat === 'player') {
+            card.classList.remove('hidden-card');
+          } else {
+            card.classList.add('hidden-card');
+          }
+        } else {
+          // 'core'
+          if (cat === 'core') {
+            card.classList.remove('hidden-card');
+          } else {
+            card.classList.add('hidden-card');
+          }
+        }
+      });
     });
   });
 
-  // 2. Lightbox Modal for Uncropped Retina Screenshots
+  // Attach Lightbox triggers to each device card
+  deviceCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const imgSrc = card.dataset.img;
+      if (imgSrc) openLightbox(imgSrc);
+    });
+  });
+
+  // =========================================================================
+  // 3. Lightbox Modal for Uncropped Retina Screenshots
+  // =========================================================================
   const lightboxModal = document.getElementById('lightboxModal');
   const lightboxImg = document.getElementById('lightboxImg');
   const previewTrigger = document.getElementById('showcasePreviewTrigger');
@@ -59,9 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (previewTrigger) {
-    previewTrigger.addEventListener('click', () => {
-      openLightbox(currentActiveImg);
-    });
+    previewTrigger.addEventListener('click', () => openLightbox(currentActiveImg));
   }
 
   if (closeLightboxBtn) {
@@ -70,34 +130,191 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (lightboxModal) {
     lightboxModal.addEventListener('click', (e) => {
-      if (e.target === lightboxModal) {
-        closeLightbox();
+      if (e.target === lightboxModal) closeLightbox();
+    });
+  }
+
+  // =========================================================================
+  // 4. Smart Download Reassurance Modal
+  // =========================================================================
+  const downloadModal = document.getElementById('downloadModal');
+  const closeDownloadModalBtn = document.getElementById('closeDownloadModalBtn');
+  const directDownloadAgainBtn = document.getElementById('directDownloadAgainBtn');
+  const downloadBtns = document.querySelectorAll('.trigger-download');
+
+  function openDownloadModal() {
+    if (downloadModal) {
+      downloadModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeDownloadModal() {
+    if (downloadModal) {
+      downloadModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (closeDownloadModalBtn) {
+    closeDownloadModalBtn.addEventListener('click', closeDownloadModal);
+  }
+
+  if (downloadModal) {
+    downloadModal.addEventListener('click', (e) => {
+      if (e.target === downloadModal) closeDownloadModal();
+    });
+  }
+
+  downloadBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      // Trigger toast feedback
+      showToast(`Downloading CineVault v${APP_CONFIG.version} (${APP_CONFIG.sizeMB})...`);
+
+      // Analytics Event
+      if (typeof gtag === 'function') {
+        gtag('event', 'apk_download', {
+          event_category: 'Downloads',
+          event_label: `CineVault v${APP_CONFIG.version} APK`,
+          value: 1
+        });
+      }
+
+      // Open reassurance modal after a slight moment so download initiates smoothly
+      setTimeout(() => {
+        openDownloadModal();
+      }, 400);
+    });
+  });
+
+  if (directDownloadAgainBtn) {
+    directDownloadAgainBtn.addEventListener('click', () => {
+      showToast(`Restarting download v${APP_CONFIG.version}...`);
+    });
+  }
+
+  // =========================================================================
+  // 5. Security Inspection 72-Engine Modal
+  // =========================================================================
+  const securityModal = document.getElementById('securityModal');
+  const openSecurityModalBtn = document.getElementById('openSecurityModalBtn');
+  const closeSecurityModalBtn = document.getElementById('closeSecurityModalBtn');
+  const securityModalDoneBtn = document.getElementById('securityModalDoneBtn');
+
+  function openSecurityModal() {
+    if (securityModal) {
+      securityModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeSecurityModal() {
+    if (securityModal) {
+      securityModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (openSecurityModalBtn) {
+    openSecurityModalBtn.addEventListener('click', openSecurityModal);
+  }
+
+  if (closeSecurityModalBtn) {
+    closeSecurityModalBtn.addEventListener('click', closeSecurityModal);
+  }
+
+  if (securityModalDoneBtn) {
+    securityModalDoneBtn.addEventListener('click', closeSecurityModal);
+  }
+
+  if (securityModal) {
+    securityModal.addEventListener('click', (e) => {
+      if (e.target === securityModal) closeSecurityModal();
+    });
+  }
+
+  // Global ESC Key Closes Any Active Modal
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeLightbox();
+      closeDownloadModal();
+      closeSecurityModal();
+    }
+  });
+
+
+  // =========================================================================
+  // 7. Multi-Device Installation Tab Switcher
+  // =========================================================================
+  const deviceTabBtns = document.querySelectorAll('.device-tab-btn');
+  const devicePanes = {
+    phone: document.getElementById('pane-phone'),
+    firestick: document.getElementById('pane-firestick'),
+    tv: document.getElementById('pane-tv')
+  };
+
+  deviceTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetDevice = btn.dataset.device;
+      deviceTabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      Object.keys(devicePanes).forEach(dev => {
+        if (devicePanes[dev]) {
+          if (dev === targetDevice) {
+            devicePanes[dev].classList.add('active');
+          } else {
+            devicePanes[dev].classList.remove('active');
+          }
+        }
+      });
+    });
+  });
+
+  // Copy FireStick URL Button
+  const copyFirestickBtn = document.getElementById('copyFirestickUrlBtn');
+  const firestickUrl = document.getElementById('firestickUrl');
+  if (copyFirestickBtn && firestickUrl) {
+    copyFirestickBtn.addEventListener('click', async () => {
+      const urlText = firestickUrl.textContent.trim();
+      try {
+        await navigator.clipboard.writeText(urlText);
+        copyFirestickBtn.textContent = 'Copied!';
+        showToast('FireStick Downloader URL copied');
+        setTimeout(() => {
+          copyFirestickBtn.textContent = 'Copy URL';
+        }, 2000);
+      } catch {
+        showToast('URL: ' + urlText);
       }
     });
   }
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeLightbox();
+  // =========================================================================
+  // 8. Sticky Mobile Download Bar (Scroll Triggered)
+  // =========================================================================
+  const stickyMobileBar = document.getElementById('stickyMobileBar');
+  let isScrolling = false;
+
+  window.addEventListener('scroll', () => {
+    if (!isScrolling) {
+      window.requestAnimationFrame(() => {
+        if (stickyMobileBar) {
+          if (window.scrollY > 380) {
+            stickyMobileBar.classList.add('visible');
+          } else {
+            stickyMobileBar.classList.remove('visible');
+          }
+        }
+        isScrolling = false;
+      });
+      isScrolling = true;
     }
-  });
+  }, { passive: true });
 
-  // 3. Toast Feedback Helper
-  const toast = document.getElementById('toastNotice');
-  const toastMsg = document.getElementById('toastMessage');
-  let toastTimer = null;
-
-  function showToast(message) {
-    if (!toast || !toastMsg) return;
-    toastMsg.textContent = message;
-    toast.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => {
-      toast.classList.remove('show');
-    }, 2600);
-  }
-
-  // 4. Copy SHA-256 Checksum
+  // =========================================================================
+  // 9. Copy SHA-256 Checksum
+  // =========================================================================
   const copyBtn = document.getElementById('copyHashBtn');
   const copyBtnText = document.getElementById('copyHashBtnText');
   const apkHash = document.getElementById('apkHash');
@@ -118,22 +335,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Download Triggers Toast & Google Analytics Event
-  const downloadBtns = document.querySelectorAll('.trigger-download');
-  downloadBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      showToast('Downloading CineVault v2.6.6 (8.79 MB)...');
-      if (typeof gtag === 'function') {
-        gtag('event', 'apk_download', {
-          event_category: 'Downloads',
-          event_label: 'CineVault v2.6.6 APK',
-          value: 1
-        });
-      }
-    });
-  });
-
-  // 6. Telegram Channel Direct App Opener & Google Analytics Event
+  // =========================================================================
+  // 10. Telegram Channel Direct App Opener & Analytics
+  // =========================================================================
   const telegramBtns = document.querySelectorAll('.btn-nav-telegram, .btn-hero-telegram, .footer-link[href*="telegram"]');
   telegramBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -151,7 +355,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 7. Interactive FAQ Accordion
+  // =========================================================================
+  // 11. Interactive FAQ Accordion
+  // =========================================================================
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
     const questionBtn = item.querySelector('.faq-question');
@@ -176,4 +382,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-

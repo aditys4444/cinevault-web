@@ -5,3 +5,6 @@ Thumbs.db
 .vscode/
 .idea/
 *.log
+temp_apk_assets/
+temp_chrome_profile/
+extracted_app/

@@ -1,14 +1,14 @@
 /**
  * CineVault — Official Website Interactive Logic
  * Design System: Obsidian Cinema
- * Release: v2.7.0
+ * Release: v2.8.0
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   // Current release constants (fallback if version.json is cached or offline)
   const APP_CONFIG = {
-    version: '2.7.0',
-    sizeMB: '10.9 MB',
+    version: '2.8.0',
+    sizeMB: '12.4 MB',
     apkPath: 'downloads/CineVault.apk',
     websiteUrl: 'https://cinevaultapk.online/'
   };

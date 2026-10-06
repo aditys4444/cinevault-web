@@ -16,7 +16,7 @@
   Cache-Control: no-cache, must-revalidate
 
 /styles.css
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 
 /version.json
   Cache-Control: no-cache, no-store, must-revalidate

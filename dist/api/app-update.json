@@ -1,25 +1,25 @@
 {
-  "latestVersionCode": 2800,
-  "latestVersionName": "2.8.0",
+  "latestVersionCode": 2900,
+  "latestVersionName": "2.9.0",
   "websiteUrl": "https://cinevaultapk.online/",
   "apkDownloadUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
   "directApkUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
-  "updateMessage": "Official 3D Brand Logo Refresh, Download Quality Selector & Smooth Back Navigation",
+  "updateMessage": "Instant Playback Quality Switching, Fast Suggestions & Cinematic Splash Screen",
   "forceUpdate": true,
-  "version": "2.8.0",
-  "versionCode": 2800,
+  "version": "2.9.0",
+  "versionCode": 2900,
   "releaseDate": "2026-10-06",
   "changelog": [
-    "Official brand refresh: New 3D glossy CV emblem, crystal-clear launcher & dark obsidian theme",
-    "Select Download Quality (1080p, 720p, 480p, 360p) for movies & episodes before downloading",
-    "Smooth Player Back navigation: Back button now smoothly returns to browse without entering PiP",
-    "Automatic PiP mode preserved when leaving app via Home key or app switcher",
-    "Offline Playback: fully playable downloaded content in offline & airplane mode"
+    "Instant & smooth quality switching during playback with preserved position",
+    "Smart caption toggle: only displays CC button when subtitles exist",
+    "Crystal-clear home hero banner with clean artwork and bold titles",
+    "Instant zero-lag 'More Content Suggestions' directly below movie synopsis",
+    "Cinematic luxury startup splash screen with seamless crossfade"
   ],
   "apkUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
   "mandatory": true,
   "minVersion": "2.0.0",
-  "sha256": "24b342ae06e32656c2bbed98e37f084f4abaa317a83c70509c9e3e5eaedca3f2",
-  "fileSizeBytes": 12951778,
-  "fileSizeMB": "12.4MB"
+  "sha256": "059b324f1ecdf94f7764fa92f12a0e1bf37c98f4e53bd2d8a56996c232c094ce",
+  "fileSizeBytes": 11464102,
+  "fileSizeMB": "10.9MB"
 }

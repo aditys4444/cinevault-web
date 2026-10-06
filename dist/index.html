@@ -127,18 +127,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Space+Grotesk:wght@600&display=swap" rel="stylesheet">
   
   <!-- Favicon / Brand Icons for Google Search & All Browsers -->
-  <link rel="icon" href="/favicon.ico?v=2.8.0" sizes="any">
-  <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png?v=2.8.0">
-  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-96x96.png?v=2.8.0">
-  <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png?v=2.8.0">
-  <link rel="icon" type="image/png" sizes="512x512" href="/assets/cinevault_app_icon.png?v=2.8.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png?v=2.8.0">
+  <link rel="icon" href="/favicon.ico?v=2.9.1" sizes="any">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png?v=2.9.1">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-96x96.png?v=2.9.1">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png?v=2.9.1">
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/cinevault_app_icon.png?v=2.9.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png?v=2.9.1">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#090A0F">
   
   <!-- Preload Critical Hero Graphic for 0ms Render -->
   <link rel="preload" as="image" href="assets/home_screenshot.webp" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=2.9.0">
+  <link rel="stylesheet" href="styles.css?v=2.9.1">
 </head>
 <body>
 
@@ -147,7 +147,10 @@
     <header class="nav-bar">
       <!-- Brand Logo -->
       <a href="#" class="nav-brand" title="CineVault Official">
-        <img src="assets/logo-horizontal-nav.webp" alt="CineVault" class="nav-brand-logo-horizontal" height="34">
+        <picture>
+          <source srcset="/assets/logo-horizontal.webp?v=2.9.1" type="image/webp">
+          <img src="/assets/logo-horizontal.png?v=2.9.1" alt="CineVault" class="nav-brand-logo-horizontal" height="34" width="155">
+        </picture>
       </a>
 
       <!-- Navigation Links -->
@@ -248,7 +251,7 @@
                   <!-- App Header -->
                   <div class="phone-ui-header">
                     <div class="phone-brand-title">
-                      <img src="assets/favicon-48x48.png" alt="CineVault Logo" class="phone-brand-icon" width="22" height="22">
+                      <img src="/assets/brand_emblem.png?v=2.9.1" alt="CineVault Logo" class="phone-brand-icon" width="22" height="22">
                       <span>CINE<span class="phone-brand-accent">VAULT</span></span>
                     </div>
                     <div class="phone-header-right">
@@ -987,7 +990,10 @@
     <div class="section-container">
       <div class="footer-top-row">
         <div class="footer-brand">
-          <img src="assets/logo-horizontal-nav.webp" alt="CineVault" class="footer-brand-logo-horizontal" height="28">
+          <picture>
+            <source srcset="/assets/logo-horizontal.webp?v=2.9.1" type="image/webp">
+            <img src="/assets/logo-horizontal.png?v=2.9.1" alt="CineVault" class="footer-brand-logo-horizontal" height="28" width="127">
+          </picture>
         </div>
 
         <div class="footer-nav-links">
@@ -1121,7 +1127,7 @@
   <!-- 14. Sticky Mobile Download Action Bar -->
   <div class="sticky-mobile-bar" id="stickyMobileBar">
     <div class="sticky-bar-left">
-      <img src="assets/favicon-48x48.png" alt="CineVault" class="sticky-bar-icon" width="34" height="34">
+      <img src="/assets/cinevault_app_icon.png?v=2.9.1" alt="CineVault" class="sticky-bar-icon" width="36" height="36">
       <div class="sticky-bar-text">
         <span class="sticky-bar-title">CineVault Official</span>
         <span class="sticky-bar-meta">v2.9.0 &bull; 10.9 MB &bull; Free</span>

@@ -165,16 +165,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const firestickUrl = document.getElementById('firestickUrl');
   if (copyFirestickBtn && firestickUrl) {
     copyFirestickBtn.addEventListener('click', async () => {
-      const urlText = firestickUrl.textContent.trim();
+      const rawText = firestickUrl.textContent.trim();
+      const urlText = rawText.startsWith('http') ? rawText : 'https://' + rawText;
       try {
-        await navigator.clipboard.writeText(urlText);
-        copyFirestickBtn.textContent = 'Copied!';
-        showToast('FireStick Downloader URL copied');
-        setTimeout(() => {
-          copyFirestickBtn.textContent = 'Copy URL';
-        }, 2000);
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(urlText);
+        }
+        showToast('Downloader link copied to clipboard!');
+        const btnSpan = copyFirestickBtn.querySelector('span');
+        if (btnSpan) {
+          const orig = btnSpan.textContent;
+          btnSpan.textContent = 'Copied!';
+          setTimeout(() => { btnSpan.textContent = orig; }, 2000);
+        }
       } catch {
-        showToast('URL: ' + urlText);
+        showToast('Downloader link: ' + urlText);
       }
     });
   }
@@ -183,23 +188,21 @@ document.addEventListener('DOMContentLoaded', () => {
   // 6. Sticky Mobile Download Bar (Scroll Triggered)
   // =========================================================================
   const stickyMobileBar = document.getElementById('stickyMobileBar');
-  let isScrolling = false;
-
-  window.addEventListener('scroll', () => {
-    if (!isScrolling) {
-      window.requestAnimationFrame(() => {
-        if (stickyMobileBar) {
-          if (window.scrollY > 380) {
-            stickyMobileBar.classList.add('visible');
-          } else {
-            stickyMobileBar.classList.remove('visible');
-          }
-        }
-        isScrolling = false;
-      });
-      isScrolling = true;
+  function updateStickyBar() {
+    if (!stickyMobileBar) return;
+    const scrollPos = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
+    // Reveal sticky bar smoothly once user scrolls past 150px
+    if (scrollPos > 150) {
+      stickyMobileBar.classList.add('visible');
+    } else {
+      stickyMobileBar.classList.remove('visible');
     }
-  }, { passive: true });
+  }
+
+  window.addEventListener('scroll', updateStickyBar, { passive: true });
+  window.addEventListener('resize', updateStickyBar, { passive: true });
+  // Initial check on load
+  updateStickyBar();
 
   // =========================================================================
   // 10. Telegram Channel Direct App Opener & Analytics
@@ -247,23 +250,4 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
-
-  // =========================================================================
-  // 12. Copy Downloader URL Helper
-  // =========================================================================
-  const copyFirestickBtn = document.getElementById('copyFirestickUrlBtn');
-  if (copyFirestickBtn) {
-    copyFirestickBtn.addEventListener('click', () => {
-      const urlText = 'https://cinevaultapk.online/downloads/CineVault.apk';
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(urlText).then(() => {
-          showToast('Downloader URL copied to clipboard!');
-        }).catch(() => {
-          showToast('Downloader URL: ' + urlText);
-        });
-      } else {
-        showToast('Downloader URL: ' + urlText);
-      }
-    });
-  }
 });

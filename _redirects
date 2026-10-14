@@ -1,3 +1,7 @@
+# Short Direct Download URLs for Downloader App (FireStick / Android TV)
+/apk /downloads/CineVault.apk 302
+/dl /downloads/CineVault.apk 302
+
 # Force canonical www domain with permanent 301 redirect
 https://cinevaultapk.online/* https://www.cinevaultapk.online/:splat 301!
 http://cinevaultapk.online/* https://www.cinevaultapk.online/:splat 301!

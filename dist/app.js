@@ -44,50 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 2. Interactive App Preview Showcase (Filter Pills & Device Lightbox)
+  // 2. Interactive App Preview Showcase (Device Lightbox)
   // =========================================================================
-  const filterPills = document.querySelectorAll('.showcase-filter-pill');
   const deviceCards = document.querySelectorAll('.showcase-device-card');
-  const devicesGrid = document.getElementById('showcaseDevicesGrid');
-
-  filterPills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      filterPills.forEach(p => {
-        p.classList.remove('active');
-        p.setAttribute('aria-selected', 'false');
-      });
-      pill.classList.add('active');
-      pill.setAttribute('aria-selected', 'true');
-
-      const filterVal = pill.dataset.filter;
-
-      if (devicesGrid) {
-        devicesGrid.classList.remove('view-all', 'view-player');
-        if (filterVal === 'all') devicesGrid.classList.add('view-all');
-        if (filterVal === 'player') devicesGrid.classList.add('view-player');
-      }
-
-      deviceCards.forEach(card => {
-        const cat = card.dataset.category;
-        if (filterVal === 'all') {
-          card.classList.remove('hidden-card');
-        } else if (filterVal === 'player') {
-          if (cat === 'player') {
-            card.classList.remove('hidden-card');
-          } else {
-            card.classList.add('hidden-card');
-          }
-        } else {
-          // 'core'
-          if (cat === 'core') {
-            card.classList.remove('hidden-card');
-          } else {
-            card.classList.add('hidden-card');
-          }
-        }
-      });
-    });
-  });
 
   // Attach Lightbox triggers to each device card
   deviceCards.forEach(card => {
@@ -180,10 +139,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      // Open reassurance modal after a slight moment so download initiates smoothly
-      setTimeout(() => {
-        openDownloadModal();
-      }, 400);
+      // Instant clean download without intrusive popups
+      // Download initiates natively via the <a> link
     });
   });
 
@@ -193,85 +150,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // =========================================================================
-  // 5. Security Inspection 72-Engine Modal
-  // =========================================================================
-  const securityModal = document.getElementById('securityModal');
-  const openSecurityModalBtn = document.getElementById('openSecurityModalBtn');
-  const closeSecurityModalBtn = document.getElementById('closeSecurityModalBtn');
-  const securityModalDoneBtn = document.getElementById('securityModalDoneBtn');
-
-  function openSecurityModal() {
-    if (securityModal) {
-      securityModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-  }
-
-  function closeSecurityModal() {
-    if (securityModal) {
-      securityModal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  }
-
-  if (openSecurityModalBtn) {
-    openSecurityModalBtn.addEventListener('click', openSecurityModal);
-  }
-
-  if (closeSecurityModalBtn) {
-    closeSecurityModalBtn.addEventListener('click', closeSecurityModal);
-  }
-
-  if (securityModalDoneBtn) {
-    securityModalDoneBtn.addEventListener('click', closeSecurityModal);
-  }
-
-  if (securityModal) {
-    securityModal.addEventListener('click', (e) => {
-      if (e.target === securityModal) closeSecurityModal();
-    });
-  }
-
   // Global ESC Key Closes Any Active Modal
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeLightbox();
       closeDownloadModal();
-      closeSecurityModal();
     }
   });
 
-
   // =========================================================================
-  // 7. Multi-Device Installation Tab Switcher
+  // 5. FireStick / TV Downloader URL Copy Button
   // =========================================================================
-  const deviceTabBtns = document.querySelectorAll('.device-tab-btn');
-  const devicePanes = {
-    phone: document.getElementById('pane-phone'),
-    firestick: document.getElementById('pane-firestick'),
-    tv: document.getElementById('pane-tv')
-  };
-
-  deviceTabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetDevice = btn.dataset.device;
-      deviceTabBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      Object.keys(devicePanes).forEach(dev => {
-        if (devicePanes[dev]) {
-          if (dev === targetDevice) {
-            devicePanes[dev].classList.add('active');
-          } else {
-            devicePanes[dev].classList.remove('active');
-          }
-        }
-      });
-    });
-  });
-
-  // Copy FireStick URL Button
   const copyFirestickBtn = document.getElementById('copyFirestickUrlBtn');
   const firestickUrl = document.getElementById('firestickUrl');
   if (copyFirestickBtn && firestickUrl) {
@@ -291,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 8. Sticky Mobile Download Bar (Scroll Triggered)
+  // 6. Sticky Mobile Download Bar (Scroll Triggered)
   // =========================================================================
   const stickyMobileBar = document.getElementById('stickyMobileBar');
   let isScrolling = false;
@@ -311,29 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
       isScrolling = true;
     }
   }, { passive: true });
-
-  // =========================================================================
-  // 9. Copy SHA-256 Checksum
-  // =========================================================================
-  const copyBtn = document.getElementById('copyHashBtn');
-  const copyBtnText = document.getElementById('copyHashBtnText');
-  const apkHash = document.getElementById('apkHash');
-
-  if (copyBtn && apkHash) {
-    copyBtn.addEventListener('click', async () => {
-      const hashText = apkHash.textContent.trim();
-      try {
-        await navigator.clipboard.writeText(hashText);
-        if (copyBtnText) copyBtnText.textContent = 'Copied!';
-        showToast('SHA-256 Checksum copied to clipboard');
-        setTimeout(() => {
-          if (copyBtnText) copyBtnText.textContent = 'Copy Hash';
-        }, 2000);
-      } catch (err) {
-        showToast('Hash: ' + hashText);
-      }
-    });
-  }
 
   // =========================================================================
   // 10. Telegram Channel Direct App Opener & Analytics

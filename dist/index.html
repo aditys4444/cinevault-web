@@ -68,7 +68,7 @@
         },
         "downloadUrl": "https://www.cinevaultapk.online/downloads/CineVault.apk",
         "fileSize": "10.9MB",
-        "softwareVersion": "2.9.0",
+        "softwareVersion": "2.9.1",
         "image": "https://www.cinevaultapk.online/assets/cinevault_app_icon.png",
         "description": "Download CineVault APK for Android. Experience uncompressed 4K HDR, 120+ live television channels, and ultra-fast offline caching with zero ads and zero telemetry."
       },
@@ -157,9 +157,7 @@
       <nav class="nav-links">
         <a href="#features" class="nav-link">Features</a>
         <a href="#showcase" class="nav-link">Showcase</a>
-        <a href="#security" class="nav-link">Security</a>
         <a href="#installation" class="nav-link">Installation</a>
-        <a href="#reviews" class="nav-link">Reviews</a>
         <a href="#faq" class="nav-link">FAQ</a>
       </nav>
 
@@ -227,12 +225,20 @@
               </a>
             </div>
 
-            <!-- Hero Live Specs Row -->
-            <div class="hero-specs-row">
-              <span class="hero-spec-chip chip-gold">&starf; 4.9 Rating (24K+)</span>
-              <span class="hero-spec-chip">v2.9.0 (10.9MB)</span>
-              <span class="hero-spec-chip chip-clean">&#10003; 0/72 Clean</span>
-              <span class="hero-spec-chip">Android 5.0+ / Fire TV</span>
+            <!-- Hero Trust Row -->
+            <div class="hero-trust-row">
+              <div class="trust-badge-item">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                <span>Play Protect Verified</span>
+              </div>
+              <div class="trust-badge-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>Zero Ads &bull; No Sign-Up</span>
+              </div>
+              <div class="trust-badge-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>10.9 MB &bull; Android 5.0+</span>
+              </div>
             </div>
 
           </div>
@@ -481,53 +487,12 @@
           <p class="showcase-subheadline">
             Explore CineVault's sleek dark interface built for smartphones, tablets, and TV screens.
           </p>
-
-          <!-- Interactive Filter Tabs -->
-          <div class="showcase-filter-bar" role="tablist" aria-label="Showcase Screens Filter">
-            <button class="showcase-filter-pill active" data-filter="core" type="button" role="tab" aria-selected="true">
-              <span class="pill-dot"></span>
-              <span>Core Experience (4)</span>
-            </button>
-            <button class="showcase-filter-pill" data-filter="player" type="button" role="tab" aria-selected="false">
-              <span class="pill-dot"></span>
-              <span>Player & Live TV (2)</span>
-            </button>
-            <button class="showcase-filter-pill" data-filter="all" type="button" role="tab" aria-selected="false">
-              <span class="pill-dot"></span>
-              <span>All Screens (6)</span>
-            </button>
-          </div>
         </div>
 
-        <!-- Multi-Device Mockup Grid -->
+        <!-- Multi-Device Mockup Grid (Top 3 Screens) -->
         <div class="showcase-devices-grid" id="showcaseDevicesGrid">
           
-          <!-- Phone 1: Loading Screen -->
-          <div class="showcase-device-card" data-category="core" data-img="assets/loading_screenshot.webp" title="Click to view full uncropped Retina capture">
-            <div class="showcase-device-chassis">
-              <div class="showcase-chassis-top">
-                <span class="chassis-speaker-slit"></span>
-                <span class="chassis-camera-dot"></span>
-              </div>
-              <div class="showcase-screen-viewport">
-                <img src="assets/loading_screenshot.webp" alt="CineVault Loading Screen" class="showcase-screen-img" loading="lazy" width="824" height="1784">
-                <div class="showcase-screen-glare"></div>
-                <div class="showcase-zoom-badge">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                  <span>Tap to Enlarge</span>
-                </div>
-              </div>
-              <div class="showcase-chassis-bottom">
-                <span class="chassis-home-bar"></span>
-              </div>
-            </div>
-            <div class="showcase-device-caption">
-              <span class="caption-title">LOADING SCREEN</span>
-              <span class="caption-sub">Instant Cold Boot &bull; Zero Telemetry</span>
-            </div>
-          </div>
-
-          <!-- Phone 2: Main Screen -->
+          <!-- Screen 1: Main Screen -->
           <div class="showcase-device-card" data-category="core" data-img="assets/home_screenshot.webp" title="Click to view full uncropped Retina capture">
             <div class="showcase-device-chassis">
               <div class="showcase-chassis-top">
@@ -547,63 +512,13 @@
               </div>
             </div>
             <div class="showcase-device-caption">
-              <span class="caption-title">MAIN SCREEN</span>
-              <span class="caption-sub">Vault Home &bull; 4K HDR Premiere</span>
+              <span class="caption-title">VAULT HOME</span>
+              <span class="caption-sub">Cinematic Catalog &bull; 4K HDR Premieres</span>
             </div>
           </div>
 
-          <!-- Phone 3: Search Section -->
-          <div class="showcase-device-card" data-category="core" data-img="assets/explore_search_screenshot.webp" title="Click to view full uncropped Retina capture">
-            <div class="showcase-device-chassis">
-              <div class="showcase-chassis-top">
-                <span class="chassis-speaker-slit"></span>
-                <span class="chassis-camera-dot"></span>
-              </div>
-              <div class="showcase-screen-viewport">
-                <img src="assets/explore_search_screenshot.webp" alt="CineVault Search Section" class="showcase-screen-img" loading="lazy" width="824" height="1784">
-                <div class="showcase-screen-glare"></div>
-                <div class="showcase-zoom-badge">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                  <span>Tap to Enlarge</span>
-                </div>
-              </div>
-              <div class="showcase-chassis-bottom">
-                <span class="chassis-home-bar"></span>
-              </div>
-            </div>
-            <div class="showcase-device-caption">
-              <span class="caption-title">SEARCH SECTION</span>
-              <span class="caption-sub">Instant Index &bull; Genre Remasters</span>
-            </div>
-          </div>
-
-          <!-- Phone 4: Google Play Scan Result -->
-          <div class="showcase-device-card" data-category="core" data-img="assets/security_scan_screenshot.webp" title="Click to view full uncropped Retina capture">
-            <div class="showcase-device-chassis">
-              <div class="showcase-chassis-top">
-                <span class="chassis-speaker-slit"></span>
-                <span class="chassis-camera-dot"></span>
-              </div>
-              <div class="showcase-screen-viewport">
-                <img src="assets/security_scan_screenshot.webp" alt="CineVault Google Play Scan Result" class="showcase-screen-img" loading="lazy" width="824" height="1784">
-                <div class="showcase-screen-glare"></div>
-                <div class="showcase-zoom-badge">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                  <span>Tap to Enlarge</span>
-                </div>
-              </div>
-              <div class="showcase-chassis-bottom">
-                <span class="chassis-home-bar"></span>
-              </div>
-            </div>
-            <div class="showcase-device-caption">
-              <span class="caption-title">GOOGLE PLAY SCAN RESULT</span>
-              <span class="caption-sub">Play Protect &bull; 0/72 Clean Audit</span>
-            </div>
-          </div>
-
-          <!-- Phone 5: 4K Player HUD (Player & Live TV category) -->
-          <div class="showcase-device-card hidden-card" data-category="player" data-img="assets/player_screenshot.webp" title="Click to view full uncropped Retina capture">
+          <!-- Screen 2: 4K Player HUD -->
+          <div class="showcase-device-card" data-category="player" data-img="assets/player_screenshot.webp" title="Click to view full uncropped Retina capture">
             <div class="showcase-device-chassis">
               <div class="showcase-chassis-top">
                 <span class="chassis-speaker-slit"></span>
@@ -627,8 +542,8 @@
             </div>
           </div>
 
-          <!-- Phone 6: 120+ Live TV Guide (Player & Live TV category) -->
-          <div class="showcase-device-card hidden-card" data-category="player" data-img="assets/livetv_screenshot.webp" title="Click to view full uncropped Retina capture">
+          <!-- Screen 3: 120+ Live TV Guide -->
+          <div class="showcase-device-card" data-category="player" data-img="assets/livetv_screenshot.webp" title="Click to view full uncropped Retina capture">
             <div class="showcase-device-chassis">
               <div class="showcase-chassis-top">
                 <span class="chassis-speaker-slit"></span>
@@ -648,7 +563,7 @@
             </div>
             <div class="showcase-device-caption">
               <span class="caption-title">120+ LIVE TV GUIDE</span>
-              <span class="caption-sub">Sony Entertainment &bull; 1080p Live Guide</span>
+              <span class="caption-sub">Live Sports &bull; 1080p Stream Relays</span>
             </div>
           </div>
 
@@ -663,224 +578,51 @@
       </div>
     </section>
 
-    <!-- 6. Verified Safety & Trust Section -->
-    <section class="security-section" id="security">
-      <div class="section-container">
-        <div class="security-glass-box">
-          <div class="security-corner-glow"></div>
-
-          <div class="security-header">
-            <div class="section-pill-tag">Security & Trust</div>
-            <h2 class="section-title">100% Clean, Verified, and Safe</h2>
-            <p class="section-subtitle">Every release is independently audited across 72 antivirus engines with zero detections and zero invasive permissions.</p>
-          </div>
-
-          <div class="security-cards-grid">
-            <!-- Security Card 1: Google Play Protect & VirusTotal -->
-            <div class="security-card">
-              <div class="security-card-top">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
-                </svg>
-                <span class="security-status-badge status-green">0/72 CLEAN</span>
-              </div>
-              <h4 class="security-card-title">Google Play Protect Clean</h4>
-              <p class="security-card-body">Verified 100% clean by Google Play Protect and 72 antivirus engines on VirusTotal (Kaspersky, Bitdefender, Microsoft Defender).</p>
-            </div>
-
-            <!-- Security Card 2: Zero Telemetry -->
-            <div class="security-card">
-              <div class="security-card-top">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                </svg>
-                <span class="security-status-badge status-cyan">ZERO TRACKERS</span>
-              </div>
-              <h4 class="security-card-title">Zero Data Telemetry</h4>
-              <p class="security-card-body">No commercial telemetry SDKs, no Facebook beacons, and no device fingerprinting. No background root access or intrusive permissions.</p>
-            </div>
-
-            <!-- Security Card 3: Tamper-Proof Cryptographic Sign -->
-            <div class="security-card">
-              <div class="security-card-top">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
-                </svg>
-                <span class="security-status-badge status-gold">OFFICIAL KEY</span>
-              </div>
-              <h4 class="security-card-title">Cryptographically Signed</h4>
-              <p class="security-card-body">Signed with our official Android developer certificate. Verify the exact SHA-256 hash below against your downloaded APK file.</p>
-            </div>
-          </div>
-
-          <!-- Real Checksum Container -->
-          <div class="checksum-container">
-            <div class="checksum-info">
-              <div class="checksum-label">Official SHA-256 Checksum (CineVault.apk)</div>
-              <code class="checksum-hash" id="apkHash">059b324f1ecdf94f7764fa92f12a0e1bf37c98f4e53bd2d8a56996c232c094ce</code>
-            </div>
-            <button class="btn-copy-hash" id="copyHashBtn" title="Copy SHA-256 checksum to clipboard">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-              </svg>
-              <span id="copyHashBtnText">Copy Hash</span>
-            </button>
-          </div>
-
-          <div style="text-align: center; margin-top: 24px;">
-            <button class="btn-inspect-security" id="openSecurityModalBtn" type="button">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-              <span>Inspect Full 72-Engine Scan Report & Zero-Permissions Audit</span>
-            </button>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- 7. Easy Multi-Device Installation Guide -->
+    <!-- 6. Easy 3-Step Sideload Installation Guide -->
     <section class="install-section" id="installation">
       <div class="section-container">
         <div class="section-header-center">
           <div class="section-pill-tag">Quick Setup</div>
           <h2 class="section-title">Install in Under 60 Seconds</h2>
-          <p class="section-subtitle">Simple, easy sideloading steps for Android smartphones, Fire TV Stick, and Android TV.</p>
+          <p class="section-subtitle">Simple, easy sideloading steps for Android smartphones, tablets, Fire TV Stick, and Android TV.</p>
         </div>
 
-        <div class="device-tabs-container">
-          <div class="device-tabs-nav">
-            <button class="device-tab-btn active" data-device="phone" type="button">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-              <span>Android Smartphone / Tablet</span>
-            </button>
-            <button class="device-tab-btn" data-device="firestick" type="button">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
-              <span>Amazon Fire TV Stick</span>
-            </button>
-            <button class="device-tab-btn" data-device="tv" type="button">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
-              <span>Android TV & Google TV</span>
-            </button>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num-pill">1</div>
+            <h3 class="step-title">Download CineVault APK</h3>
+            <p class="step-body">Tap any Download APK button on this site to download the official 10.9MB APK directly to your device.</p>
           </div>
-
-          <!-- Tab 1: Android Phone -->
-          <div class="device-tab-pane active" id="pane-phone">
-            <div class="steps-grid">
-              <div class="step-card">
-                <div class="step-num-pill">1</div>
-                <h3 class="step-title">Download CineVault APK</h3>
-                <p class="step-body">Tap any Download APK button to download the verified 10.9MB APK (v2.9.0) directly to your device.</p>
-              </div>
-              <div class="step-card">
-                <div class="step-num-pill">2</div>
-                <h3 class="step-title">Allow Unknown Apps</h3>
-                <p class="step-body">When prompted by Chrome or your File Manager, tap "Settings" and toggle "Allow from this source". If prompted "File might be harmful", tap <strong>Download anyway</strong>.</p>
-              </div>
-              <div class="step-card">
-                <div class="step-num-pill">3</div>
-                <h3 class="step-title">Install & Enjoy</h3>
-                <p class="step-body">Tap "Install". CineVault launches in under 1 second with uncompressed 4K streaming and 120+ Live TV channels with zero ads.</p>
-              </div>
-            </div>
+          <div class="step-card">
+            <div class="step-num-pill">2</div>
+            <h3 class="step-title">Allow Unknown Apps</h3>
+            <p class="step-body">When prompted by Chrome or your File Manager, tap "Settings" and toggle "Allow from this source". If prompted "File might be harmful", tap <strong>Download anyway</strong>.</p>
           </div>
-
-          <!-- Tab 2: Fire TV Stick -->
-          <div class="device-tab-pane" id="pane-firestick">
-            <div class="steps-grid">
-              <div class="step-card">
-                <div class="step-num-pill">1</div>
-                <h3 class="step-title">Install Downloader App</h3>
-                <p class="step-body">On your Fire TV home screen, search for the official <strong>Downloader</strong> app from the Amazon Appstore and install it.</p>
-              </div>
-              <div class="step-card">
-                <div class="step-num-pill">2</div>
-                <h3 class="step-title">Enter Download URL</h3>
-                <p class="step-body">In the Downloader URL box, enter our direct download link:</p>
-                <div class="downloader-code-box">
-                  <span class="downloader-code-text" id="firestickUrl">https://cinevaultapk.online/downloads/CineVault.apk</span>
-                  <button class="btn-mini-copy" id="copyFirestickUrlBtn" type="button">Copy URL</button>
-                </div>
-              </div>
-              <div class="step-card">
-                <div class="step-num-pill">3</div>
-                <h3 class="step-title">Install & Stream</h3>
-                <p class="step-body">Downloader will automatically download the APK and prompt "Install". Enjoy full D-pad remote navigation on your television!</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Tab 3: Android TV -->
-          <div class="device-tab-pane" id="pane-tv">
-            <div class="steps-grid">
-              <div class="step-card">
-                <div class="step-num-pill">1</div>
-                <h3 class="step-title">Fetch APK to TV</h3>
-                <p class="step-body">Use <strong>Downloader</strong> on your TV, or transfer <code>CineVault.apk</code> from your phone using the free <em>Send Files to TV</em> app.</p>
-              </div>
-              <div class="step-card">
-                <div class="step-num-pill">2</div>
-                <h3 class="step-title">Enable Sideloading</h3>
-                <p class="step-body">Go to <em>Settings &rarr; Device Preferences &rarr; Security &rarr; Unknown Sources</em> and permit your file manager or Downloader.</p>
-              </div>
-              <div class="step-card">
-                <div class="step-num-pill">3</div>
-                <h3 class="step-title">Launch Leanback TV</h3>
-                <p class="step-body">Click the downloaded APK to install. CineVault detects your TV layout and switches to high-contrast Leanback 4K playback.</p>
-              </div>
-            </div>
+          <div class="step-card">
+            <div class="step-num-pill">3</div>
+            <h3 class="step-title">Install & Enjoy</h3>
+            <p class="step-body">Tap "Install". CineVault launches in under 1 second with uncompressed 4K streaming and 120+ Live TV channels with zero ads.</p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- 8. Verified Streamer Reviews Section -->
-    <section class="reviews-section" id="reviews">
-      <div class="section-container">
-        <div class="section-header-center">
-          <div class="section-pill-tag">Community Endorsement</div>
-          <h2 class="section-title">Loved by Over 500,000 Cinephiles</h2>
-          <p class="section-subtitle">Real feedback from streamers using CineVault daily across Android phones, tablets, and Fire TV.</p>
-        </div>
-
-        <div class="reviews-grid">
-          <div class="review-card">
-            <div class="review-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="review-quote">"Working flawlessly on my FireStick 4K Max. Zero lag on live sports relays and Aaj Tak HD. No annoying ads popping up every 5 minutes like other streaming apps."</p>
-            <div class="review-author-row">
-              <span class="review-author-name">Aman Sharma</span>
-              <span class="review-device-tag">FireStick 4K Max</span>
-            </div>
+        <!-- TV & FireStick Sideloading Helper Box -->
+        <div class="tv-sideload-box">
+          <div class="tv-sideload-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+              <rect x="2" y="7" width="20" height="15" rx="2" ry="2"/>
+              <polyline points="17 2 12 7 7 2"/>
+            </svg>
+            <span>Installing on Amazon Fire TV Stick or Android TV?</span>
           </div>
-
-          <div class="review-card">
-            <div class="review-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="review-quote">"The picture quality on Dune: Part Two in 4K HDR blew me away. True Atmos passthrough worked directly with my soundbar without audio desync."</p>
-            <div class="review-author-row">
-              <span class="review-author-name">Rohit K.</span>
-              <span class="review-device-tag">Google TV / Bravia</span>
-            </div>
-          </div>
-
-          <div class="review-card">
-            <div class="review-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="review-quote">"Featherlight app, barely takes any storage and boots in under 1 second on my OnePlus 12. Best streaming APK hands down."</p>
-            <div class="review-author-row">
-              <span class="review-author-name">Priya Malhotra</span>
-              <span class="review-device-tag">OnePlus 12</span>
-            </div>
-          </div>
-
-          <div class="review-card">
-            <div class="review-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="review-quote">"The new v2.8.0 update added download quality selection and seamless back navigation. Sideloading was super easy following the guide. Truly zero telemetry and ads."</p>
-            <div class="review-author-row">
-              <span class="review-author-name">Devansh Roy</span>
-              <span class="review-device-tag">Samsung Galaxy S24</span>
-            </div>
+          <p class="tv-sideload-desc">
+            Install the official <strong>Downloader</strong> app from the Amazon Appstore or Google Play Store on your TV, enter our direct download link below, and tap <strong>Go</strong> to install directly:
+          </p>
+          <div class="downloader-code-box">
+            <span class="downloader-code-text" id="firestickUrl">https://cinevaultapk.online/downloads/CineVault.apk</span>
+            <button class="btn-mini-copy" id="copyFirestickUrlBtn" type="button">Copy URL</button>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -926,33 +668,11 @@
               <p>Every single release build is cryptographically hashed with SHA-256 and audited clean across 72 antivirus engines on VirusTotal with zero detections. Google Play Protect also validates the installation cleanly.</p>
             </div>
           </div>
-
-          <!-- Item 4 -->
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span>How do in-app updates work?</span>
-              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="faq-answer">
-              <p>CineVault features a built-in zero-latency OTA update engine. Whenever an update is released, the app prompts you with a 1-tap in-app updater&mdash;no need to manually re-download from a browser.</p>
-            </div>
-          </div>
-
-          <!-- Item 5 -->
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              <span>What video and audio formats are supported?</span>
-              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="faq-answer">
-              <p>CineVault supports hardware-accelerated AV1, HEVC (H.265), and AVC (H.264) video up to 4K Ultra-HD at 120Hz, along with Dolby Vision, HDR10+, and multi-channel Dolby Atmos audio passthrough.</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- 10. Bottom Conversion Banner -->
+    <!-- 8. Bottom Conversion Banner -->
     <section class="conversion-section" id="download">
       <div class="section-container">
         <div class="conversion-card">
@@ -985,7 +705,7 @@
     </section>
   </div>
 
-  <!-- 10. Official Product Footer -->
+  <!-- 9. Official Product Footer -->
   <footer class="official-footer">
     <div class="section-container">
       <div class="footer-top-row">
@@ -999,9 +719,7 @@
         <div class="footer-nav-links">
           <a href="#features" class="footer-link">Features</a>
           <a href="#showcase" class="footer-link">Showcase</a>
-          <a href="#security" class="footer-link">Security & Checksum</a>
           <a href="#installation" class="footer-link">Installation Guide</a>
-          <a href="#reviews" class="footer-link">Reviews</a>
           <a href="#faq" class="footer-link">FAQ</a>
           <a href="https://telegram.me/+0nZRFagm4wU1MDll" target="_blank" rel="noopener" class="footer-link">Telegram Community</a>
         </div>
@@ -1011,7 +729,7 @@
         <p>&copy; <span data-nosnippet>2026</span> CineVault Architecture. All rights reserved. Zero telemetry. Verified cryptographic delivery for Android.</p>
         <div class="footer-version-tag">
           <span class="version-dot"></span>
-          <span>Core v2.9.0-release</span>
+          <span>Core v2.9.1-release</span>
         </div>
       </div>
     </div>
@@ -1031,7 +749,7 @@
       <button class="modal-close-icon" id="closeDownloadModalBtn" aria-label="Close modal">&times;</button>
       <div class="download-status-badge">
         <span class="pulse-dot"></span>
-        <span>Download Started &bull; v2.9.0 (10.9MB)</span>
+        <span>Download Started &bull; v2.9.1 (10.9MB)</span>
       </div>
       <h3 class="modal-title" id="downloadModalTitle">Your Download Has Started!</h3>
       <p class="modal-subtext">CineVault.apk (12.4 MB) is saving to your device. Follow these 3 easy steps:</p>
@@ -1070,56 +788,6 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
           <span>Download via Telegram</span>
         </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 13. Security 72-Engine Scan Inspection Modal -->
-  <div class="modal-overlay" id="securityModal" role="dialog" aria-modal="true" aria-labelledby="securityModalTitle">
-    <div class="modal-content-card">
-      <button class="modal-close-icon" id="closeSecurityModalBtn" aria-label="Close modal">&times;</button>
-      <div class="download-status-badge">
-        <span class="pulse-dot"></span>
-        <span>VirusTotal & Play Protect Certified</span>
-      </div>
-      <h3 class="modal-title" id="securityModalTitle">Security & Permissions Audit</h3>
-      <p class="modal-subtext">Every CineVault release build is scanned across 72 industry-standard antivirus engines with <strong>0 detections</strong>.</p>
-
-      <div class="antivirus-scanner-list">
-        <div class="scanner-item">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          <span>Google Play Protect</span>
-        </div>
-        <div class="scanner-item">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          <span>Kaspersky Lab</span>
-        </div>
-        <div class="scanner-item">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          <span>Bitdefender Total</span>
-        </div>
-        <div class="scanner-item">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          <span>Microsoft Defender</span>
-        </div>
-        <div class="scanner-item">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          <span>Avast Mobile</span>
-        </div>
-        <div class="scanner-item">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          <span>Sophos Antivirus</span>
-        </div>
-      </div>
-
-      <div class="permissions-callout">
-        <strong>Zero Invasive Permissions:</strong> CineVault does NOT request access to Contacts, Microphone, Camera, Location, SMS, or Call Logs. Only standard network access (INTERNET) is declared to stream media.
-      </div>
-
-      <div style="margin-top: 20px;">
-        <button class="btn-modal-action btn-modal-primary" id="securityModalDoneBtn" style="width: 100%;" type="button">
-          <span>Close Audit Report</span>
-        </button>
       </div>
     </div>
   </div>

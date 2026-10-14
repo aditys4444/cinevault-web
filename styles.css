@@ -63,6 +63,11 @@
   padding: 0;
 }
 
+img, picture, video {
+  max-width: 100%;
+  height: auto;
+}
+
 html {
   font-family: var(--font-main);
   background-color: var(--bg-void);
@@ -458,6 +463,32 @@ a {
   border-color: rgba(41, 169, 235, 0.4);
   color: #FFFFFF;
   transform: translateY(-2px);
+}
+
+/* Hero Trust Row */
+.hero-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.trust-badge-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.trust-badge-item svg {
+  flex-shrink: 0;
+  color: var(--green);
 }
 
 /* Smartphone Mockup (Right Column) */
@@ -1266,10 +1297,10 @@ a {
 /* Multi-Device Mockup Grid */
 .showcase-devices-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
   width: 100%;
-  max-width: 1280px;
+  max-width: 1060px;
   margin: 0 auto;
   align-items: start;
   transition: all 0.3s ease;
@@ -1479,53 +1510,31 @@ a {
 }
 
 /* Responsive Breakpoints for Mockup Grid */
-@media (max-width: 1180px) {
-  .showcase-devices-grid,
-  .showcase-devices-grid.view-all {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-    max-width: 720px;
+@media (max-width: 1024px) {
+  .showcase-devices-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    max-width: 960px;
   }
 }
 
-@media (max-width: 640px) {
-  .showcase-devices-grid,
-  .showcase-devices-grid.view-all,
-  .showcase-devices-grid.view-player {
+@media (max-width: 768px) {
+  .showcase-devices-grid {
     display: flex;
     gap: 16px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    padding: 10px 8px 24px;
+    padding: 10px 16px 28px;
     scrollbar-width: none;
     -ms-overflow-style: none;
     -webkit-overflow-scrolling: touch;
   }
-  .showcase-devices-grid::-webkit-scrollbar,
-  .showcase-devices-grid.view-all::-webkit-scrollbar,
-  .showcase-devices-grid.view-player::-webkit-scrollbar {
+  .showcase-devices-grid::-webkit-scrollbar {
     display: none;
   }
   .showcase-device-card {
-    flex: 0 0 270px;
+    flex: 0 0 260px;
     scroll-snap-align: center;
-  }
-  .showcase-filter-bar {
-    width: 100%;
-    overflow-x: auto;
-    justify-content: flex-start;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 4px;
-  }
-  .showcase-filter-bar::-webkit-scrollbar {
-    display: none;
-  }
-  .showcase-filter-pill {
-    flex-shrink: 0;
-    padding: 6px 14px;
-    font-size: 0.72rem;
   }
 }
 
@@ -2208,6 +2217,10 @@ a {
     justify-content: center;
   }
 
+  .hero-trust-row {
+    justify-content: center;
+  }
+
   .bento-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -2221,12 +2234,9 @@ a {
     align-items: center;
   }
 
-  .security-cards-grid {
-    grid-template-columns: 1fr;
-  }
-
   .steps-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
   }
 }
 
@@ -2353,14 +2363,37 @@ a {
     display: none;
   }
 
-  .checksum-container {
-    flex-direction: column;
-    align-items: flex-start;
+  .hero-trust-row {
+    justify-content: center;
+    gap: 10px 14px;
   }
 
-  .btn-copy-hash {
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .tv-sideload-box {
+    margin-top: 24px;
+    padding: 20px 18px;
+  }
+
+  .tv-sideload-box .downloader-code-box {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .tv-sideload-box .downloader-code-text {
+    word-break: break-all;
+    font-size: 0.84rem;
+    text-align: center;
+  }
+
+  .tv-sideload-box .btn-mini-copy {
     width: 100%;
-    justify-content: center;
+    text-align: center;
+    padding: 8px 14px;
   }
 
   .footer-top-row {
@@ -2375,8 +2408,61 @@ a {
 }
 
 @media (max-width: 480px) {
+  .section-container {
+    padding: 0 16px;
+  }
+
   .hero-headline {
-    font-size: 2.15rem;
+    font-size: clamp(1.85rem, 6.8vw, 2.15rem);
+  }
+
+  .hero-trust-row {
+    gap: 8px 10px;
+  }
+
+  .trust-badge-item {
+    font-size: 0.72rem;
+  }
+
+  .step-card {
+    padding: 22px 18px;
+  }
+
+  .step-title {
+    font-size: 1.1rem;
+  }
+
+  .step-body {
+    font-size: 0.88rem;
+  }
+
+  .tv-sideload-header {
+    font-size: 0.95rem;
+  }
+
+  .tv-sideload-desc {
+    font-size: 0.84rem;
+  }
+
+  .faq-question {
+    padding: 16px 18px;
+    font-size: 0.95rem;
+  }
+
+  .faq-answer {
+    padding: 0 18px;
+  }
+
+  .faq-item.active .faq-answer {
+    padding: 0 18px 16px;
+  }
+
+  .faq-answer p {
+    font-size: 0.88rem;
+  }
+
+  .faq-answer code {
+    word-break: break-all;
   }
 
   .btn-hero-download,
@@ -2792,6 +2878,39 @@ a {
 
 .btn-mini-copy:hover {
   background: rgba(255, 255, 255, 0.16);
+}
+
+/* TV & FireStick Sideloading Box */
+.tv-sideload-box {
+  max-width: 900px;
+  margin: 36px auto 0;
+  padding: 24px 28px;
+  background: var(--bg-surface-elevated);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.tv-sideload-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--gold);
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 1.02rem;
+  margin-bottom: 8px;
+}
+
+.tv-sideload-desc {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.tv-sideload-box .downloader-code-box {
+  margin-top: 0;
 }
 
 /* 4. Streamer Community Reviews Section */
@@ -3233,3 +3352,38 @@ a {
 
 /* GPU Composite layer for 120fps scrolling */
 .titanium-device-bezel, .hero-mockup-wrapper, .showcase-device-card { transform: translateZ(0); will-change: transform; }
+
+/* Clean Security Transparency Card */
+.security-transparency-card {
+  margin-top: 24px;
+  padding: 18px 22px;
+  background: rgba(14, 23, 43, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  text-align: left;
+}
+
+.transparency-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #35A7FF;
+  font-weight: 700;
+  font-size: 0.88rem;
+  margin-bottom: 6px;
+}
+
+.transparency-note {
+  font-size: 0.85rem;
+  color: var(--text-muted, #8D9AB5);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.transparency-note code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #FABC36;
+  font-size: 0.82rem;
+}

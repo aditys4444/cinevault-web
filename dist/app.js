@@ -247,4 +247,23 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
+
+  // =========================================================================
+  // 12. Copy Downloader URL Helper
+  // =========================================================================
+  const copyFirestickBtn = document.getElementById('copyFirestickUrlBtn');
+  if (copyFirestickBtn) {
+    copyFirestickBtn.addEventListener('click', () => {
+      const urlText = 'https://cinevaultapk.online/downloads/CineVault.apk';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(urlText).then(() => {
+          showToast('Downloader URL copied to clipboard!');
+        }).catch(() => {
+          showToast('Downloader URL: ' + urlText);
+        });
+      } else {
+        showToast('Downloader URL: ' + urlText);
+      }
+    });
+  }
 });

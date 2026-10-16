@@ -1,24 +1,24 @@
 {
-  "latestVersionCode": 2910,
-  "latestVersionName": "2.9.1",
+  "latestVersionCode": 2920,
+  "latestVersionName": "2.9.2",
   "websiteUrl": "https://cinevaultapk.online/",
   "apkDownloadUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
   "directApkUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
-  "updateMessage": "Family Mode in Settings, Filtered Adult Suggestions, UI & Mobile Polish",
+  "updateMessage": "Ultra-responsive player engine with zero lag",
   "forceUpdate": true,
-  "version": "2.9.1",
-  "versionCode": 2910,
-  "releaseDate": "2026-10-14",
+  "version": "2.9.2",
+  "versionCode": 2920,
+  "releaseDate": "2026-10-16",
   "changelog": [
-    "Added Family Mode in Settings to toggle adult catalog visibility",
-    "Filtered adult search suggestions when Family Mode is enabled",
-    "Streamlined mobile & tablet responsive navigation layout",
-    "Enhanced player stability and direct Live TV channel loading"
+    "Ultra-responsive player engine with zero lag",
+    "Interactive double-tap 10s seek with ripple animation",
+    "Auto-hiding player control frame",
+    "Instant in-app update delivery with zero-delay screen prompt"
   ],
   "apkUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
   "mandatory": true,
   "minVersion": "2.0.0",
-  "sha256": "623af4bee0b0fc77cd423d15623d0b9f3bcaece07b32e06cbad368f0a22159c6",
-  "fileSizeBytes": 11423569,
+  "sha256": "d613a7aa3f6cf3c49a7830c76805d4f8cb1a7e19802ac0027de2cca458c57205",
+  "fileSizeBytes": 11427597,
   "fileSizeMB": "10.9MB"
 }

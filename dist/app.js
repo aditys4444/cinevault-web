@@ -48,13 +48,60 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================================
   const deviceCards = document.querySelectorAll('.showcase-device-card');
 
+  // Default active preview image for fallback
+  let currentActiveImg = 'assets/home_screenshot.webp';
+
   // Attach Lightbox triggers to each device card
   deviceCards.forEach(card => {
     card.addEventListener('click', () => {
       const imgSrc = card.dataset.img;
-      if (imgSrc) openLightbox(imgSrc);
+      if (imgSrc) {
+        currentActiveImg = imgSrc;
+        openLightbox(imgSrc);
+      }
     });
   });
+
+  // Mobile Carousel Dots Sync
+  const showcaseGrid = document.getElementById('showcaseDevicesGrid');
+  const showcaseDots = document.querySelectorAll('.showcase-dot');
+
+  if (showcaseGrid && showcaseDots.length > 0) {
+    let dotTicking = false;
+    let cachedCardWidth = showcaseGrid.firstElementChild ? showcaseGrid.firstElementChild.offsetWidth + 18 : 288;
+    
+    window.addEventListener('resize', () => {
+      if (showcaseGrid.firstElementChild) {
+        cachedCardWidth = showcaseGrid.firstElementChild.offsetWidth + 18;
+      }
+    }, { passive: true });
+
+    showcaseGrid.addEventListener('scroll', () => {
+      if (!dotTicking) {
+        dotTicking = true;
+        requestAnimationFrame(() => {
+          const scrollLeft = showcaseGrid.scrollLeft;
+          const activeIndex = Math.min(showcaseDots.length - 1, Math.max(0, Math.round(scrollLeft / cachedCardWidth)));
+          showcaseDots.forEach((dot, idx) => {
+            if (idx === activeIndex) {
+              dot.classList.add('active');
+            } else {
+              dot.classList.remove('active');
+            }
+          });
+          dotTicking = false;
+        });
+      }
+    }, { passive: true });
+
+    showcaseDots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => {
+        if (deviceCards[idx]) {
+          deviceCards[idx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+      });
+    });
+  }
 
   // =========================================================================
   // 3. Lightbox Modal for Uncropped Retina Screenshots
@@ -185,24 +232,63 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 6. Sticky Mobile Download Bar (Scroll Triggered)
+  // 6. Zero-Main-Thread Sticky Mobile Bar & Header Elevation via IntersectionObserver
   // =========================================================================
   const stickyMobileBar = document.getElementById('stickyMobileBar');
-  function updateStickyBar() {
-    if (!stickyMobileBar) return;
-    const scrollPos = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
-    // Reveal sticky bar smoothly once user scrolls past 150px
-    if (scrollPos > 150) {
-      stickyMobileBar.classList.add('visible');
-    } else {
-      stickyMobileBar.classList.remove('visible');
-    }
-  }
+  const headerWrapper = document.getElementById('headerWrapper');
+  const heroCtaRow = document.querySelector('.hero-cta-row');
 
-  window.addEventListener('scroll', updateStickyBar, { passive: true });
-  window.addEventListener('resize', updateStickyBar, { passive: true });
-  // Initial check on load
-  updateStickyBar();
+  if ('IntersectionObserver' in window && heroCtaRow) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const isPastHero = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+        if (stickyMobileBar) {
+          if (isPastHero) {
+            stickyMobileBar.classList.add('visible');
+          } else {
+            stickyMobileBar.classList.remove('visible');
+          }
+        }
+        if (headerWrapper) {
+          if (isPastHero) {
+            headerWrapper.classList.add('is-scrolled');
+          } else {
+            headerWrapper.classList.remove('is-scrolled');
+          }
+        }
+      });
+    }, { threshold: 0.1 });
+
+    observer.observe(heroCtaRow);
+  } else {
+    // Passive fallback for older environments
+    let isStickyVisible = false;
+    let scrollTicking = false;
+
+    function updateStickyBar() {
+      if (!stickyMobileBar) return;
+      const scrollPos = window.scrollY || document.documentElement.scrollTop || 0;
+      const shouldBeVisible = scrollPos > 150;
+      if (shouldBeVisible !== isStickyVisible) {
+        isStickyVisible = shouldBeVisible;
+        if (shouldBeVisible) {
+          stickyMobileBar.classList.add('visible');
+          if (headerWrapper) headerWrapper.classList.add('is-scrolled');
+        } else {
+          stickyMobileBar.classList.remove('visible');
+          if (headerWrapper) headerWrapper.classList.remove('is-scrolled');
+        }
+      }
+      scrollTicking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!scrollTicking) {
+        scrollTicking = true;
+        requestAnimationFrame(updateStickyBar);
+      }
+    }, { passive: true });
+  }
 
   // =========================================================================
   // 10. Telegram Channel Direct App Opener & Analytics

@@ -682,23 +682,13 @@ a {
   align-items: center;
 }
 
-.hero-ambient-glow {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 50% 50%, rgba(29, 78, 216, 0.28) 0%, rgba(30, 58, 138, 0.12) 45%, transparent 70%);
-  /* filter: blur removed for 60fps GPU performance */
-  pointer-events: none;
-  z-index: 0;
-}
-
 .titanium-device-bezel {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 350px;
-  padding: 10px;
-  border-radius: 48px;
+  max-width: 320px;
+  padding: 8px;
+  border-radius: 44px;
   background: #11141E;
   border: 1px solid var(--border-subtle);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
@@ -706,449 +696,41 @@ a {
 
 .device-screen-frame {
   position: relative;
-  border-radius: 38px;
+  border-radius: 36px;
   overflow: hidden;
-  background: #0d0a0b;
-  aspect-ratio: 9 / 18.8;
+  background: #000000;
+  aspect-ratio: 9 / 19.5;
   border: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   flex-direction: column;
+}
+
+.hero-app-screen-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* Dynamic Island Camera Notch */
 .phone-dynamic-notch {
   position: absolute;
-  top: 11px;
+  top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 90px;
-  height: 20px;
+  width: 84px;
+  height: 18px;
   background: #000000;
   border-radius: 20px;
   z-index: 10;
-  box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.15), 0 2px 8px rgba(0, 0, 0, 0.8);
-}
-
-/* Phone Screen In-App UI */
-.phone-screen-ui {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  padding: 38px 16px 12px;
-  box-sizing: border-box;
-  user-select: none;
-}
-
-/* App Header */
-.phone-ui-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2px;
-}
-
-.phone-brand-title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-heading);
-  font-size: 1.15rem;
-  font-weight: 900;
-  letter-spacing: 0.05em;
-  color: #ffffff;
-}
-
-.phone-brand-icon {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
-}
-
-.phone-brand-accent {
-  background: linear-gradient(135deg, #FFDE6A 0%, #FABC36 45%, #E5901A 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-left: 1px;
-}
-
-.phone-header-right {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.phone-live-indicator {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 3px 7px;
-  background: rgba(29, 78, 216, 0.18);
-  border: 1px solid rgba(29, 78, 216, 0.4);
-  border-radius: var(--radius-full);
-  font-family: var(--font-mono);
-  font-size: 0.58rem;
-  font-weight: 700;
-  color: #93C5FD;
-  letter-spacing: 0.06em;
-}
-
-.live-dot-pulse {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #2563EB;
-  box-shadow: 0 0 8px #2563EB;
-  animation: pulseDot 2s infinite ease-in-out;
-}
-
-.phone-user-icon {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: #0f172a;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #64748b;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.phone-user-icon svg {
-  width: 15px !important;
-  height: 15px !important;
-  max-width: 15px !important;
-  max-height: 15px !important;
-  display: block !important;
-}
-
-/* Featured Hero Banner Card */
-.phone-featured-hero {
-  position: relative;
-  border-radius: 18px;
-  padding: 16px 14px;
-  min-height: 152px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  background: #0B1630;
-  border: 1px solid rgba(29, 78, 216, 0.4);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-  margin-bottom: 0;
-}
-
-.featured-glow-fx {
-  display: none;
-}
-
-.featured-tags-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 6px;
-}
-
-.featured-category-tag {
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  color: #93C5FD;
-  text-transform: uppercase;
-}
-
-.featured-rating-pill {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  font-weight: 700;
-  color: var(--gold);
-  background: rgba(0, 0, 0, 0.5);
-  padding: 2px 6px;
-  border-radius: 4px;
-  border: 1px solid rgba(212, 175, 55, 0.25);
-}
-
-.featured-main-title {
-  font-family: var(--font-heading);
-  font-size: 1.15rem;
-  font-weight: 900;
-  letter-spacing: 0.03em;
-  color: #ffffff;
-  margin: 0 0 4px 0;
-  line-height: 1.15;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-}
-
-.featured-meta-desc {
-  font-size: 0.66rem;
-  color: #a4a4b2;
-  margin: 0 0 10px 0;
-  font-weight: 500;
-}
-
-.featured-action-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  width: fit-content;
-  padding: 5px 12px;
-  background: var(--primary-gradient);
-  border-radius: var(--radius-full);
-  font-family: var(--font-heading);
-  font-size: 0.68rem;
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 0.04em;
-  box-shadow: 0 0 14px rgba(29, 78, 216, 0.5);
-  transition: transform 0.2s ease;
-}
-
-.featured-action-pill svg {
-  width: 10px !important;
-  height: 10px !important;
-  max-width: 10px !important;
-  max-height: 10px !important;
-  display: block !important;
-}
-
-/* Continue Watching Section */
-.phone-content-block {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 0;
-}
-
-.phone-block-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #8c8c98;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.header-all-link {
-  font-size: 0.62rem;
-  color: var(--primary);
-  letter-spacing: 0.04em;
-}
-
-.phone-posters-strip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-}
-
-.phone-poster-item {
-  aspect-ratio: 2 / 2.9;
-  border-radius: 12px;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 8px 7px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.phone-poster-item:hover {
-  transform: translateY(-2px);
-  border-color: rgba(29, 78, 216, 0.45);
-}
-
-.poster-card-1 {
-  background: linear-gradient(180deg, rgba(14, 28, 64, 0.45) 0%, rgba(3, 7, 18, 0.98) 100%),
-              radial-gradient(circle at 50% 30%, #122552 0%, #030712 100%);
-}
-
-.poster-card-2 {
-  background: linear-gradient(180deg, rgba(11, 24, 54, 0.45) 0%, rgba(3, 7, 18, 0.98) 100%),
-              radial-gradient(circle at 50% 30%, #0f1f44 0%, #030712 100%);
-}
-
-.poster-card-3 {
-  background: linear-gradient(180deg, rgba(9, 20, 44, 0.45) 0%, rgba(2, 5, 14, 0.98) 100%),
-              radial-gradient(circle at 50% 30%, #0b1836 0%, #020610 100%);
-}
-
-.poster-badge-chip {
-  align-self: flex-start;
-  font-family: var(--font-mono);
-  font-size: 0.54rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.9);
-  background: rgba(0, 0, 0, 0.85);
-  padding: 2px 5px;
-  border-radius: 4px;
-  letter-spacing: 0.04em;
-}
-
-.badge-live-tv {
-  color: #93C5FD;
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
-  background: rgba(29, 78, 216, 0.22);
-  border: 1px solid rgba(29, 78, 216, 0.4);
-}
-
-.mini-live-dot {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #2563EB;
-  box-shadow: 0 0 6px #2563EB;
-  animation: pulseDot 1.5s infinite;
-}
-
-.poster-details {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.poster-name {
-  font-family: var(--font-heading);
-  font-size: 0.66rem;
-  font-weight: 800;
-  color: #ffffff;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.poster-subtext {
-  font-family: var(--font-mono);
-  font-size: 0.54rem;
-  color: #64748b;
-}
-
-.poster-mini-bar {
-  width: 100%;
-  height: 3px;
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.15);
-  overflow: hidden;
-}
-
-.mini-bar-fill {
-  height: 100%;
-  background: var(--primary-gradient);
-  border-radius: 2px;
-}
-
-/* Floating Now Playing Pill */
-.phone-now-playing-pill {
-  margin-top: 0;
-  border-radius: 15px;
-  background: linear-gradient(180deg, rgba(10, 22, 50, 0.96) 0%, rgba(3, 7, 18, 0.98) 100%);
-  border: 1px solid rgba(29, 78, 216, 0.38);
-  padding: 10px 14px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7), 0 0 18px rgba(29, 78, 216, 0.2);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.now-playing-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.now-playing-play-circle {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: var(--primary-gradient);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  flex-shrink: 0;
-  box-shadow: 0 0 14px rgba(29, 78, 216, 0.65);
-}
-
-.now-playing-play-circle svg {
-  width: 12px !important;
-  height: 12px !important;
-  max-width: 12px !important;
-  max-height: 12px !important;
-  display: block !important;
-  margin-left: 1px;
-}
-
-.now-playing-info {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  overflow: hidden;
-}
-
-.now-playing-track-name {
-  font-family: var(--font-heading);
-  font-size: 0.72rem;
-  font-weight: 900;
-  letter-spacing: 0.04em;
-  color: #ffffff;
-  text-transform: uppercase;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.now-playing-codec-meta {
-  font-family: var(--font-mono);
-  font-size: 0.56rem;
-  color: #64748b;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.now-playing-timeline {
-  width: 100%;
-  height: 3px;
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.15);
-  overflow: hidden;
-  position: relative;
-}
-
-.now-playing-elapsed {
-  width: 58%;
-  height: 100%;
-  background: var(--primary-gradient);
-  border-radius: 2px;
-  box-shadow: 0 0 8px #2563EB;
+  box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.15), 0 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 .screen-glass-glare {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0) 50%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 50%);
   pointer-events: none;
-}
-
-.phone-home-indicator {
-  width: 90px;
-  height: 4px;
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.28);
-  margin: 4px auto 0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-  flex-shrink: 0;
 }
 
 /* 7. Performance Metrics Bar */
@@ -2577,15 +2159,21 @@ a {
   }
 
   .titanium-device-bezel {
-    max-width: 240px;
-    border-radius: 34px;
+    max-width: 250px;
+    border-radius: 36px;
     padding: 6px;
     margin: 0 auto;
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
   }
 
   .device-screen-frame {
-    border-radius: 28px;
+    border-radius: 30px;
+  }
+
+  .phone-dynamic-notch {
+    width: 68px;
+    height: 15px;
+    top: 7px;
   }
 
   .metrics-section {

@@ -5,8 +5,8 @@
   "websiteUrl": "https://cinevaultapk.online/",
   "apkUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
   "releaseNotes": "• Enhanced video player with responsive controls, gestures & fullscreen\n• Fixed duplicate player layer bug with clean lifecycle & decoder teardown\n• High-clarity hero banner with clean rating display\n• Direct website release page handoff for seamless updates",
-  "fileHash": "6b2992ebf8fc3ba950477d41e6abeee93bdef13cc753472105b9d25cc7a559a6",
-  "fileSizeBytes": 11500613,
+  "fileHash": "916e1d286daa3d87d6952d7942e68284b3d1134b3f5231de492110f4826cd9c0",
+  "fileSizeBytes": 11500717,
   "isRequired": false,
   "latestVersionCode": 2930,
   "latestVersionName": "2.9.3",
@@ -24,6 +24,6 @@
   ],
   "mandatory": false,
   "minVersion": "2.0.0",
-  "sha256": "6b2992ebf8fc3ba950477d41e6abeee93bdef13cc753472105b9d25cc7a559a6",
+  "sha256": "916e1d286daa3d87d6952d7942e68284b3d1134b3f5231de492110f4826cd9c0",
   "fileSizeMB": "11.0MB"
 }

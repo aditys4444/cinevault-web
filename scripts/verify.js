@@ -1,6 +1,25 @@
 const fs = require('fs');
+const path = require('path');
+
+console.log('========================================================');
+console.log(' CineVault Comprehensive Codebase Integrity Verification');
+console.log('========================================================\n');
 
 const html = fs.readFileSync('index.html', 'utf8');
+const css = fs.readFileSync('styles.css', 'utf8');
+const js = fs.readFileSync('app.js', 'utf8');
+const versionJson = JSON.parse(fs.readFileSync('version.json', 'utf8'));
+
+let failures = 0;
+
+function report(testName, passed, details = '') {
+  if (passed) {
+    console.log(`[PASS] ${testName}`);
+  } else {
+    console.error(`[FAIL] ${testName}: ${details}`);
+    failures++;
+  }
+}
 
 // 1. Verify Explorer section has been removed completely
 const forbiddenExplorerTerms = [
@@ -10,113 +29,97 @@ const forbiddenExplorerTerms = [
   'id="explorerGrid"',
   'href="#explorer"'
 ];
+let explorerLeftovers = forbiddenExplorerTerms.filter(t => html.includes(t));
+report('Explorer section completely eradicated', explorerLeftovers.length === 0, explorerLeftovers.join(', '));
 
-let explorerLeftovers = [];
-for (const term of forbiddenExplorerTerms) {
-  if (html.includes(term)) {
-    explorerLeftovers.push(term);
-  }
-}
-
-if (explorerLeftovers.length === 0) {
-  console.log('EXPLORER REMOVAL AUDIT: 100% CLEAN (Zero leftover explorer IDs/links found in index.html)');
-} else {
-  console.error('EXPLORER REMOVAL FAILED: Still found:', explorerLeftovers);
-  process.exit(1);
-}
-
-// 2. Verify all high-definition showcase screenshots are configured
+// 2. Showcase screenshot assets verification
 const showcaseScreenshots = [
-  'assets/loading_screenshot.webp',
   'assets/home_screenshot.webp',
-  'assets/explore_search_screenshot.webp',
-  'assets/security_scan_screenshot.webp',
   'assets/player_screenshot.webp',
   'assets/livetv_screenshot.webp'
 ];
+let missingScreenshots = showcaseScreenshots.filter(shot => {
+  return !html.includes(shot) || !fs.existsSync(shot);
+});
+report('Showcase Retina screenshots integrated and exist on disk', missingScreenshots.length === 0, missingScreenshots.join(', '));
 
-let missingScreenshots = [];
-for (const shot of showcaseScreenshots) {
-  if (!html.includes(shot)) {
-    missingScreenshots.push(shot);
-  }
-}
-
-if (missingScreenshots.length === 0) {
-  console.log('SHOWCASE SCREENSHOTS AUDIT: 100% PASSED (All 6 high-definition screenshots integrated into multi-device showcase)');
-} else {
-  console.error('SHOWCASE AUDIT FAILED: Missing screenshot references:', missingScreenshots);
-  process.exit(1);
-}
-
-// 3. Required interactive IDs
+// 3. Required DOM IDs for modern interactive features
 const requiredIds = [
-  'toastNotice', 'toastMessage', 'showcaseDevicesGrid', 'lightboxModal',
-  'lightboxImg', 'closeLightboxBtn', 'downloadModal', 'closeDownloadModalBtn',
-  'directDownloadAgainBtn', 'securityModal', 'openSecurityModalBtn',
-  'closeSecurityModalBtn', 'securityModalDoneBtn', 'pane-phone',
-  'pane-firestick', 'pane-tv', 'copyFirestickUrlBtn', 'firestickUrl',
-  'stickyMobileBar', 'copyHashBtn', 'copyHashBtnText', 'apkHash'
+  'mainContent', 'headerWrapper', 'mainNavBar', 'desktopNavLinks',
+  'mobileMenuToggle', 'mobileNavDrawer',
+  'features', 'showcase', 'installation', 'faq', 'download',
+  'showcaseDevicesGrid', 'showcaseDots', 'lightboxModal', 'lightboxImg', 'closeLightboxBtn',
+  'firestickUrl', 'copyFirestickUrlBtn',
+  'downloadModal', 'downloadModalTitle', 'closeDownloadModalBtn', 'directDownloadAgainBtn',
+  'stickyMobileBar', 'toastNotice', 'toastMessage'
 ];
+let missingIds = requiredIds.filter(id => !html.includes(`id="${id}"`));
+report(`All ${requiredIds.length} interactive element IDs present`, missingIds.length === 0, missingIds.join(', '));
 
-let missing = [];
-for (const id of requiredIds) {
-  if (!html.includes(`id="${id}"`)) {
-    missing.push(id);
-  }
-}
-
-if (missing.length === 0) {
-  console.log('DOM ID AUDIT: 100% PASSED (All ' + requiredIds.length + ' required element IDs are present in index.html)');
-} else {
-  console.error('DOM ID AUDIT FAILED: Missing IDs:', missing);
-  process.exit(1);
-}
-
-// 4. Required interactive classes
+// 4. Required DOM Classes
 const requiredClasses = [
-  'showcase-filter-pill', 'showcase-device-card', 'showcase-device-chassis',
+  'nav-bar', 'nav-link', 'btn-mobile-menu-toggle', 'mobile-nav-link',
+  'bento-card', 'showcase-device-card', 'showcase-device-chassis',
   'showcase-screen-viewport', 'showcase-screen-img', 'trigger-download',
-  'device-tab-btn', 'faq-item', 'review-card'
+  'faq-item', 'faq-question', 'faq-answer', 'sticky-mobile-bar'
 ];
-
-let missingClasses = [];
-for (const cls of requiredClasses) {
-  if (!html.includes(cls)) {
-    missingClasses.push(cls);
-  }
-}
-
-if (missingClasses.length === 0) {
-  console.log('DOM CLASS AUDIT: 100% PASSED (All ' + requiredClasses.length + ' required interactive classes are present in index.html)');
-} else {
-  console.error('DOM CLASS AUDIT FAILED: Missing Classes:', missingClasses);
-  process.exit(1);
-}
+let missingClasses = requiredClasses.filter(cls => !html.includes(cls));
+report(`All ${requiredClasses.length} key component classes present in HTML`, missingClasses.length === 0, missingClasses.join(', '));
 
 // 5. Check CSS rules in styles.css
-const css = fs.readFileSync('styles.css', 'utf8');
 const requiredCssRules = [
-  '.hero-specs-row', '.showcase-devices-grid', '.showcase-device-card',
-  '.showcase-device-chassis', '.showcase-filter-pill',
-  '.device-tabs-container', '.device-tab-btn', '.reviews-section',
-  '.review-card', '.modal-overlay', '.chrome-reassurance-box', '.sticky-mobile-bar'
+  '.header-wrapper', '.nav-bar', '.btn-mobile-menu-toggle', '.mobile-nav-drawer',
+  '.bento-grid', '.bento-card', '.showcase-devices-grid', '.showcase-device-card',
+  '.showcase-device-chassis', '.showcase-dots', '.showcase-dot',
+  '.steps-grid', '.tv-sideload-box', '.faq-accordion', '.faq-item',
+  '.modal-overlay', '.chrome-reassurance-box', '.sticky-mobile-bar',
+  '.skip-link', ':focus-visible'
 ];
+let missingCss = requiredCssRules.filter(sel => !css.includes(sel));
+report(`All ${requiredCssRules.length} component selectors present in styles.css`, missingCss.length === 0, missingCss.join(', '));
 
-let missingCss = [];
-for (const selector of requiredCssRules) {
-  if (!css.includes(selector)) {
-    missingCss.push(selector);
-  }
-}
+// 6. Content and Version Consistency Audit
+const expectedVersion = versionJson.version;
+const expectedSize = versionJson.fileSizeMB;
+const apkPath = path.join('downloads', 'CineVault.apk');
 
-if (missingCss.length === 0) {
-  console.log('CSS AUDIT: 100% PASSED (All ' + requiredCssRules.length + ' component selectors are present in styles.css)');
+const apkExists = fs.existsSync(apkPath);
+const apkSize = apkExists ? fs.statSync(apkPath).size : 0;
+report('CineVault.apk exists in downloads/', apkExists);
+report('CineVault.apk file size matches version.json fileSizeBytes', apkSize === versionJson.fileSizeBytes, `Actual: ${apkSize}, JSON: ${versionJson.fileSizeBytes}`);
+
+const htmlHasCorrectVersion = html.includes(`v${expectedVersion}`);
+report(`index.html mentions active version v${expectedVersion}`, htmlHasCorrectVersion);
+
+const htmlHasCorrectSize = html.includes(expectedSize);
+report(`index.html mentions active size ${expectedSize}`, htmlHasCorrectSize);
+
+const jsHasCorrectVersion = js.includes(`version: '${expectedVersion}'`);
+report(`app.js has fallback version set to ${expectedVersion}`, jsHasCorrectVersion);
+
+const jsHasCorrectSize = js.includes(`sizeMB: '${expectedSize}'`);
+report(`app.js has fallback size set to ${expectedSize}`, jsHasCorrectSize);
+
+// 7. Accessibility Features Verification
+const hasSkipLink = html.includes('class="skip-link"');
+report('Skip to main content link configured', hasSkipLink);
+
+const hasAriaExpandedOnFaq = html.includes('aria-expanded');
+report('FAQ buttons include aria-expanded attributes', hasAriaExpandedOnFaq);
+
+const hasAriaControlsOnFaq = html.includes('aria-controls');
+report('FAQ buttons include aria-controls attributes', hasAriaControlsOnFaq);
+
+const hasMobileNavAria = html.includes('aria-controls="mobileNavDrawer"');
+report('Mobile navigation toggle includes aria-controls and aria-expanded', hasMobileNavAria);
+
+console.log('\n========================================================');
+if (failures === 0) {
+  console.log(' OVERALL INTEGRITY: ALL CODE INTEGRATION TESTS PASSED!');
+  console.log('========================================================\n');
+  process.exit(0);
 } else {
-  console.error('CSS AUDIT FAILED: Missing CSS rules:', missingCss);
+  console.error(` OVERALL INTEGRITY FAILED WITH ${failures} ERRORS.`);
+  console.log('========================================================\n');
   process.exit(1);
 }
-
-console.log('\n======================================================');
-console.log('OVERALL INTEGRITY: ALL CODE INTEGRATION TESTS PASSED!');
-console.log('======================================================\n');

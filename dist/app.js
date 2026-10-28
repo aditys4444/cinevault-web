@@ -1,14 +1,14 @@
 /**
  * CineVault — Official Website Interactive Logic
  * Design System: Obsidian Cinema
- * Release: v2.8.0
+ * Release: v2.9.3 (Build 2930)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Current release constants (fallback if version.json is cached or offline)
+  // Current release constants (fallback if version.json is offline or cached)
   const APP_CONFIG = {
-    version: '2.8.0',
-    sizeMB: '12.4 MB',
+    version: '2.9.3',
+    sizeMB: '11.0MB',
     apkPath: 'downloads/CineVault.apk',
     websiteUrl: 'https://cinevaultapk.online/'
   };
@@ -26,6 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
       // Graceful fallback to default constants
     });
 
+  // Track element focus for accessibility
+  let lastFocusedElement = null;
+
   // =========================================================================
   // 1. Toast Feedback Helper
   // =========================================================================
@@ -40,27 +43,150 @@ document.addEventListener('DOMContentLoaded', () => {
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => {
       toast.classList.remove('show');
-    }, 2800);
+    }, 3000);
   }
 
   // =========================================================================
-  // 2. Interactive App Preview Showcase (Device Lightbox)
+  // 2. Mobile Navigation Drawer
+  // =========================================================================
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileNavDrawer = document.getElementById('mobileNavDrawer');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+  function openMobileNav() {
+    if (!mobileNavDrawer || !mobileMenuToggle) return;
+    mobileNavDrawer.classList.add('open');
+    mobileNavDrawer.setAttribute('aria-hidden', 'false');
+    mobileMenuToggle.classList.add('is-active');
+    mobileMenuToggle.setAttribute('aria-expanded', 'true');
+    mobileMenuToggle.setAttribute('aria-label', 'Close navigation menu');
+  }
+
+  function closeMobileNav() {
+    if (!mobileNavDrawer || !mobileMenuToggle) return;
+    mobileNavDrawer.classList.remove('open');
+    mobileNavDrawer.setAttribute('aria-hidden', 'true');
+    mobileMenuToggle.classList.remove('is-active');
+    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+    mobileMenuToggle.setAttribute('aria-label', 'Open navigation menu');
+  }
+
+  if (mobileMenuToggle && mobileNavDrawer) {
+    mobileMenuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = mobileNavDrawer.classList.contains('open');
+      if (isOpen) {
+        closeMobileNav();
+      } else {
+        openMobileNav();
+      }
+    });
+
+    // Close when clicking any nav link
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        closeMobileNav();
+      });
+    });
+
+    // Close when clicking outside drawer
+    document.addEventListener('click', (e) => {
+      if (mobileNavDrawer.classList.contains('open') && 
+          !mobileNavDrawer.contains(e.target) && 
+          e.target !== mobileMenuToggle && 
+          !mobileMenuToggle.contains(e.target)) {
+        closeMobileNav();
+      }
+    });
+  }
+
+  // =========================================================================
+  // 3. Focus Trapping for Accessible Modals
+  // =========================================================================
+  function trapFocus(modalElement) {
+    const focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+    const focusableElements = Array.from(modalElement.querySelectorAll(focusableSelectors))
+      .filter(el => !el.hasAttribute('disabled') && el.offsetParent !== null);
+    
+    if (focusableElements.length === 0) return;
+
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    modalElement.addEventListener('keydown', function(e) {
+      if (e.key !== 'Tab') return;
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement) {
+          lastElement.focus();
+          e.preventDefault();
+        }
+      } else {
+        if (document.activeElement === lastElement) {
+          firstElement.focus();
+          e.preventDefault();
+        }
+      }
+    });
+  }
+
+  // =========================================================================
+  // 4. Interactive App Preview Showcase & Lightbox Modal
   // =========================================================================
   const deviceCards = document.querySelectorAll('.showcase-device-card');
+  const lightboxModal = document.getElementById('lightboxModal');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const closeLightboxBtn = document.getElementById('closeLightboxBtn');
 
-  // Default active preview image for fallback
   let currentActiveImg = 'assets/home_screenshot.webp';
 
-  // Attach Lightbox triggers to each device card
+  function openLightbox(src, triggerEl) {
+    if (lightboxModal && lightboxImg) {
+      lastFocusedElement = triggerEl || document.activeElement;
+      currentActiveImg = src || currentActiveImg;
+      lightboxImg.src = currentActiveImg;
+      lightboxModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      if (closeLightboxBtn) closeLightboxBtn.focus();
+      trapFocus(lightboxModal);
+    }
+  }
+
+  function closeLightbox() {
+    if (lightboxModal && lightboxModal.classList.contains('active')) {
+      lightboxModal.classList.remove('active');
+      document.body.style.overflow = '';
+      if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+        lastFocusedElement.focus();
+      }
+    }
+  }
+
   deviceCards.forEach(card => {
+    // Click event
     card.addEventListener('click', () => {
       const imgSrc = card.dataset.img;
-      if (imgSrc) {
-        currentActiveImg = imgSrc;
-        openLightbox(imgSrc);
+      if (imgSrc) openLightbox(imgSrc, card);
+    });
+
+    // Keyboard accessibility: Enter or Space triggers enlargement
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const imgSrc = card.dataset.img;
+        if (imgSrc) openLightbox(imgSrc, card);
       }
     });
   });
+
+  if (closeLightboxBtn) {
+    closeLightboxBtn.addEventListener('click', closeLightbox);
+  }
+
+  if (lightboxModal) {
+    lightboxModal.addEventListener('click', (e) => {
+      if (e.target === lightboxModal) closeLightbox();
+    });
+  }
 
   // Mobile Carousel Dots Sync
   const showcaseGrid = document.getElementById('showcaseDevicesGrid');
@@ -68,11 +194,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (showcaseGrid && showcaseDots.length > 0) {
     let dotTicking = false;
-    let cachedCardWidth = showcaseGrid.firstElementChild ? showcaseGrid.firstElementChild.offsetWidth + 18 : 288;
+    let cachedCardWidth = showcaseGrid.firstElementChild ? showcaseGrid.firstElementChild.offsetWidth + 16 : 280;
     
     window.addEventListener('resize', () => {
       if (showcaseGrid.firstElementChild) {
-        cachedCardWidth = showcaseGrid.firstElementChild.offsetWidth + 18;
+        cachedCardWidth = showcaseGrid.firstElementChild.offsetWidth + 16;
       }
     }, { passive: true });
 
@@ -104,61 +230,30 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 3. Lightbox Modal for Uncropped Retina Screenshots
-  // =========================================================================
-  const lightboxModal = document.getElementById('lightboxModal');
-  const lightboxImg = document.getElementById('lightboxImg');
-  const previewTrigger = document.getElementById('showcasePreviewTrigger');
-  const closeLightboxBtn = document.getElementById('closeLightboxBtn');
-
-  function openLightbox(src) {
-    if (lightboxModal && lightboxImg) {
-      lightboxImg.src = src || currentActiveImg;
-      lightboxModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-  }
-
-  function closeLightbox() {
-    if (lightboxModal) {
-      lightboxModal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  }
-
-  if (previewTrigger) {
-    previewTrigger.addEventListener('click', () => openLightbox(currentActiveImg));
-  }
-
-  if (closeLightboxBtn) {
-    closeLightboxBtn.addEventListener('click', closeLightbox);
-  }
-
-  if (lightboxModal) {
-    lightboxModal.addEventListener('click', (e) => {
-      if (e.target === lightboxModal) closeLightbox();
-    });
-  }
-
-  // =========================================================================
-  // 4. Smart Download Reassurance Modal
+  // 5. Smart Download Reassurance Modal
   // =========================================================================
   const downloadModal = document.getElementById('downloadModal');
   const closeDownloadModalBtn = document.getElementById('closeDownloadModalBtn');
   const directDownloadAgainBtn = document.getElementById('directDownloadAgainBtn');
   const downloadBtns = document.querySelectorAll('.trigger-download');
 
-  function openDownloadModal() {
+  function openDownloadModal(triggerEl) {
     if (downloadModal) {
+      lastFocusedElement = triggerEl || document.activeElement;
       downloadModal.classList.add('active');
       document.body.style.overflow = 'hidden';
+      if (closeDownloadModalBtn) closeDownloadModalBtn.focus();
+      trapFocus(downloadModal);
     }
   }
 
   function closeDownloadModal() {
-    if (downloadModal) {
+    if (downloadModal && downloadModal.classList.contains('active')) {
       downloadModal.classList.remove('active');
       document.body.style.overflow = '';
+      if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+        lastFocusedElement.focus();
+      }
     }
   }
 
@@ -173,8 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   downloadBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      // Trigger toast feedback
+    btn.addEventListener('click', () => {
       showToast(`Downloading CineVault v${APP_CONFIG.version} (${APP_CONFIG.sizeMB})...`);
 
       // Analytics Event
@@ -186,8 +280,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      // Instant clean download without intrusive popups
-      // Download initiates natively via the <a> link
+      // Reassure user with Chrome APK instructions after slight delay
+      setTimeout(() => {
+        openDownloadModal(btn);
+      }, 400);
     });
   });
 
@@ -197,58 +293,92 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Global ESC Key Closes Any Active Modal
+  // Global ESC Key Closes Any Active Modal or Mobile Nav
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      closeLightbox();
-      closeDownloadModal();
+      if (lightboxModal && lightboxModal.classList.contains('active')) {
+        closeLightbox();
+      } else if (downloadModal && downloadModal.classList.contains('active')) {
+        closeDownloadModal();
+      } else if (mobileNavDrawer && mobileNavDrawer.classList.contains('open')) {
+        closeMobileNav();
+        if (mobileMenuToggle) mobileMenuToggle.focus();
+      }
     }
   });
 
   // =========================================================================
-  // 5. FireStick / TV Downloader URL Copy Button
+  // 6. FireStick / TV Downloader URL Copy Button with Robust Fallback
   // =========================================================================
   const copyFirestickBtn = document.getElementById('copyFirestickUrlBtn');
   const firestickUrl = document.getElementById('firestickUrl');
+
   if (copyFirestickBtn && firestickUrl) {
     copyFirestickBtn.addEventListener('click', async () => {
       const rawText = firestickUrl.textContent.trim();
       const urlText = rawText.startsWith('http') ? rawText : 'https://' + rawText;
+      let copied = false;
+
       try {
         if (navigator.clipboard && navigator.clipboard.writeText) {
           await navigator.clipboard.writeText(urlText);
-        }
-        showToast('Downloader link copied to clipboard!');
-        const btnSpan = copyFirestickBtn.querySelector('span');
-        if (btnSpan) {
-          const orig = btnSpan.textContent;
-          btnSpan.textContent = 'Copied!';
-          setTimeout(() => { btnSpan.textContent = orig; }, 2000);
+          copied = true;
         }
       } catch {
-        showToast('Downloader link: ' + urlText);
+        copied = false;
+      }
+
+      if (!copied) {
+        try {
+          const tempInput = document.createElement('textarea');
+          tempInput.value = urlText;
+          tempInput.style.position = 'fixed';
+          tempInput.style.opacity = '0';
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          copied = document.execCommand('copy');
+          document.body.removeChild(tempInput);
+        } catch {
+          copied = false;
+        }
+      }
+
+      showToast('Downloader link copied to clipboard!');
+      const btnSpan = copyFirestickBtn.querySelector('span');
+      if (btnSpan) {
+        const orig = btnSpan.textContent;
+        btnSpan.textContent = 'Copied!';
+        setTimeout(() => { btnSpan.textContent = orig; }, 2200);
       }
     });
   }
 
   // =========================================================================
-  // 6. Zero-Main-Thread Sticky Mobile Bar & Header Elevation via IntersectionObserver
+  // 7. Sticky Mobile Bar & Header Elevation via IntersectionObserver
   // =========================================================================
   const stickyMobileBar = document.getElementById('stickyMobileBar');
   const headerWrapper = document.getElementById('headerWrapper');
   const heroCtaRow = document.querySelector('.hero-cta-row');
+  const conversionSection = document.getElementById('download');
+  const footerSection = document.querySelector('.official-footer');
+
+  let isPastHero = false;
+  let isInBottomConversion = false;
+
+  function updateStickyBarVisibility() {
+    if (!stickyMobileBar) return;
+    if (isPastHero && !isInBottomConversion) {
+      stickyMobileBar.classList.add('visible');
+    } else {
+      stickyMobileBar.classList.remove('visible');
+    }
+  }
 
   if ('IntersectionObserver' in window && heroCtaRow) {
-    const observer = new IntersectionObserver((entries) => {
+    // 1. Monitor Hero CTA Row
+    const heroObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        const isPastHero = !entry.isIntersecting && entry.boundingClientRect.top < 0;
-        if (stickyMobileBar) {
-          if (isPastHero) {
-            stickyMobileBar.classList.add('visible');
-          } else {
-            stickyMobileBar.classList.remove('visible');
-          }
-        }
+        isPastHero = !entry.isIntersecting && entry.boundingClientRect.top < 0;
         if (headerWrapper) {
           if (isPastHero) {
             headerWrapper.classList.add('is-scrolled');
@@ -256,44 +386,55 @@ document.addEventListener('DOMContentLoaded', () => {
             headerWrapper.classList.remove('is-scrolled');
           }
         }
+        updateStickyBarVisibility();
       });
     }, { threshold: 0.1 });
 
-    observer.observe(heroCtaRow);
-  } else {
-    // Passive fallback for older environments
-    let isStickyVisible = false;
-    let scrollTicking = false;
+    heroObserver.observe(heroCtaRow);
 
-    function updateStickyBar() {
-      if (!stickyMobileBar) return;
-      const scrollPos = window.scrollY || document.documentElement.scrollTop || 0;
-      const shouldBeVisible = scrollPos > 150;
-      if (shouldBeVisible !== isStickyVisible) {
-        isStickyVisible = shouldBeVisible;
-        if (shouldBeVisible) {
-          stickyMobileBar.classList.add('visible');
-          if (headerWrapper) headerWrapper.classList.add('is-scrolled');
+    // 2. Monitor Conversion Section & Footer to cleanly hide sticky bar at bottom
+    const bottomObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          isInBottomConversion = true;
         } else {
-          stickyMobileBar.classList.remove('visible');
-          if (headerWrapper) headerWrapper.classList.remove('is-scrolled');
+          // Check if both are out of view
+          const convRect = conversionSection ? conversionSection.getBoundingClientRect() : null;
+          const footerRect = footerSection ? footerSection.getBoundingClientRect() : null;
+          const isConvInView = convRect && convRect.top < window.innerHeight && convRect.bottom > 0;
+          const isFooterInView = footerRect && footerRect.top < window.innerHeight && footerRect.bottom > 0;
+          isInBottomConversion = isConvInView || isFooterInView;
+        }
+        updateStickyBarVisibility();
+      });
+    }, { threshold: 0.05 });
+
+    if (conversionSection) bottomObserver.observe(conversionSection);
+    if (footerSection) bottomObserver.observe(footerSection);
+  } else {
+    // Passive scroll fallback for older browsers
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY || document.documentElement.scrollTop || 0;
+      isPastHero = scrollPos > 240;
+      const docHeight = document.documentElement.scrollHeight;
+      const windowHeight = window.innerHeight;
+      isInBottomConversion = (scrollPos + windowHeight) > (docHeight - 500);
+
+      if (headerWrapper) {
+        if (isPastHero) {
+          headerWrapper.classList.add('is-scrolled');
+        } else {
+          headerWrapper.classList.remove('is-scrolled');
         }
       }
-      scrollTicking = false;
-    }
-
-    window.addEventListener('scroll', () => {
-      if (!scrollTicking) {
-        scrollTicking = true;
-        requestAnimationFrame(updateStickyBar);
-      }
+      updateStickyBarVisibility();
     }, { passive: true });
   }
 
   // =========================================================================
-  // 10. Telegram Channel Direct App Opener & Analytics
+  // 8. Telegram Community Links & Analytics
   // =========================================================================
-  const telegramBtns = document.querySelectorAll('.btn-nav-telegram, .btn-hero-telegram, .footer-link[href*="telegram"]');
+  const telegramBtns = document.querySelectorAll('.btn-nav-telegram, .btn-hero-telegram, .mobile-nav-telegram, .footer-link[href*="telegram"]');
   telegramBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       if (typeof gtag === 'function') {
@@ -311,7 +452,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================================================
-  // 11. Interactive FAQ Accordion
+  // 9. Accessible FAQ Accordion
   // =========================================================================
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
@@ -319,6 +460,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (questionBtn) {
       questionBtn.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
+        
+        // Collapse all others
         faqItems.forEach(other => {
           if (other !== item) {
             other.classList.remove('active');
@@ -326,6 +469,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
           }
         });
+
+        // Toggle clicked item
         if (isActive) {
           item.classList.remove('active');
           questionBtn.setAttribute('aria-expanded', 'false');

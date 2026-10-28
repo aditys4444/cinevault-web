@@ -194,13 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (showcaseGrid && showcaseDots.length > 0) {
     let dotTicking = false;
-    let cachedCardWidth = showcaseGrid.firstElementChild ? showcaseGrid.firstElementChild.offsetWidth + 16 : 280;
-    
-    window.addEventListener('resize', () => {
-      if (showcaseGrid.firstElementChild) {
-        cachedCardWidth = showcaseGrid.firstElementChild.offsetWidth + 16;
-      }
-    }, { passive: true });
+    const cachedCardWidth = 266; // 250px card + 16px gap
 
     showcaseGrid.addEventListener('scroll', () => {
       if (!dotTicking) {
@@ -209,11 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const scrollLeft = showcaseGrid.scrollLeft;
           const activeIndex = Math.min(showcaseDots.length - 1, Math.max(0, Math.round(scrollLeft / cachedCardWidth)));
           showcaseDots.forEach((dot, idx) => {
-            if (idx === activeIndex) {
-              dot.classList.add('active');
-            } else {
-              dot.classList.remove('active');
-            }
+            dot.classList.toggle('active', idx === activeIndex);
           });
           dotTicking = false;
         });

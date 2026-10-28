@@ -99,6 +99,12 @@ report('Zero translateZ compositor layer bloat in styles.css', !hasTranslateZLay
 const hasSmoothScrollHijack = css.includes('scroll-behavior: smooth');
 report('Zero scroll-behavior: smooth on html for responsive browser scrolling', !hasSmoothScrollHijack);
 
+const hasContentVisibility = css.includes('content-visibility: auto');
+report('Off-screen sections use content-visibility: auto for smooth scroll containment', hasContentVisibility);
+
+const hasOverflowClip = css.includes('overflow-x: clip');
+report('Root html uses overflow-x: clip to preserve GPU compositor thread scrolling', hasOverflowClip);
+
 // 8. Direct Download Links verification
 const downloadButtons = [
   'href="downloads/CineVault.apk"',

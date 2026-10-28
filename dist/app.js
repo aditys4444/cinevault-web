@@ -230,42 +230,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 5. Smart Download Reassurance Modal
+  // 5. Direct Native Download Analytics & Non-blocking Toast
   // =========================================================================
-  const downloadModal = document.getElementById('downloadModal');
-  const closeDownloadModalBtn = document.getElementById('closeDownloadModalBtn');
-  const directDownloadAgainBtn = document.getElementById('directDownloadAgainBtn');
   const downloadBtns = document.querySelectorAll('.trigger-download');
-
-  function openDownloadModal(triggerEl) {
-    if (downloadModal) {
-      lastFocusedElement = triggerEl || document.activeElement;
-      downloadModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      if (closeDownloadModalBtn) closeDownloadModalBtn.focus();
-      trapFocus(downloadModal);
-    }
-  }
-
-  function closeDownloadModal() {
-    if (downloadModal && downloadModal.classList.contains('active')) {
-      downloadModal.classList.remove('active');
-      document.body.style.overflow = '';
-      if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
-        lastFocusedElement.focus();
-      }
-    }
-  }
-
-  if (closeDownloadModalBtn) {
-    closeDownloadModalBtn.addEventListener('click', closeDownloadModal);
-  }
-
-  if (downloadModal) {
-    downloadModal.addEventListener('click', (e) => {
-      if (e.target === downloadModal) closeDownloadModal();
-    });
-  }
 
   downloadBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -279,27 +246,16 @@ document.addEventListener('DOMContentLoaded', () => {
           value: 1
         });
       }
-
-      // Reassure user with Chrome APK instructions after slight delay
-      setTimeout(() => {
-        openDownloadModal(btn);
-      }, 400);
+      // Direct native browser download proceeds via normal <a href="downloads/CineVault.apk" download="CineVault.apk">
+      // No custom modal, no blocking popups, no delayed overlays.
     });
   });
 
-  if (directDownloadAgainBtn) {
-    directDownloadAgainBtn.addEventListener('click', () => {
-      showToast(`Restarting download v${APP_CONFIG.version}...`);
-    });
-  }
-
-  // Global ESC Key Closes Any Active Modal or Mobile Nav
+  // Global ESC Key Closes Lightbox Modal or Mobile Nav Drawer
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (lightboxModal && lightboxModal.classList.contains('active')) {
         closeLightbox();
-      } else if (downloadModal && downloadModal.classList.contains('active')) {
-        closeDownloadModal();
       } else if (mobileNavDrawer && mobileNavDrawer.classList.contains('open')) {
         closeMobileNav();
         if (mobileMenuToggle) mobileMenuToggle.focus();
@@ -354,81 +310,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 7. Sticky Mobile Bar & Header Elevation via IntersectionObserver
+  // 7. Desktop Header Subtle Elevation Observer (Zero Scroll-Event Overhead)
   // =========================================================================
-  const stickyMobileBar = document.getElementById('stickyMobileBar');
   const headerWrapper = document.getElementById('headerWrapper');
   const heroCtaRow = document.querySelector('.hero-cta-row');
-  const conversionSection = document.getElementById('download');
-  const footerSection = document.querySelector('.official-footer');
 
-  let isPastHero = false;
-  let isInBottomConversion = false;
-
-  function updateStickyBarVisibility() {
-    if (!stickyMobileBar) return;
-    if (isPastHero && !isInBottomConversion) {
-      stickyMobileBar.classList.add('visible');
-    } else {
-      stickyMobileBar.classList.remove('visible');
-    }
-  }
-
-  if ('IntersectionObserver' in window && heroCtaRow) {
-    // 1. Monitor Hero CTA Row
+  if (headerWrapper && heroCtaRow && 'IntersectionObserver' in window) {
     const heroObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        isPastHero = !entry.isIntersecting && entry.boundingClientRect.top < 0;
-        if (headerWrapper) {
-          if (isPastHero) {
-            headerWrapper.classList.add('is-scrolled');
-          } else {
-            headerWrapper.classList.remove('is-scrolled');
-          }
-        }
-        updateStickyBarVisibility();
+        const isPastHero = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+        headerWrapper.classList.toggle('is-scrolled', isPastHero);
       });
     }, { threshold: 0.1 });
 
     heroObserver.observe(heroCtaRow);
-
-    // 2. Monitor Conversion Section & Footer to cleanly hide sticky bar at bottom
-    const bottomObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          isInBottomConversion = true;
-        } else {
-          // Check if both are out of view
-          const convRect = conversionSection ? conversionSection.getBoundingClientRect() : null;
-          const footerRect = footerSection ? footerSection.getBoundingClientRect() : null;
-          const isConvInView = convRect && convRect.top < window.innerHeight && convRect.bottom > 0;
-          const isFooterInView = footerRect && footerRect.top < window.innerHeight && footerRect.bottom > 0;
-          isInBottomConversion = isConvInView || isFooterInView;
-        }
-        updateStickyBarVisibility();
-      });
-    }, { threshold: 0.05 });
-
-    if (conversionSection) bottomObserver.observe(conversionSection);
-    if (footerSection) bottomObserver.observe(footerSection);
-  } else {
-    // Passive scroll fallback for older browsers
-    window.addEventListener('scroll', () => {
-      const scrollPos = window.scrollY || document.documentElement.scrollTop || 0;
-      isPastHero = scrollPos > 240;
-      const docHeight = document.documentElement.scrollHeight;
-      const windowHeight = window.innerHeight;
-      isInBottomConversion = (scrollPos + windowHeight) > (docHeight - 500);
-
-      if (headerWrapper) {
-        if (isPastHero) {
-          headerWrapper.classList.add('is-scrolled');
-        } else {
-          headerWrapper.classList.remove('is-scrolled');
-        }
-      }
-      updateStickyBarVisibility();
-    }, { passive: true });
   }
 
   // =========================================================================

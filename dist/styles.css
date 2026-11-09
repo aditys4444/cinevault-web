@@ -524,6 +524,7 @@ a {
   font-size: 0.75rem;
   color: var(--text-high);
   letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
 .pulse-dot {

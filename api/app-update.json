@@ -2,14 +2,16 @@
   "latestVersionCode": 2990,
   "latestVersionName": "2.9.9",
   "websiteUrl": "https://cinevaultapk.online/",
+  "updatePageUrl": "https://cinevaultapk.online/",
   "apkDownloadUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
   "directApkUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
-  "updateMessage": "Mandatory Cinema Update: All-new studio-grade streaming interface, 120Hz smooth performance, and zero-stutter playback.",
+  "updateMessage": "Please update CineVault from our official website (cinevaultapk.online).",
   "forceUpdate": true,
   "version": "2.9.9",
   "versionCode": 2990,
   "releaseDate": "2026-11-10",
   "changelog": [
+    "Update from website: Visit cinevaultapk.online to get v2.9.9",
     "All-new studio-grade streaming interface (Apple TV & Netflix standard)",
     "Subpixel anti-aliased native typography & official CV squircle emblem",
     "Frosted translucent glass badges with high-contrast Watch Now action",
@@ -20,7 +22,7 @@
   "mandatory": true,
   "isRequired": true,
   "minVersion": "2.9.8",
-  "sha256": "2be6ef2a270791e4f2da7b54d90b18442b90911296d9ca390d9f754b3681248a",
-  "fileSizeBytes": 9897237,
+  "sha256": "5f21f3425614673b042d7b0260fb330e4987567e8f65dae8bd339ff45ce2e546",
+  "fileSizeBytes": 9897381,
   "fileSizeMB": "9.4MB"
 }

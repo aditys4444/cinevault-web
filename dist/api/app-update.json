@@ -1,24 +1,24 @@
 {
-  "latestVersionCode": 2970,
-  "latestVersionName": "2.9.7",
+  "latestVersionCode": 2980,
+  "latestVersionName": "2.9.8",
   "websiteUrl": "https://cinevaultapk.online/",
   "apkDownloadUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
   "directApkUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
-  "updateMessage": "Blazing-fast 60FPS UI and GPU acceleration",
+  "updateMessage": "120Hz high refresh-rate lock & GPU hardware acceleration",
   "forceUpdate": true,
-  "version": "2.9.7",
-  "versionCode": 2970,
-  "releaseDate": "2026-11-05",
+  "version": "2.9.8",
+  "versionCode": 2980,
+  "releaseDate": "2026-11-09",
   "changelog": [
-    "Blazing-fast 60FPS UI and GPU acceleration",
-    "Massive 74% APK size reduction to 9.4MB",
-    "Centered mobile navigation dock and polished details drawer",
-    "Ultra-smooth streaming playback and bug fixes"
+    "120Hz high refresh-rate lock & GPU hardware acceleration",
+    "Studio-grade title sanitization & authentic synopses",
+    "Live TV performance enhancements with 630+ worldwide channels",
+    "Stutter-free fling scrolling & memory footprint reduction"
   ],
   "apkUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
   "mandatory": true,
   "minVersion": "2.0.0",
-  "sha256": "e739516ebbd97324221078cd909177c4cb19d61c06f214c0c1d17132e8dbfc32",
-  "fileSizeBytes": 9842220,
+  "sha256": "8e9ed742925a9bcf31984f31d751c3a76793a7ca3d061b98d9bf0a31231b2d5a",
+  "fileSizeBytes": 9897996,
   "fileSizeMB": "9.4MB"
 }

@@ -194,9 +194,9 @@ a {
 
 @media (min-width: 769px) {
   .header-wrapper.is-scrolled .nav-bar {
-    background: #0B0D14;
+    background: rgba(11, 13, 20, 0.96);
     border-color: var(--border-hover);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.16);
   }
 }
 
@@ -208,11 +208,13 @@ a {
   align-items: center;
   justify-content: space-between;
   padding: 10px 18px 10px 22px;
-  background: #0E1119;
+  background: rgba(14, 17, 25, 0.92);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-full);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .nav-brand {
@@ -1526,6 +1528,103 @@ a {
   font-size: 0.88rem;
   line-height: 1.6;
   color: var(--text-muted);
+}
+
+/* TV & FireStick Sideloading Box (Desktop Default) */
+.tv-sideload-box {
+  margin-top: 36px;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 24px 32px;
+  background: linear-gradient(180deg, rgba(22, 25, 35, 0.75) 0%, rgba(14, 16, 23, 0.95) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(212, 175, 55, 0.2);
+  text-align: center;
+}
+
+.tv-sideload-header {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-high);
+  margin-bottom: 8px;
+}
+
+.tv-sideload-header svg {
+  color: #FFDE6A;
+}
+
+.tv-sideload-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.downloader-code-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 10px 22px;
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.downloader-code-text {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFDE6A;
+  letter-spacing: 0.04em;
+}
+
+.btn-mini-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: var(--radius-full);
+  background: rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: #FFFFFF;
+  font-family: var(--font-main);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-mini-copy:hover {
+  background: rgba(212, 175, 55, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-mini-copy:active {
+  transform: translateY(0);
+}
+
+.tv-sideload-subnote {
+  margin-top: 14px;
+  font-size: 0.82rem;
+  color: var(--text-faint);
+}
+
+.tv-direct-link {
+  color: var(--text-muted);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.tv-direct-link:hover {
+  color: #35A7FF;
 }
 
 /* 12. Technical Specifications Table */

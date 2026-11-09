@@ -4,21 +4,21 @@
   "websiteUrl": "https://cinevaultapk.online/",
   "apkDownloadUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
   "directApkUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
-  "updateMessage": "120Hz high refresh-rate lock & GPU hardware acceleration",
+  "updateMessage": "Ultra-smooth 120Hz performance, instant search, and fluid Live TV",
   "forceUpdate": true,
   "version": "2.9.8",
   "versionCode": 2980,
   "releaseDate": "2026-11-09",
   "changelog": [
-    "120Hz high refresh-rate lock & GPU hardware acceleration",
-    "Studio-grade title sanitization & authentic synopses",
-    "Live TV performance enhancements with 630+ worldwide channels",
-    "Stutter-free fling scrolling & memory footprint reduction"
+    "Zero-lag search typing with background task transitions",
+    "Ultra-fluid 120Hz Live TV channel grid with progressive windowing",
+    "Optimized HLS low-latency streaming with 8MB heap buffer",
+    "WebView offscreen pre-rasterization and GPU hardware composition"
   ],
   "apkUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
   "mandatory": true,
   "minVersion": "2.0.0",
-  "sha256": "8e9ed742925a9bcf31984f31d751c3a76793a7ca3d061b98d9bf0a31231b2d5a",
-  "fileSizeBytes": 9897996,
+  "sha256": "53e6a79b996a83b1a343c3d31ff3cc7d60b73749d659822ea5d5fb09b6074dee",
+  "fileSizeBytes": 9898336,
   "fileSizeMB": "9.4MB"
 }

@@ -12,17 +12,16 @@
   "releaseDate": "2026-11-10",
   "changelog": [
     "Update from website: Visit cinevaultapk.online to get v2.9.9",
-    "All-new studio-grade streaming interface (Apple TV & Netflix standard)",
-    "Subpixel anti-aliased native typography & official CV squircle emblem",
-    "Frosted translucent glass badges with high-contrast Watch Now action",
-    "Eliminated scroll reload bugs & optimized hardware caching",
-    "Ultra-fluid 120Hz fling scrolling across all Android devices"
+    "Instant 0ms Hero Banner with high-speed CDN preloading & radial atmosphere",
+    "Ultra-responsive 120Hz touch & navigation with zero lag or frame drops",
+    "GPU compositing optimization & isolated rendering layers for smooth scrolling",
+    "Enhanced single-server streaming pipeline with studio-grade reliability"
   ],
   "apkUrl": "https://cinevaultapk.online/downloads/CineVault.apk",
   "mandatory": true,
   "isRequired": true,
   "minVersion": "2.9.8",
-  "sha256": "5f21f3425614673b042d7b0260fb330e4987567e8f65dae8bd339ff45ce2e546",
-  "fileSizeBytes": 9897381,
-  "fileSizeMB": "9.4MB"
+  "sha256": "445400EB46E14D09A56E56A17163DDB0F759B8531B09563B5E405D14DCAFBB5C",
+  "fileSizeBytes": 9918455,
+  "fileSizeMB": "9.5MB"
 }

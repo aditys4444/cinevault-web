@@ -7,8 +7,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Current release constants (fallback if version.json is offline or cached)
   const APP_CONFIG = {
-    version: '2.9.8',
-    sizeMB: '9.4MB',
+    version: '3.0.0',
+    sizeMB: '9.5MB',
     apkPath: 'downloads/CineVault.apk',
     websiteUrl: 'https://cinevaultapk.online/'
   };

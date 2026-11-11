@@ -61,6 +61,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 img, picture, video {
@@ -77,6 +78,48 @@ html {
   overflow-x: clip;
   scroll-padding-top: 96px;
   -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Eliminate native mobile blue tap highlight and blue focus overlays */
+a, button, input, select, textarea, [role="button"], [tabindex] {
+  -webkit-tap-highlight-color: transparent !important;
+  touch-action: manipulation;
+}
+
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+[role="button"]:focus:not(:focus-visible) {
+  outline: none !important;
+}
+
+/* Accessible, refined studio focus outline for keyboard navigation only */
+:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.45);
+  outline-offset: 2px;
+}
+
+/* Prevent accidental text selection blue highlight on quick taps on action buttons */
+button,
+a.btn-hero-download,
+a.btn-hero-telegram,
+a.btn-nav-download,
+a.btn-nav-telegram,
+.btn-mobile-menu-toggle,
+.btn-mini-copy,
+.btn-copy-hash,
+.showcase-filter-pill,
+.faq-question,
+.nav-link,
+.mobile-nav-link,
+.footer-link,
+.showcase-dot,
+.btn-close-lightbox,
+[role="button"] {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
 
 #features,
@@ -125,17 +168,12 @@ html {
   border: 0;
 }
 
-/* Focus Visible Across All Interactive Elements */
-:focus-visible {
-  outline: 2px solid #3B82F6;
-  outline-offset: 3px;
-}
-
 body {
   background-color: var(--bg-void);
   color: var(--text-high);
   line-height: 1.6;
   min-height: 100vh;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* 2. Typography Hierarchy */
@@ -329,6 +367,12 @@ a {
   color: #FFFFFF;
 }
 
+.btn-nav-telegram:active {
+  transform: scale(0.96);
+  background: rgba(255, 255, 255, 0.12);
+  outline: none !important;
+}
+
 .btn-nav-download {
   display: inline-flex;
   align-items: center;
@@ -357,6 +401,12 @@ a {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 6px 24px rgba(29, 78, 216, 0.5);
 }
 
+.btn-nav-download:active {
+  transform: scale(0.96) translateY(0);
+  background: var(--primary-hover);
+  outline: none !important;
+}
+
 /* Mobile Menu Toggle Button (Hamburger) */
 .btn-mobile-menu-toggle {
   display: none;
@@ -380,6 +430,12 @@ a {
   background: rgba(255, 255, 255, 0.1);
   border-color: var(--border-hover);
   color: #FFFFFF;
+}
+
+.btn-mobile-menu-toggle:active {
+  transform: scale(0.92);
+  background: rgba(255, 255, 255, 0.16);
+  outline: none !important;
 }
 
 .hamburger-line {
@@ -612,6 +668,13 @@ a {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 12px 38px rgba(29, 78, 216, 0.5);
 }
 
+.btn-hero-download:active {
+  transform: scale(0.97) translateY(0);
+  filter: brightness(0.94);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(29, 78, 216, 0.4);
+  outline: none !important;
+}
+
 .btn-hero-telegram {
   display: inline-flex;
   align-items: center;
@@ -638,6 +701,12 @@ a {
   border-color: rgba(41, 169, 235, 0.4);
   color: #FFFFFF;
   transform: translateY(-2px);
+}
+
+.btn-hero-telegram:active {
+  transform: scale(0.97) translateY(0);
+  background: rgba(255, 255, 255, 0.12);
+  outline: none !important;
 }
 
 /* Hero Trust Row */
@@ -1468,6 +1537,12 @@ a {
   border-color: var(--border-hover);
 }
 
+.btn-copy-hash:active {
+  transform: scale(0.96);
+  background: rgba(255, 255, 255, 0.12);
+  outline: none !important;
+}
+
 /* 11. 3-Step Sideload Installation */
 .install-section {
   padding: 80px 0;
@@ -1609,7 +1684,9 @@ a {
 }
 
 .btn-mini-copy:active {
-  transform: translateY(0);
+  transform: scale(0.96);
+  background: rgba(212, 175, 55, 0.45);
+  outline: none !important;
 }
 
 .tv-sideload-subnote {
@@ -1814,6 +1891,11 @@ a {
   color: #FFFFFF;
 }
 
+.faq-question:active {
+  color: var(--gold);
+  outline: none !important;
+}
+
 .faq-icon {
   width: 20px;
   height: 20px;
@@ -2015,6 +2097,12 @@ a {
 .btn-close-lightbox:hover {
   background: rgba(255, 255, 255, 0.15);
   transform: scale(1.08);
+}
+
+.btn-close-lightbox:active {
+  transform: scale(0.94);
+  background: rgba(255, 255, 255, 0.25);
+  outline: none !important;
 }
 
 /* 16. Toast Notification */
@@ -2696,9 +2784,13 @@ a {
 }
 
 .showcase-device-card:focus-visible {
-  outline: 2px solid #3B82F6;
-  outline-offset: 6px;
+  outline: 2px solid rgba(255, 255, 255, 0.45);
+  outline-offset: 4px;
   border-radius: 40px;
+}
+
+.showcase-device-card:focus:not(:focus-visible) {
+  outline: none !important;
 }
 
 .section-features {

@@ -1848,6 +1848,123 @@ a {
   font-size: 0.82rem;
 }
 
+/* Mobile Adaptive Comparison Cards */
+.comparison-mobile-cards {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.comp-card-item {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 13px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.comp-card-label {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+}
+
+.comp-card-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.comp-box-brand {
+  background: rgba(29, 78, 216, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 9px;
+  padding: 9px 10px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.comp-box-rival {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--border-subtle);
+  border-radius: 9px;
+  padding: 9px 10px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.comp-pill-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comp-pill-title {
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.comp-box-brand .comp-pill-title {
+  color: #60A5FA;
+}
+
+.comp-box-rival .comp-pill-title {
+  color: #64748B;
+}
+
+.comp-check-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ADE80;
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.comp-cross-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.15);
+  color: #F87171;
+  font-size: 0.6rem;
+  font-weight: 800;
+}
+
+.comp-pill-value {
+  font-size: 0.77rem;
+  line-height: 1.35;
+}
+
+.comp-pill-value.win {
+  color: #F8FAFC;
+  font-weight: 700;
+}
+
+.comp-pill-value.other {
+  color: #94A3B8;
+  font-weight: 500;
+}
+
 /* 13. Bottom Conversion Box */
 .conversion-section {
   padding: 80px 0;
@@ -2497,19 +2614,12 @@ a {
     padding: 40px 0;
   }
 
-  .comparison-table {
-    min-width: 480px;
+  .comparison-table-wrapper {
+    display: none !important;
   }
 
-  .comparison-table th,
-  .comparison-table td {
-    padding: 12px 14px;
-    font-size: 0.8rem;
-  }
-
-  .badge-winner {
-    font-size: 0.7rem;
-    padding: 2px 6px;
+  .comparison-mobile-cards {
+    display: flex !important;
   }
 
   .bento-card {

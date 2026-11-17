@@ -7,7 +7,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Current release constants (fallback if version.json is offline or cached)
   const APP_CONFIG = {
-    version: '3.0.0',
+    version: '3.1.0',
     sizeMB: '9.5MB',
     apkPath: 'downloads/CineVault.apk',
     websiteUrl: 'https://cinevaultapk.online/'
@@ -291,6 +291,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
       showToast('Downloader link copied to clipboard!');
       const btnSpan = copyFirestickBtn.querySelector('span');
+      if (btnSpan) {
+        const orig = btnSpan.textContent;
+        btnSpan.textContent = 'Copied!';
+        setTimeout(() => { btnSpan.textContent = orig; }, 2200);
+      }
+    });
+  }
+
+  // =========================================================================
+  // 6b. SHA-256 Hash Copy Button
+  // =========================================================================
+  const copyHashBtn = document.getElementById('btnCopyHash');
+  const apkHashEl = document.getElementById('apkHash');
+
+  if (copyHashBtn && apkHashEl) {
+    copyHashBtn.addEventListener('click', async () => {
+      const hashText = apkHashEl.textContent.trim();
+      let copied = false;
+
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(hashText);
+          copied = true;
+        }
+      } catch {
+        copied = false;
+      }
+
+      if (!copied) {
+        try {
+          const tempInput = document.createElement('textarea');
+          tempInput.value = hashText;
+          tempInput.style.position = 'fixed';
+          tempInput.style.opacity = '0';
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          copied = document.execCommand('copy');
+          document.body.removeChild(tempInput);
+        } catch {
+          copied = false;
+        }
+      }
+
+      showToast('SHA-256 Checksum copied!');
+      const btnSpan = copyHashBtn.querySelector('span');
       if (btnSpan) {
         const orig = btnSpan.textContent;
         btnSpan.textContent = 'Copied!';

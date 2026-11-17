@@ -601,6 +601,7 @@ a {
   line-height: 1.12;
   letter-spacing: -0.035em;
   color: #FFFFFF;
+  text-wrap: balance;
 }
 
 .gradient-headline-accent {
@@ -2411,41 +2412,89 @@ a {
   }
 
   .announcement-pill {
-    font-size: 0.72rem;
-    padding: 5px 13px;
-    max-width: 95%;
+    font-size: 0.70rem;
+    padding: 5px 14px;
+    max-width: 90%;
     text-align: center;
+    margin: 0 auto 14px auto;
   }
 
   .hero-headline {
-    font-size: clamp(1.85rem, 6.8vw, 2.35rem);
+    font-size: clamp(1.9rem, 7.2vw, 2.45rem);
     text-align: center;
-    line-height: 1.2;
+    line-height: 1.16;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+    max-width: 360px;
+    margin: 0 auto 12px auto;
   }
 
   .hero-description {
-    font-size: 0.92rem;
-    line-height: 1.55;
+    font-size: 0.88rem;
+    line-height: 1.5;
     text-align: center;
-    max-width: 480px;
+    color: #94A3B8;
+    max-width: 340px;
+    margin: 0 auto 18px auto;
+    text-wrap: pretty;
   }
 
   .hero-cta-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
     width: 100%;
-    max-width: 400px;
+    max-width: 340px;
+    margin: 0 auto 16px auto;
+  }
+
+  .btn-hero-download {
+    width: 100%;
+    height: 50px;
+    justify-content: center;
+    font-size: 0.96rem;
+    font-weight: 700;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.45);
+  }
+
+  .btn-hero-telegram {
+    width: 100%;
+    height: 44px;
+    justify-content: center;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #94A3B8;
   }
 
   .hero-trust-row {
+    display: flex;
+    flex-wrap: nowrap;
     justify-content: center;
-    gap: 8px 10px;
+    align-items: center;
+    gap: 6px;
     width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
   }
 
   .trust-badge-item {
-    font-size: 0.72rem;
-    padding: 5px 11px;
+    flex: 1;
+    justify-content: center;
+    font-size: 0.67rem;
+    padding: 5px 6px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    color: #94A3B8;
+    white-space: nowrap;
   }
 
   .hero-mockup-wrapper {
@@ -2785,6 +2834,7 @@ a {
 
   .hero-headline {
     font-size: clamp(1.75rem, 6.5vw, 2.05rem);
+    text-wrap: balance;
   }
 
   .btn-hero-download,
@@ -2836,12 +2886,19 @@ a {
   }
 
   .hero-headline {
-    font-size: 1.65rem;
+    font-size: 1.6rem;
+    text-wrap: balance;
+  }
+
+  .hero-trust-row {
+    gap: 4px;
+    max-width: 100%;
   }
 
   .trust-badge-item {
-    font-size: 0.68rem;
-    padding: 4px 8px;
+    font-size: 0.60rem;
+    padding: 4px 4px;
+    gap: 3px;
   }
 
   .metric-number {

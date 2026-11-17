@@ -1766,47 +1766,57 @@ a {
 }
 
 .comparison-table-wrapper {
-  max-width: 960px;
+  max-width: 680px;
+  width: 100%;
   margin: 0 auto;
   border-radius: var(--radius-lg);
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  overflow-x: auto;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
 }
 
 .comparison-table {
   width: 100%;
+  table-layout: fixed;
   border-collapse: collapse;
   text-align: left;
-  min-width: 580px;
 }
 
 .comparison-table th {
-  padding: 18px 24px;
+  padding: 16px 20px;
   font-family: var(--font-mono);
   font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-muted);
   background: #0B0E17;
   border-bottom: 1px solid var(--border-subtle);
 }
 
+.comparison-table th.col-feature {
+  width: 34%;
+}
+
 .comparison-table th.col-cinevault {
+  width: 36%;
   color: #60A5FA;
   background: rgba(29, 78, 216, 0.12);
   border-left: 1px solid rgba(59, 130, 246, 0.25);
   border-right: 1px solid rgba(59, 130, 246, 0.25);
 }
 
+.comparison-table th.col-other {
+  width: 30%;
+}
+
 .comparison-table td {
-  padding: 16px 24px;
+  padding: 14px 20px;
   font-size: 0.88rem;
   border-bottom: 1px solid var(--border-subtle);
   color: var(--text-muted);
+  vertical-align: middle;
 }
 
 .comparison-table tr:last-child td {
@@ -1825,144 +1835,36 @@ a {
 .comparison-table td.col-cinevault {
   font-weight: 700;
   color: #F8FAFC;
-  background: rgba(29, 78, 216, 0.06);
+  background: rgba(29, 78, 216, 0.05);
   border-left: 1px solid rgba(59, 130, 246, 0.2);
   border-right: 1px solid rgba(59, 130, 246, 0.2);
 }
 
-.badge-winner {
+.comparison-table tr:hover td.col-cinevault {
+  background: rgba(29, 78, 216, 0.09);
+}
+
+.cv-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 3px 8px;
-  border-radius: var(--radius-full);
-  background: rgba(34, 197, 94, 0.12);
-  border: 1px solid rgba(34, 197, 94, 0.3);
-  color: #4ADE80;
-  font-size: 0.76rem;
-  font-family: var(--font-mono);
+  gap: 7px;
+  color: #F8FAFC;
 }
 
-.badge-standard {
-  color: #64748B;
-  font-size: 0.82rem;
-}
-
-/* Mobile Adaptive Comparison Cards */
-.comparison-mobile-cards {
-  display: none;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-  max-width: 520px;
-  margin: 0 auto;
-}
-
-.comp-card-item {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 13px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
-}
-
-.comp-card-label {
-  font-size: 0.86rem;
-  font-weight: 700;
-  color: #FFFFFF;
-  letter-spacing: -0.01em;
-}
-
-.comp-card-split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
-
-.comp-box-brand {
-  background: rgba(29, 78, 216, 0.12);
-  border: 1px solid rgba(59, 130, 246, 0.3);
-  border-radius: 9px;
-  padding: 9px 10px 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.comp-box-rival {
-  background: rgba(255, 255, 255, 0.025);
-  border: 1px solid var(--border-subtle);
-  border-radius: 9px;
-  padding: 9px 10px 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.comp-pill-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.comp-pill-title {
-  font-family: var(--font-mono);
-  font-size: 0.63rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.comp-box-brand .comp-pill-title {
-  color: #60A5FA;
-}
-
-.comp-box-rival .comp-pill-title {
-  color: #64748B;
-}
-
-.comp-check-icon {
+.cv-check {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 14px;
-  height: 14px;
+  width: 17px;
+  height: 17px;
   border-radius: 50%;
-  background: rgba(34, 197, 94, 0.2);
+  background: rgba(34, 197, 94, 0.18);
+  border: 1px solid rgba(34, 197, 94, 0.4);
   color: #4ADE80;
   font-size: 0.65rem;
   font-weight: 800;
-}
-
-.comp-cross-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: rgba(239, 68, 68, 0.15);
-  color: #F87171;
-  font-size: 0.6rem;
-  font-weight: 800;
-}
-
-.comp-pill-value {
-  font-size: 0.77rem;
-  line-height: 1.35;
-}
-
-.comp-pill-value.win {
-  color: #F8FAFC;
-  font-weight: 700;
-}
-
-.comp-pill-value.other {
-  color: #94A3B8;
-  font-weight: 500;
+  line-height: 1;
+  flex-shrink: 0;
 }
 
 /* 13. Bottom Conversion Box */
@@ -2615,11 +2517,47 @@ a {
   }
 
   .comparison-table-wrapper {
-    display: none !important;
+    display: block !important;
+    border-radius: var(--radius-md);
   }
 
-  .comparison-mobile-cards {
-    display: flex !important;
+  .comparison-table th {
+    padding: 10px 8px;
+    font-size: 0.68rem;
+    letter-spacing: 0.03em;
+  }
+
+  .comparison-table td {
+    padding: 11px 8px;
+    font-size: 0.76rem;
+  }
+
+  .comparison-table th.col-feature,
+  .comparison-table td.col-feature {
+    width: 34%;
+    padding-left: 10px;
+  }
+
+  .comparison-table th.col-cinevault,
+  .comparison-table td.col-cinevault {
+    width: 36%;
+  }
+
+  .comparison-table th.col-other,
+  .comparison-table td.col-other {
+    width: 30%;
+    padding-right: 10px;
+  }
+
+  .cv-badge {
+    gap: 4px;
+    font-size: 0.76rem;
+  }
+
+  .cv-check {
+    width: 14px;
+    height: 14px;
+    font-size: 0.58rem;
   }
 
   .bento-card {
@@ -2912,6 +2850,27 @@ a {
 
   .metric-label {
     font-size: 0.58rem;
+  }
+
+  .comparison-table th {
+    padding: 8px 5px;
+    font-size: 0.62rem;
+  }
+
+  .comparison-table td {
+    padding: 9px 5px;
+    font-size: 0.70rem;
+  }
+
+  .cv-badge {
+    gap: 3px;
+    font-size: 0.70rem;
+  }
+
+  .cv-check {
+    width: 12px;
+    height: 12px;
+    font-size: 0.52rem;
   }
 }
 

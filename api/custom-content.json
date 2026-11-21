@@ -5,5 +5,26 @@
     "url": "https://t.me/+0nZRFagm4wU1MDll"
   },
   "featuredOverride": null,
-  "promotedMovies": []
+  "promotedMovies": [
+    {
+      "id": "940721",
+      "tmdbId": "940721",
+      "title": "Godzilla Minus Zero",
+      "detailPath": "godzilla-minus-zero-2023",
+      "overview": "In postwar Japan, an emergent colossal atomic leviathan rises from the ocean depths to plunge a scorched nation from zero into minus. A traumatized pilot and resilient civilian survivors unite to defend their homeland against an unrelenting titan.",
+      "poster": "https://image.tmdb.org/t/p/w500/2E2WTX0TJEflAged6kzErwqX1kt.jpg",
+      "backdrop": "https://image.tmdb.org/t/p/original/oHBhHoNe59VH6bUMazDtJmWOFSS.jpg",
+      "release_year": 2023,
+      "rating": 8.4,
+      "genres": [
+        "Science Fiction",
+        "Action",
+        "Drama",
+        "Adventure"
+      ],
+      "duration": "2h 5m",
+      "media_type": "movie",
+      "trailer_url": "https://www.youtube.com/watch?v=VvSrHIX5a-0"
+    }
+  ]
 }

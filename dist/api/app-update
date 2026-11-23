@@ -24,7 +24,7 @@
   "mandatory": true,
   "isRequired": true,
   "minVersion": "3.1.0",
-  "sha256": "B961DB9E939878610D56E26C30ABA5AECEB42503B2E09699DDC2DA3237D9B113",
-  "fileSizeBytes": 9925833,
-  "fileSizeMB": "9.5MB"
+  "sha256": "6032C6867F642058D2EC4A5107D507C4122192B7B40193136007FBB77A59BA31",
+  "fileSizeBytes": 11594809,
+  "fileSizeMB": "11.1MB"
 }

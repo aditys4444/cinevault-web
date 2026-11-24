@@ -3,8 +3,8 @@
   "short_name": "CineVault APK",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#060709",
-  "theme_color": "#060709",
+  "background_color": "#08080A",
+  "theme_color": "#08080A",
   "description": "Download CineVault APK for Android. Watch 4K movies, series, offline downloads, and 630+ Live TV channels with zero ads.",
   "icons": [
     {

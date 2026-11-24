@@ -1,32 +1,54 @@
 /**
  * CineVault — Official Website Interactive Logic
- * Design System: Obsidian Cinema
- * Release: v2.9.3 (Build 2930)
+ * Design System: Obsidian Void
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Current release constants (fallback if version.json is offline or cached)
   const APP_CONFIG = {
     version: '3.1.0',
-    sizeMB: '9.5MB',
+    sizeMB: '11.5 MB',
+    sha256: 'F08A143FE6F4258C3048006CE52C9DA0DAA917756FD6EDCA66801919B3C594B6',
     apkPath: 'downloads/CineVault.apk',
-    websiteUrl: 'https://cinevaultapk.online/'
+    websiteUrl: 'https://www.cinevaultapk.online/',
   };
 
-  // Try to sync with latest version.json dynamically
+  function syncVersionDom(version, sizeMB, sha256) {
+    if (version) {
+      document.querySelectorAll('[data-app-version]').forEach((el) => {
+        el.textContent = `v${version}`;
+      });
+    }
+    if (sizeMB) {
+      document.querySelectorAll('[data-app-size]').forEach((el) => {
+        el.textContent = sizeMB;
+      });
+    }
+    const hashEl = document.getElementById('apkHash');
+    if (sha256 && hashEl) {
+      hashEl.textContent = sha256;
+    }
+  }
+
+  // Hydrate dynamic release badges from version.json
   fetch('version.json')
-    .then(res => res.json())
-    .then(data => {
-      if (data && data.version) {
-        APP_CONFIG.version = data.version;
-        if (data.fileSizeMB) APP_CONFIG.sizeMB = data.fileSizeMB;
+    .then((res) => res.json())
+    .then((data) => {
+      if (!data) return;
+      if (data.version || data.latestVersionName) {
+        APP_CONFIG.version = data.version || data.latestVersionName;
       }
+      if (data.fileSizeMB) {
+        APP_CONFIG.sizeMB = data.fileSizeMB;
+      }
+      if (data.sha256) {
+        APP_CONFIG.sha256 = data.sha256;
+      }
+      syncVersionDom(APP_CONFIG.version, APP_CONFIG.sizeMB, APP_CONFIG.sha256);
     })
     .catch(() => {
-      // Graceful fallback to default constants
+      // Keep static fallback constants
     });
 
-  // Track element focus for accessibility
   let lastFocusedElement = null;
 
   // =========================================================================
@@ -74,101 +96,90 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mobileMenuToggle && mobileNavDrawer) {
     mobileMenuToggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      const isOpen = mobileNavDrawer.classList.contains('open');
-      if (isOpen) {
+      if (mobileNavDrawer.classList.contains('open')) {
         closeMobileNav();
       } else {
         openMobileNav();
       }
     });
 
-    // Close when clicking any nav link
-    mobileNavLinks.forEach(link => {
+    mobileNavLinks.forEach((link) => {
       link.addEventListener('click', () => {
         closeMobileNav();
       });
     });
 
-    // Close when clicking outside drawer
     document.addEventListener('click', (e) => {
-      if (mobileNavDrawer.classList.contains('open') && 
-          !mobileNavDrawer.contains(e.target) && 
-          e.target !== mobileMenuToggle && 
-          !mobileMenuToggle.contains(e.target)) {
+      if (
+        mobileNavDrawer.classList.contains('open') &&
+        !mobileNavDrawer.contains(e.target) &&
+        e.target !== mobileMenuToggle &&
+        !mobileMenuToggle.contains(e.target)
+      ) {
         closeMobileNav();
       }
     });
   }
 
   // =========================================================================
-  // 3. Focus Trapping for Accessible Modals
-  // =========================================================================
-  function trapFocus(modalElement) {
-    const focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-    const focusableElements = Array.from(modalElement.querySelectorAll(focusableSelectors))
-      .filter(el => !el.hasAttribute('disabled') && el.offsetParent !== null);
-    
-    if (focusableElements.length === 0) return;
-
-    const firstElement = focusableElements[0];
-    const lastElement = focusableElements[focusableElements.length - 1];
-
-    modalElement.addEventListener('keydown', function(e) {
-      if (e.key !== 'Tab') return;
-      if (e.shiftKey) {
-        if (document.activeElement === firstElement) {
-          lastElement.focus();
-          e.preventDefault();
-        }
-      } else {
-        if (document.activeElement === lastElement) {
-          firstElement.focus();
-          e.preventDefault();
-        }
-      }
-    });
-  }
-
-  // =========================================================================
-  // 4. Interactive App Preview Showcase & Lightbox Modal
+  // 3. Lightbox Modal with Clean Focus Handling (Single Bound Listener)
   // =========================================================================
   const deviceCards = document.querySelectorAll('.showcase-device-card');
   const lightboxModal = document.getElementById('lightboxModal');
   const lightboxImg = document.getElementById('lightboxImg');
   const closeLightboxBtn = document.getElementById('closeLightboxBtn');
 
-  let currentActiveImg = 'assets/home_screenshot.webp';
+  let currentActiveImg = 'assets/home_screenshot.webp?v=3.1.0';
+
+  if (lightboxModal) {
+    lightboxModal.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab') return;
+      const focusables = Array.from(
+        lightboxModal.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])')
+      ).filter((el) => !el.hasAttribute('disabled'));
+      if (focusables.length === 0) return;
+
+      const firstEl = focusables[0];
+      const lastEl = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === firstEl) {
+        lastEl.focus();
+        e.preventDefault();
+      } else if (!e.shiftKey && document.activeElement === lastEl) {
+        firstEl.focus();
+        e.preventDefault();
+      }
+    });
+
+    lightboxModal.addEventListener('click', (e) => {
+      if (e.target === lightboxModal) closeLightbox();
+    });
+  }
 
   function openLightbox(src, triggerEl) {
-    if (lightboxModal && lightboxImg) {
-      lastFocusedElement = triggerEl || document.activeElement;
-      currentActiveImg = src || currentActiveImg;
-      lightboxImg.src = currentActiveImg;
-      lightboxModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      if (closeLightboxBtn) closeLightboxBtn.focus();
-      trapFocus(lightboxModal);
-    }
+    if (!lightboxModal || !lightboxImg) return;
+    lastFocusedElement = triggerEl || document.activeElement;
+    currentActiveImg = src || currentActiveImg;
+    lightboxImg.src = currentActiveImg;
+    lightboxModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (closeLightboxBtn) closeLightboxBtn.focus();
   }
 
   function closeLightbox() {
-    if (lightboxModal && lightboxModal.classList.contains('active')) {
-      lightboxModal.classList.remove('active');
-      document.body.style.overflow = '';
-      if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
-        lastFocusedElement.focus();
-      }
+    if (!lightboxModal || !lightboxModal.classList.contains('active')) return;
+    lightboxModal.classList.remove('active');
+    document.body.style.overflow = '';
+    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+      lastFocusedElement.focus();
     }
   }
 
-  deviceCards.forEach(card => {
-    // Click event
+  deviceCards.forEach((card) => {
     card.addEventListener('click', () => {
       const imgSrc = card.dataset.img;
       if (imgSrc) openLightbox(imgSrc, card);
     });
 
-    // Keyboard accessibility: Enter or Space triggers enlargement
     card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -182,33 +193,33 @@ document.addEventListener('DOMContentLoaded', () => {
     closeLightboxBtn.addEventListener('click', closeLightbox);
   }
 
-  if (lightboxModal) {
-    lightboxModal.addEventListener('click', (e) => {
-      if (e.target === lightboxModal) closeLightbox();
-    });
-  }
-
-  // Mobile Carousel Dots Sync
+  // Mobile Carousel Pagination Dots
   const showcaseGrid = document.getElementById('showcaseDevicesGrid');
   const showcaseDots = document.querySelectorAll('.showcase-dot');
 
   if (showcaseGrid && showcaseDots.length > 0) {
     let dotTicking = false;
-    const cachedCardWidth = 266; // 250px card + 16px gap
 
-    showcaseGrid.addEventListener('scroll', () => {
-      if (!dotTicking) {
+    showcaseGrid.addEventListener(
+      'scroll',
+      () => {
+        if (dotTicking) return;
         dotTicking = true;
         requestAnimationFrame(() => {
-          const scrollLeft = showcaseGrid.scrollLeft;
-          const activeIndex = Math.min(showcaseDots.length - 1, Math.max(0, Math.round(scrollLeft / cachedCardWidth)));
+          const firstCard = deviceCards[0];
+          const stepWidth = firstCard ? firstCard.getBoundingClientRect().width + 16 : 266;
+          const activeIndex = Math.min(
+            showcaseDots.length - 1,
+            Math.max(0, Math.round(showcaseGrid.scrollLeft / stepWidth))
+          );
           showcaseDots.forEach((dot, idx) => {
             dot.classList.toggle('active', idx === activeIndex);
           });
           dotTicking = false;
         });
-      }
-    }, { passive: true });
+      },
+      { passive: true }
+    );
 
     showcaseDots.forEach((dot, idx) => {
       dot.addEventListener('click', () => {
@@ -220,157 +231,123 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 5. Direct Native Download Analytics & Non-blocking Toast
+  // 4. Download Analytics & Toast
   // =========================================================================
   const downloadBtns = document.querySelectorAll('.trigger-download');
 
-  downloadBtns.forEach(btn => {
+  downloadBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       showToast(`Downloading CineVault v${APP_CONFIG.version} (${APP_CONFIG.sizeMB})...`);
-
-      // Analytics Event
       if (typeof gtag === 'function') {
         gtag('event', 'apk_download', {
           event_category: 'Downloads',
           event_label: `CineVault v${APP_CONFIG.version} APK`,
-          value: 1
+          value: 1,
         });
       }
-      // Direct native browser download proceeds via normal <a href="downloads/CineVault.apk" download="CineVault.apk">
-      // No custom modal, no blocking popups, no delayed overlays.
     });
   });
 
-  // Global ESC Key Closes Lightbox Modal or Mobile Nav Drawer
+  // Global ESC key closes lightbox or mobile navigation drawer
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      if (lightboxModal && lightboxModal.classList.contains('active')) {
-        closeLightbox();
-      } else if (mobileNavDrawer && mobileNavDrawer.classList.contains('open')) {
-        closeMobileNav();
-        if (mobileMenuToggle) mobileMenuToggle.focus();
-      }
+    if (e.key !== 'Escape') return;
+    if (lightboxModal && lightboxModal.classList.contains('active')) {
+      closeLightbox();
+    } else if (mobileNavDrawer && mobileNavDrawer.classList.contains('open')) {
+      closeMobileNav();
+      if (mobileMenuToggle) mobileMenuToggle.focus();
     }
   });
 
   // =========================================================================
-  // 6. FireStick / TV Downloader URL Copy Button with Robust Fallback
+  // 5. Clipboard Copy Helper (Fire TV URL & SHA-256 Hash)
   // =========================================================================
+  async function copyTextWithFeedback(text, btn, toastText) {
+    let copied = false;
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(text);
+        copied = true;
+      }
+    } catch {
+      copied = false;
+    }
+
+    if (!copied) {
+      try {
+        const tempInput = document.createElement('textarea');
+        tempInput.value = text;
+        tempInput.style.position = 'fixed';
+        tempInput.style.opacity = '0';
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        copied = document.execCommand('copy');
+        document.body.removeChild(tempInput);
+      } catch {
+        copied = false;
+      }
+    }
+
+    showToast(toastText);
+    const btnSpan = btn.querySelector('span');
+    if (btnSpan) {
+      const orig = btnSpan.textContent;
+      btnSpan.textContent = 'Copied!';
+      setTimeout(() => {
+        btnSpan.textContent = orig;
+      }, 2200);
+    }
+  }
+
   const copyFirestickBtn = document.getElementById('copyFirestickUrlBtn');
   const firestickUrl = document.getElementById('firestickUrl');
-
   if (copyFirestickBtn && firestickUrl) {
-    copyFirestickBtn.addEventListener('click', async () => {
+    copyFirestickBtn.addEventListener('click', () => {
       const rawText = firestickUrl.textContent.trim();
-      const urlText = rawText.startsWith('http') ? rawText : 'https://' + rawText;
-      let copied = false;
-
-      try {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          await navigator.clipboard.writeText(urlText);
-          copied = true;
-        }
-      } catch {
-        copied = false;
-      }
-
-      if (!copied) {
-        try {
-          const tempInput = document.createElement('textarea');
-          tempInput.value = urlText;
-          tempInput.style.position = 'fixed';
-          tempInput.style.opacity = '0';
-          document.body.appendChild(tempInput);
-          tempInput.select();
-          copied = document.execCommand('copy');
-          document.body.removeChild(tempInput);
-        } catch {
-          copied = false;
-        }
-      }
-
-      showToast('Downloader link copied to clipboard!');
-      const btnSpan = copyFirestickBtn.querySelector('span');
-      if (btnSpan) {
-        const orig = btnSpan.textContent;
-        btnSpan.textContent = 'Copied!';
-        setTimeout(() => { btnSpan.textContent = orig; }, 2200);
-      }
+      const urlText = rawText.startsWith('http') ? rawText : `https://${rawText}`;
+      copyTextWithFeedback(urlText, copyFirestickBtn, 'Downloader URL copied to clipboard!');
     });
   }
 
-  // =========================================================================
-  // 6b. SHA-256 Hash Copy Button
-  // =========================================================================
   const copyHashBtn = document.getElementById('btnCopyHash');
   const apkHashEl = document.getElementById('apkHash');
-
   if (copyHashBtn && apkHashEl) {
-    copyHashBtn.addEventListener('click', async () => {
-      const hashText = apkHashEl.textContent.trim();
-      let copied = false;
-
-      try {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          await navigator.clipboard.writeText(hashText);
-          copied = true;
-        }
-      } catch {
-        copied = false;
-      }
-
-      if (!copied) {
-        try {
-          const tempInput = document.createElement('textarea');
-          tempInput.value = hashText;
-          tempInput.style.position = 'fixed';
-          tempInput.style.opacity = '0';
-          document.body.appendChild(tempInput);
-          tempInput.select();
-          copied = document.execCommand('copy');
-          document.body.removeChild(tempInput);
-        } catch {
-          copied = false;
-        }
-      }
-
-      showToast('SHA-256 Checksum copied!');
-      const btnSpan = copyHashBtn.querySelector('span');
-      if (btnSpan) {
-        const orig = btnSpan.textContent;
-        btnSpan.textContent = 'Copied!';
-        setTimeout(() => { btnSpan.textContent = orig; }, 2200);
-      }
+    copyHashBtn.addEventListener('click', () => {
+      copyTextWithFeedback(apkHashEl.textContent.trim(), copyHashBtn, 'SHA-256 Checksum copied!');
     });
   }
 
   // =========================================================================
-  // 7. Desktop Header Subtle Elevation Observer (Zero Scroll-Event Overhead)
+  // 6. Header Elevation Observer (Zero Scroll-Event Overhead)
   // =========================================================================
   const headerWrapper = document.getElementById('headerWrapper');
   const heroCtaRow = document.querySelector('.hero-cta-row');
 
   if (headerWrapper && heroCtaRow && 'IntersectionObserver' in window) {
-    const heroObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const isPastHero = !entry.isIntersecting && entry.boundingClientRect.top < 0;
-        headerWrapper.classList.toggle('is-scrolled', isPastHero);
-      });
-    }, { threshold: 0.1 });
-
+    const heroObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const isPastHero = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+          headerWrapper.classList.toggle('is-scrolled', isPastHero);
+        });
+      },
+      { threshold: 0.1 }
+    );
     heroObserver.observe(heroCtaRow);
   }
 
   // =========================================================================
-  // 8. Telegram Community Links & Analytics
+  // 7. Telegram Community Links & Mobile Deep-Link Intent
   // =========================================================================
-  const telegramBtns = document.querySelectorAll('.btn-nav-telegram, .btn-hero-telegram, .mobile-nav-telegram, .footer-link[href*="telegram"]');
-  telegramBtns.forEach(btn => {
+  const telegramBtns = document.querySelectorAll(
+    '.btn-nav-telegram, .btn-hero-telegram, .mobile-nav-telegram, .footer-link[href*="telegram"]'
+  );
+  telegramBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       if (typeof gtag === 'function') {
         gtag('event', 'telegram_click', {
           event_category: 'Community',
-          event_label: 'CineVault Telegram Channel'
+          event_label: 'CineVault Telegram Channel',
         });
       }
       if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
@@ -382,33 +359,26 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================================================
-  // 9. Accessible FAQ Accordion
+  // 8. Accessible FAQ Accordion
   // =========================================================================
   const faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach(item => {
+  faqItems.forEach((item) => {
     const questionBtn = item.querySelector('.faq-question');
-    if (questionBtn) {
-      questionBtn.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
-        
-        // Collapse all others
-        faqItems.forEach(other => {
-          if (other !== item) {
-            other.classList.remove('active');
-            const otherBtn = other.querySelector('.faq-question');
-            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
-          }
-        });
+    if (!questionBtn) return;
 
-        // Toggle clicked item
-        if (isActive) {
-          item.classList.remove('active');
-          questionBtn.setAttribute('aria-expanded', 'false');
-        } else {
-          item.classList.add('active');
-          questionBtn.setAttribute('aria-expanded', 'true');
+    questionBtn.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+
+      faqItems.forEach((other) => {
+        if (other !== item) {
+          other.classList.remove('active');
+          const otherBtn = other.querySelector('.faq-question');
+          if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
         }
       });
-    }
+
+      item.classList.toggle('active', !isActive);
+      questionBtn.setAttribute('aria-expanded', String(!isActive));
+    });
   });
 });

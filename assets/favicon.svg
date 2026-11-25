@@ -1,15 +1,111 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="16" fill="#050811"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
   <defs>
-    <linearGradient id="cva" x1="12" y1="10" x2="52" y2="54" gradientUnits="userSpaceOnUse">
+    <radialGradient id="fvBg" cx="50%" cy="46%" r="62%">
+      <stop offset="0%" stop-color="#183882"/>
+      <stop offset="52%" stop-color="#0B183C"/>
+      <stop offset="100%" stop-color="#050811"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#fvBg)"/>
+  <g transform="translate(256 256) scale(0.72) translate(-256 -256)">
+    
+  <defs>
+    <!-- Hero Platinum-White Sculpted C Gradients (Crisp Sculptural Origami Contrast) -->
+    <linearGradient id="cLeftSpine" x1="68" y1="92" x2="218" y2="450" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="52%" stop-color="#F8FAFC"/>
+      <stop offset="85%" stop-color="#E2E8F0"/>
       <stop offset="100%" stop-color="#CBD5E1"/>
     </linearGradient>
-    <linearGradient id="cvb" x1="25" y1="21" x2="46" y2="43" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#38BDF8"/>
-      <stop offset="100%" stop-color="#2563EB"/>
+    <linearGradient id="cTopWingGrad" x1="184" y1="88" x2="452" y2="146" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#CBD5E1"/>
+      <stop offset="28%" stop-color="#F1F5F9"/>
+      <stop offset="68%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E2E8F0"/>
+    </linearGradient>
+    <linearGradient id="cTopFoldShade" x1="184" y1="120" x2="438" y2="174" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#64748B"/>
+      <stop offset="40%" stop-color="#94A3B8"/>
+      <stop offset="78%" stop-color="#CBD5E1"/>
+      <stop offset="100%" stop-color="#E2E8F0"/>
+    </linearGradient>
+    <linearGradient id="cBottomWingGrad" x1="226" y1="468" x2="452" y2="352" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#CBD5E1"/>
+      <stop offset="44%" stop-color="#E2E8F0"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <linearGradient id="cBottomFoldEdge" x1="224" y1="472" x2="380" y2="316" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#94A3B8"/>
+      <stop offset="55%" stop-color="#CBD5E1"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+
+    <!-- Vibrant Electric Cyan-to-Sapphire Gradients -->
+    <linearGradient id="blueUpperRibbon" x1="164" y1="132" x2="262" y2="214" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1E40AF"/>
+      <stop offset="48%" stop-color="#1D4ED8"/>
+      <stop offset="86%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#0EA5E9"/>
+    </linearGradient>
+    <linearGradient id="blueLowerRibbon" x1="154" y1="322" x2="246" y2="368" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="52%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="blueBottomBowl" x1="176" y1="356" x2="342" y2="404" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1E40AF"/>
+      <stop offset="40%" stop-color="#1D4ED8"/>
+      <stop offset="78%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+    <linearGradient id="playSpineFold" x1="212" y1="158" x2="232" y2="356" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="50%" stop-color="#1D4ED8"/>
+      <stop offset="100%" stop-color="#1E3A8A"/>
+    </linearGradient>
+    <linearGradient id="playMainFace" x1="220" y1="200" x2="374" y2="274" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1D4ED8"/>
+      <stop offset="32%" stop-color="#2563EB"/>
+      <stop offset="76%" stop-color="#0EA5E9"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+    <linearGradient id="playCyanRim" x1="224" y1="152" x2="374" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7DD3FC" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#E0F2FE" stop-opacity="0.95"/>
     </linearGradient>
   </defs>
-  <path d="M45 19.5C41.8 16.1 37.3 14 32.2 14C22.2 14 14 22.1 14 32C14 41.9 22.2 50 32.2 50C37.3 50 41.8 47.9 45 44.5L39.6 39.2C37.7 41.2 35.1 42.4 32.2 42.4C26.4 42.4 21.6 37.7 21.6 32C21.6 26.3 26.4 21.6 32.2 21.6C35.1 21.6 37.7 22.8 39.6 24.8L45 19.5Z" fill="url(#cva)"/>
-  <path d="M28.5 23.2L44.8 32L28.5 40.8V23.2Z" fill="url(#cvb)"/>
+
+  <!-- 1. INNER SAPPHIRE CRADLE & SILK-SMOOTH CONNECTING RIBBONS -->
+  <path d="M 176 126 C 204 134, 238 156, 266 176 L 218 214 C 198 196, 174 182, 154 176 C 160 154, 168 138, 176 126 Z" fill="url(#blueUpperRibbon)"/>
+
+  <!-- Lower sapphire cradle bowl sweeping seamlessly BEHIND Play edge (zero notch) -->
+  <path d="M 148 308 C 154 374, 184 426, 224 468 C 266 444, 314 396, 338 346 C 306 358, 268 360, 228 352 C 192 344, 168 332, 148 308 Z" fill="url(#blueBottomBowl)"/>
+
+  <!-- Lower connecting cobalt fold sweeping continuously UP into Play's bottom edge -->
+  <path d="M 222 292 L 242 356 C 222 364, 198 368, 178 364 C 162 354, 154 338, 150 320 C 174 322, 200 310, 222 292 Z" fill="url(#blueLowerRibbon)"/>
+
+  <!-- 2. LUMINOUS ELECTRIC-CYAN PLAY ARROW + INTERLOCKING SPINE -->
+  <path d="M 212 166 C 212 154, 220 148, 230 154 L 236 256 L 230 358 C 220 364, 212 358, 212 346 Z" fill="url(#playSpineFold)"/>
+  <path d="M 222 162 C 222 151, 230 148, 240 154 L 368 242 C 378 249, 378 263, 368 270 L 240 358 C 230 364, 222 361, 222 350 Z" fill="url(#playMainFace)"/>
+  <path d="M 226 154 C 230 150, 235 151, 240 154 L 368 242 C 373 246, 375 251, 374 256" stroke="url(#playCyanRim)" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- 3. TOP RIBBON WING + TURNED UNDERSIDE SERIF -->
+  <path d="M 176 124 C 266 118, 366 122, 448 148 C 458 152, 458 160, 448 165 L 388 195 C 379 199, 372 196, 368 188 C 354 162, 332 138, 296 132 C 248 126, 206 126, 174 128 Z" fill="url(#cTopFoldShade)"/>
+  <path d="M 338 134 C 384 134, 424 142, 456 156 C 452 162, 446 166, 440 168 C 414 152, 378 140, 338 134 Z" fill="#E2E8F0"/>
+  <path d="M 244 38 C 334 46, 410 84, 456 144 C 460 149, 459 156, 452 158 C 424 142, 376 126, 314 122 C 254 118, 204 122, 174 126 C 196 92, 220 62, 244 38 Z" fill="url(#cTopWingGrad)"/>
+
+  <!-- 4. BOTTOM WHITE RIBBON WING -->
+  <path d="M 224 474 C 282 432, 338 376, 370 314 C 374 307, 382 307, 388 312 L 398 320 L 288 456 L 224 474 Z" fill="url(#cBottomFoldEdge)"/>
+  <path d="M 224 474 C 284 434, 340 376, 372 316 C 376 309, 384 308, 392 314 L 454 358 C 462 364, 462 372, 454 379 C 400 434, 322 472, 224 474 Z" fill="url(#cBottomWingGrad)"/>
+
+  <!-- 5. HERO LEFT CRESCENT WHITE C SPINE (CRISP SEPARATION ALONG TOP RIDGE) -->
+  <path d="M 248 39 C 220 64, 194 94, 176 126 C 154 166, 143 212, 143 256 C 143 310, 160 364, 190 414 C 202 436, 214 456, 224 474 C 190 468, 152 448, 124 422 C 78 380, 52 322, 52 256 C 52 190, 78 134, 126 96 C 158 70, 202 46, 238 38 C 242 37, 246 37, 248 39 Z" fill="url(#cLeftSpine)"/>
+
+  <!-- 6. SURGICAL MICRO-CATCHLIGHTS ON RIBBON RIDGES -->
+  <path d="M 244 38 C 204 46, 158 70, 126 96 C 78 134, 52 190, 52 256" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+  <path d="M 248 39 C 336 47, 410 85, 456 144" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.85"/>
+  <path d="M 246 40 C 218 66, 194 96, 176 126" stroke="#CBD5E1" stroke-width="1.4" stroke-linecap="round" opacity="0.65"/>
+  <path d="M 374 314 C 342 374, 286 432, 226 472" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" opacity="0.75"/>
+
+  </g>
 </svg>

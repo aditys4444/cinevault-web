@@ -8,22 +8,22 @@
   "description": "Download CineVault APK for Android. Watch 4K movies, series, offline downloads, and 630+ Live TV channels with zero ads.",
   "icons": [
     {
-      "src": "/assets/favicon-48x48.png",
+      "src": "/assets/favicon-48x48.png?v=3.2.1",
       "sizes": "48x48",
       "type": "image/png"
     },
     {
-      "src": "/assets/favicon-96x96.png",
+      "src": "/assets/favicon-96x96.png?v=3.2.1",
       "sizes": "96x96",
       "type": "image/png"
     },
     {
-      "src": "/assets/icon-192.png",
+      "src": "/assets/icon-192.png?v=3.2.1",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/assets/cinevault_app_icon.png",
+      "src": "/assets/cinevault_app_icon.png?v=3.2.1",
       "sizes": "512x512",
       "type": "image/png"
     }

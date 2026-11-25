@@ -1,27 +1,27 @@
 {
-  "latestVersionCode": 3200,
-  "latestVersionName": "3.2.0",
+  "latestVersionCode": 3201,
+  "latestVersionName": "3.2.1",
   "websiteUrl": "https://www.cinevaultapk.online/",
   "updatePageUrl": "https://www.cinevaultapk.online/",
   "apkDownloadUrl": "https://www.cinevaultapk.online/downloads/CineVault.apk",
   "directApkUrl": "https://www.cinevaultapk.online/downloads/CineVault.apk",
-  "updateMessage": "Upgrading from v3.1.0 or older: Uninstall the old app first, then install this signed v3.2.0 build (6.8 MB) to avoid a package conflict error. Future updates will install directly.",
+  "updateMessage": "CineVault v3.2.1 (5.3 MB) introduces our sculpted Midnight Sapphire Ribbon logo across the app and splash screen, plus Play Protect hardening. Upgrading from v3.1.0 or older: uninstall the older app once first before installing.",
   "forceUpdate": true,
-  "version": "3.2.0",
-  "versionCode": 3200,
+  "version": "3.2.1",
+  "versionCode": 3201,
   "releaseDate": "2026-11-25",
   "changelog": [
-    "IMPORTANT: If installing over v3.1.0 shows 'package conflicts', uninstall old CineVault first, then install v3.2.0",
-    "Signed Release Build (6.8 MB) with dedicated developer certificate & Play Protect hardening",
+    "New Sculpted Sapphire Ribbon app identity & adaptive launcher icons",
+    "Compact 5.3 MB signed release build with Play Protect hardening",
+    "IMPORTANT: If installing over v3.1.0 shows a package conflict, uninstall the older build once first",
     "Family Mode Setting: Hides all 18+/19+ mature content when ON and unlocks all content when OFF",
-    "Fresh Live Hero Banners prioritizing latest 2024+ & trending releases",
-    "Universal related Search & instant responsive Landscape Mode playback controls"
+    "Fresh 2024+ Live Hero Banners, Universal Search & smooth Landscape playback"
   ],
   "apkUrl": "https://www.cinevaultapk.online/downloads/CineVault.apk",
   "mandatory": true,
   "isRequired": true,
-  "minVersion": "3.2.0",
-  "sha256": "E2A92420CA910A18C24FD8426944E8FA37C25A89F931D24A83169D42B7E2EB0D",
-  "fileSizeBytes": 7180261,
-  "fileSizeMB": "6.8 MB"
+  "minVersion": "3.2.1",
+  "sha256": "FF2C491722702FA100091285B0DB5FDB25260DEBE91ED2773859EF6BEA2A1B45",
+  "fileSizeBytes": 5519837,
+  "fileSizeMB": "5.3 MB"
 }

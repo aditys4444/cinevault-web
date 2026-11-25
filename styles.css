@@ -660,19 +660,12 @@ code {
   gap: 6px;
 }
 
-.cv-phone-badge {
-  width: 18px;
-  height: 18px;
-  border-radius: 5px;
-  background: linear-gradient(145deg, #38BDF8 0%, #2563EB 100%);
-  color: #FFFFFF;
-  font-family: var(--font-condensed);
-  font-size: 0.6rem;
-  font-weight: 800;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  letter-spacing: 0.02em;
+.cv-phone-badge-img {
+  width: 19px;
+  height: 19px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
 }
 
 .cv-phone-logo {

@@ -130,7 +130,7 @@
   <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
   <!-- Icons & Manifest -->
   <link rel="icon" href="/favicon.ico?v=3.1.0" sizes="any">
@@ -140,15 +140,15 @@
   <link rel="icon" type="image/png" sizes="512x512" href="/assets/cinevault_app_icon.png?v=3.1.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png?v=3.1.0">
   <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#09080A">
+  <meta name="theme-color" content="#050811">
 
-  <link rel="stylesheet" href="styles.css?v=6.0.0">
+  <link rel="stylesheet" href="styles.css?v=7.0.0">
 </head>
 <body>
 
   <a href="#mainContent" class="skip-link">Skip to main content</a>
 
-  <!-- Film-House Navigation Header -->
+  <!-- Top Navigation -->
   <div class="header-wrapper" id="headerWrapper">
     <header class="nav-bar" id="mainNavBar">
       <a href="/" class="nav-brand" title="CineVault Official">
@@ -159,20 +159,20 @@
       </a>
 
       <nav class="nav-links" id="desktopNavLinks" aria-label="Main Navigation">
-        <a href="#features" class="nav-link">Experience</a>
-        <a href="#showcase" class="nav-link">Screens</a>
-        <a href="#comparison" class="nav-link">Why Official</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#showcase" class="nav-link">Screenshots</a>
+        <a href="#comparison" class="nav-link">Why CineVault</a>
         <a href="#installation" class="nav-link">Install &amp; SHA-256</a>
         <a href="#faq" class="nav-link">FAQ</a>
       </nav>
 
       <div class="nav-actions">
         <a href="https://telegram.me/+0nZRFagm4wU1MDll" target="_blank" rel="noopener" class="btn-nav-telegram" title="Join CineVault Telegram Channel">
-          <span>Community</span>
+          <span>Telegram</span>
         </a>
 
         <a href="downloads/CineVault.apk" download="CineVault.apk" class="btn-nav-download trigger-download" title="Download CineVault APK">
-          <span><span class="desktop-only-text">Get </span>APK</span>
+          <span><span class="desktop-only-text">Download </span>APK</span>
         </a>
 
         <button type="button" class="btn-mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileNavDrawer">
@@ -186,9 +186,9 @@
     <!-- Mobile Navigation Sheet -->
     <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
       <nav class="mobile-nav-menu" aria-label="Mobile Navigation Menu">
-        <a href="#features" class="mobile-nav-link"><span>Experience</span></a>
-        <a href="#showcase" class="mobile-nav-link"><span>Screens</span></a>
-        <a href="#comparison" class="mobile-nav-link"><span>Why Official</span></a>
+        <a href="#features" class="mobile-nav-link"><span>Features</span></a>
+        <a href="#showcase" class="mobile-nav-link"><span>Screenshots</span></a>
+        <a href="#comparison" class="mobile-nav-link"><span>Why CineVault</span></a>
         <a href="#installation" class="mobile-nav-link"><span>Install &amp; SHA-256</span></a>
         <a href="#faq" class="mobile-nav-link"><span>FAQ</span></a>
         <div class="mobile-nav-divider"></div>
@@ -205,226 +205,190 @@
     </div>
   </div>
 
-  <main class="theater-canvas" id="mainContent">
+  <main class="sapphire-canvas" id="mainContent">
 
-    <!-- 1. Centered Theater Premiere Hero + Panoramic 3-Phone Triptych -->
-    <section class="hero-premiere">
-      <div class="hero-curtain-glow" aria-hidden="true"></div>
-
+    <!-- 1. Hero Stage -->
+    <section class="hero-section">
+      <div class="hero-radial-glow" aria-hidden="true"></div>
       <div class="section-container">
-        <div class="hero-header-stack">
-          <p class="hero-release-note">
-            <span>Android 5.0+</span>
-            <span class="note-sep" aria-hidden="true">&bull;</span>
-            <span data-app-version>v3.1.0</span>
-            <span class="note-sep" aria-hidden="true">&bull;</span>
-            <span>630+ Live Channels</span>
-            <span class="note-sep" aria-hidden="true">&bull;</span>
-            <span>Ad-Free</span>
-          </p>
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-release-pill">
+              <span class="release-dot" aria-hidden="true"></span>
+              <span>Release <span data-app-version>v3.1.0</span> &middot; Android 5.0+ &middot; Ad-Free</span>
+            </div>
 
-          <h1 class="hero-display">
-            Your private cinema,
-            <em class="hero-display-serif">without compromise.</em>
-          </h1>
+            <h1 class="hero-headline">
+              Movies, Series &amp; Live TV.
+              <span class="hero-headline-blue">Built Clean for Android.</span>
+            </h1>
 
-          <p class="hero-lead-copy">
-            Watch films in 4K, save episodes for offline flights, and tune into 630+ live broadcasts inside an <span data-app-size>11.5 MB</span> Android build.
-          </p>
+            <p class="hero-description">
+              Stream movies and shows in up to 4K, download episodes locally for travel, and watch 630+ live television channels in a compact <span data-app-size>11.5 MB</span> build.
+            </p>
 
-          <div class="hero-cta-row">
-            <a href="downloads/CineVault.apk" download="CineVault.apk" class="btn-hero-download trigger-download" title="Download CineVault APK for Android">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="7 10 12 15 17 10"/>
-                <line x1="12" y1="15" x2="12" y2="3"/>
-              </svg>
-              <span>Download Official APK</span>
-              <span class="btn-meta-size" data-app-size>11.5 MB</span>
-            </a>
+            <div class="hero-cta-row">
+              <a href="downloads/CineVault.apk" download="CineVault.apk" class="btn-hero-download trigger-download" title="Download CineVault APK for Android">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                <span>Download APK</span>
+                <span class="btn-meta-size" data-app-size>11.5 MB</span>
+              </a>
 
-            <a href="https://telegram.me/+0nZRFagm4wU1MDll" target="_blank" rel="noopener" class="btn-hero-telegram" title="Join CineVault Telegram Community">
-              <span>Join Telegram</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15" aria-hidden="true">
-                <line x1="7" y1="17" x2="17" y2="7"/>
-                <polyline points="7 7 17 7 17 17"/>
-              </svg>
-            </a>
-          </div>
-        </div>
+              <a href="https://telegram.me/+0nZRFagm4wU1MDll" target="_blank" rel="noopener" class="btn-hero-telegram" title="Join CineVault Telegram Channel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="17" height="17" aria-hidden="true">
+                  <path d="m22 2-7 20-4-9-9-4Z"/>
+                  <path d="M22 2 11 13"/>
+                </svg>
+                <span>Join Telegram</span>
+              </a>
+            </div>
 
-        <!-- Panoramic Three-Device Stage (Center Bespoke Studio Mockup + Flanking Real Captures) -->
-        <div class="hero-triptych" role="img" aria-label="CineVault Android app screening stage featuring original CineVault home showcase flanked by Player and Live TV screens">
-          <!-- Left Recessed Phone: Player -->
-          <div class="triptych-side triptych-left" aria-hidden="true">
-            <div class="side-device-bezel">
-              <div class="side-device-screen">
-                <img src="assets/v3_player_screen.webp?v=3.1.0" alt="" width="824" height="1784" decoding="async">
-              </div>
+            <div class="hero-facts-row">
+              <span>No account needed</span>
+              <span class="facts-sep" aria-hidden="true">&middot;</span>
+              <span>Fire TV &amp; Android TV ready</span>
+              <span class="facts-sep" aria-hidden="true">&middot;</span>
+              <span>SHA-256 verified</span>
             </div>
           </div>
 
-          <!-- Centerpiece Flagship Phone: Original CineVault Obsidian & Crimson Studio UI -->
-          <div class="triptych-center" aria-hidden="true">
-            <div class="center-aura"></div>
-            <div class="flagship-bezel">
-              <span class="hw-key hw-vol-up"></span>
-              <span class="hw-key hw-vol-down"></span>
-              <span class="hw-key hw-pwr"></span>
-              <div class="flagship-screen">
-                <div class="flagship-island"></div>
-
-                <div class="cv-mock">
-                  <div class="cv-mock-bar">
-                    <span class="cv-mock-brand"><b>CINE</b><i>VAULT</i></span>
-                    <span class="cv-mock-actions">
-                      <span class="cv-mock-dot"></span>
-                      <span class="cv-mock-avatar"></span>
-                    </span>
-                  </div>
-
-                  <!-- Bespoke Premiere Showcase Card -->
-                  <div class="cv-premiere-card">
-                    <div class="cv-premiere-badges">
-                      <span class="cv-tag-live">4K HDR</span>
-                      <span class="cv-tag-rating">&#9733; 9.1</span>
-                    </div>
-                    <div class="cv-premiere-title">STUDIO PREMIERES</div>
-                    <div class="cv-premiere-sub">Movies &bull; Series &bull; Zero Pre-Rolls</div>
-                    <div class="cv-premiere-actions">
-                      <span class="cv-mock-play-btn">&#9654; Stream Now</span>
-                      <span class="cv-mock-save-btn">+ Watchlist</span>
-                    </div>
-                  </div>
-
-                  <!-- Library Strip -->
-                  <div class="cv-shelf-head">
-                    <span>CONTINUE WATCHING</span>
-                    <span class="cv-shelf-link">Offline Ready</span>
-                  </div>
-
-                  <div class="cv-poster-row">
-                    <div class="cv-poster-tile cv-tile-a">
-                      <span class="cv-tile-q">4K</span>
-                      <div class="cv-tile-prog"><span style="width: 68%"></span></div>
-                    </div>
-                    <div class="cv-poster-tile cv-tile-b">
-                      <span class="cv-tile-q">1080P</span>
-                      <div class="cv-tile-prog"><span style="width: 34%"></span></div>
-                    </div>
-                    <div class="cv-poster-tile cv-tile-c">
-                      <span class="cv-tile-q">SAVED</span>
-                      <div class="cv-tile-prog"><span style="width: 85%"></span></div>
-                    </div>
-                  </div>
-
-                  <!-- Live Broadcast Dock -->
-                  <div class="cv-broadcast-dock">
-                    <div class="cv-dock-icon">&#9654;</div>
-                    <div class="cv-dock-info">
-                      <div class="cv-dock-title">LIVE BROADCAST &middot; 630+ CHANNELS</div>
-                      <div class="cv-dock-meter"><span></span></div>
-                    </div>
-                    <span class="cv-dock-badge">LIVE</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Recessed Phone: Live TV -->
-          <div class="triptych-side triptych-right" aria-hidden="true">
-            <div class="side-device-bezel">
-              <div class="side-device-screen">
-                <img src="assets/v3_livetv_screen.webp?v=3.1.0" alt="" width="824" height="1784" decoding="async">
+          <!-- Flagship Sculpted Phone Frame with Real CineVault Interface -->
+          <div class="hero-mockup-wrapper" aria-label="CineVault Android Interface">
+            <div class="hero-device-glow" aria-hidden="true"></div>
+            <div class="titanium-device-bezel hero-device-frame">
+              <span class="device-hw-btn device-btn-vol-up" aria-hidden="true"></span>
+              <span class="device-hw-btn device-btn-vol-down" aria-hidden="true"></span>
+              <span class="device-hw-btn device-btn-power" aria-hidden="true"></span>
+              <div class="device-screen-frame">
+                <div class="device-dynamic-island" aria-hidden="true"></div>
+                <img
+                  src="assets/v3_mini_player_screen.webp?v=3.1.0"
+                  alt="CineVault Android App showing featured premiere banner, Continue Watching shelves, and floating mini-player"
+                  class="hero-app-screen-img"
+                  width="824"
+                  height="1784"
+                  decoding="async"
+                  fetchpriority="high"
+                >
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="hero-floor-fade" aria-hidden="true"></div>
     </section>
 
-    <!-- 2. Quiet Spec Ribbon -->
-    <section class="ribbon-section" aria-label="Release summary">
+    <!-- 2. Quick Stats Strip -->
+    <section class="stats-section" aria-label="Key Application Specifications">
       <div class="section-container">
-        <div class="ribbon-grid">
-          <div class="ribbon-cell">
-            <span class="ribbon-val" data-app-size>11.5 MB</span>
-            <span class="ribbon-lbl">Universal Installer</span>
+        <div class="stats-grid">
+          <div class="stat-cell">
+            <span class="stat-num" data-app-size>11.5 MB</span>
+            <span class="stat-lbl">Universal Installer</span>
           </div>
-          <div class="ribbon-cell">
-            <span class="ribbon-val">Zero Ads</span>
-            <span class="ribbon-lbl">No Pop-Ups or Pre-Rolls</span>
+          <div class="stat-cell">
+            <span class="stat-num">630+</span>
+            <span class="stat-lbl">Live TV Channels</span>
           </div>
-          <div class="ribbon-cell">
-            <span class="ribbon-val">630+</span>
-            <span class="ribbon-lbl">Live TV Channels</span>
+          <div class="stat-cell">
+            <span class="stat-num">Zero Ads</span>
+            <span class="stat-lbl">No Pre-Rolls or Pop-Ups</span>
           </div>
-          <div class="ribbon-cell">
-            <span class="ribbon-val">Offline</span>
-            <span class="ribbon-lbl">On-Device Episodes</span>
+          <div class="stat-cell">
+            <span class="stat-num">Offline</span>
+            <span class="stat-lbl">Local Episode Downloads</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 3. Editorial Capabilities (Staggered Magazine Spread) -->
+    <!-- 3. Core Capabilities -->
     <section class="section-features" id="features">
       <div class="section-container">
-        <div class="section-intro-row">
-          <h2 class="section-title">Crafted around <em>playback</em>, not clutter.</h2>
-          <p class="section-subtitle">Every screen opens fast, navigates cleanly with one thumb, and stays free of background adware across phones, tablets, and Android TV.</p>
+        <div class="section-head-left">
+          <h2 class="section-title">Fast streaming, tuned for real devices</h2>
+          <p class="section-subtitle">Lightweight playback architecture built to run smoothly across flagship smartphones, budget handsets, tablets, and Android TV boxes.</p>
         </div>
 
         <div class="bento-grid">
           <div class="bento-card">
-            <span class="feature-mark">Playback Engine</span>
-            <h3 class="bento-title">Adaptive resolution &amp; 0.5&times;&ndash;2&times; speed</h3>
-            <p class="bento-body">Switch quality manually or automatically, toggle subtitles, crop widescreen black bars cleanly, or shrink any stream into a docked mini-player.</p>
+            <div class="bento-head">
+              <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+                <polygon points="6 3 20 12 6 21 6 3"/>
+              </svg>
+              <h3 class="bento-title">Adaptive Video Player</h3>
+            </div>
+            <p class="bento-body">Switch resolution manually or automatically, set speed from 0.5&times; to 2&times;, toggle subtitles, fit widescreen panels, or dock into a mini-player bar.</p>
           </div>
 
           <div class="bento-card">
-            <span class="feature-mark">Live Television</span>
-            <h3 class="bento-title">630+ channels with stream failover</h3>
-            <p class="bento-body">Browse sports, news, cinema, and regional channels while the player pins cleanly at the top, complete with instant backup stream switching and PiP.</p>
+            <div class="bento-head">
+              <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+                <rect width="20" height="15" x="2" y="7" rx="2" ry="2"/>
+                <polyline points="17 2 12 7 7 2"/>
+              </svg>
+              <h3 class="bento-title">630+ Live TV Channels</h3>
+            </div>
+            <p class="bento-body">Filter sports, news, movies, and regional television with automatic stream failover, sticky portrait staging while browsing, and Picture-in-Picture.</p>
           </div>
 
           <div class="bento-card">
-            <span class="feature-mark">Travel Mode</span>
-            <h3 class="bento-title">Offline episode &amp; film saving</h3>
-            <p class="bento-body">Pick the resolution that suits your storage, download to your device directly, and watch smoothly without mobile reception.</p>
+            <div class="bento-head">
+              <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              <h3 class="bento-title">Offline Downloads</h3>
+            </div>
+            <p class="bento-body">Pick your preferred resolution and save films or episodes directly to phone storage for smooth offline viewing during travel or commutes.</p>
           </div>
 
           <div class="bento-card">
-            <span class="feature-mark">Ergonomics</span>
-            <h3 class="bento-title">Edge swipes &amp; bedside screen lock</h3>
-            <p class="bento-body">Slide left for brightness, right for volume, double-tap to seek 10 seconds, and lock touch controls against accidental taps.</p>
+            <div class="bento-head">
+              <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+                <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>
+                <path d="M12 18h.01"/>
+              </svg>
+              <h3 class="bento-title">Edge Gestures &amp; Screen Lock</h3>
+            </div>
+            <p class="bento-body">Swipe screen edges for brightness and volume, double-tap to seek 10 seconds ahead or back, and lock touch controls cleanly when watching in bed.</p>
           </div>
 
           <div class="bento-card">
-            <span class="feature-mark">Performance</span>
-            <h3 class="bento-title">Tuned <span data-app-size>11.5 MB</span> footprint</h3>
-            <p class="bento-body">Code-split views and lazy HLS stream initialization launch rapidly and hold responsive scrolling on budget Android phones.</p>
+            <div class="bento-head">
+              <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+              <h3 class="bento-title">Compact <span data-app-size>11.5 MB</span> Build</h3>
+            </div>
+            <p class="bento-body">Code-split routes and lazy HLS loading launch screens rapidly and maintain smooth frame pacing even on modest Android hardware.</p>
           </div>
 
           <div class="bento-card">
-            <span class="feature-mark">Privacy</span>
-            <h3 class="bento-title">No sign-up walls or ad SDKs</h3>
-            <p class="bento-body">Open and stream right away—Watchlist, Continue Watching timestamps, and saved history remain locally on your device.</p>
+            <div class="bento-head">
+              <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+              <h3 class="bento-title">Zero Accounts or Ad SDKs</h3>
+            </div>
+            <p class="bento-body">Open and play immediately without registration or OTP prompts. Your Watchlist, Continue Watching history, and saved items stay local.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 4. Real App Screens Showcase -->
+    <!-- 4. App Screenshots Tour -->
     <section class="showcase-section" id="showcase">
       <div class="section-container">
         <div class="showcase-header">
           <div>
-            <h2 class="section-title">Inside the v3.1.0 build</h2>
-            <p class="section-subtitle">Unedited captures from CineVault on Android. Tap any phone to inspect full screen.</p>
+            <h2 class="section-title">Inside CineVault</h2>
+            <p class="section-subtitle">Captures directly from the v3.1.0 Android app. Tap any phone screen to view full size.</p>
           </div>
           <div class="showcase-tabs" id="showcaseTabs" role="tablist" aria-label="Jump to app screen">
             <button type="button" class="showcase-tab active" data-index="0" role="tab" aria-selected="true">Home</button>
@@ -435,7 +399,6 @@
         </div>
 
         <div class="showcase-devices-grid" id="showcaseDevicesGrid">
-          <!-- Screen 1: Home -->
           <div class="showcase-device-card is-highlighted" role="button" tabindex="0" data-category="core" data-img="assets/home_screenshot.webp?v=3.1.0" data-caption="Home &amp; Catalog — Featured showcase, Continue Watching &amp; shelves" aria-label="Enlarge screenshot: Home and Catalog" title="Tap to enlarge">
             <div class="showcase-device-chassis">
               <div class="showcase-screen-viewport">
@@ -448,7 +411,6 @@
             </div>
           </div>
 
-          <!-- Screen 2: Player -->
           <div class="showcase-device-card" role="button" tabindex="0" data-category="player" data-img="assets/player_screenshot.webp?v=3.1.0" data-caption="Playback Studio — Speed selector, Auto resolution, Screen lock &amp; offline save" aria-label="Enlarge screenshot: Video Player controls" title="Tap to enlarge">
             <div class="showcase-device-chassis">
               <div class="showcase-screen-viewport">
@@ -461,7 +423,6 @@
             </div>
           </div>
 
-          <!-- Screen 3: Live TV -->
           <div class="showcase-device-card" role="button" tabindex="0" data-category="livetv" data-img="assets/livetv_screenshot.webp?v=3.1.0" data-caption="Live TV Guide — 630+ channels with category tabs &amp; Picture-in-Picture" aria-label="Enlarge screenshot: Live TV Guide" title="Tap to enlarge">
             <div class="showcase-device-chassis">
               <div class="showcase-screen-viewport">
@@ -474,7 +435,6 @@
             </div>
           </div>
 
-          <!-- Screen 4: Search -->
           <div class="showcase-device-card" role="button" tabindex="0" data-category="search" data-img="assets/v3_search_screen.webp?v=3.1.0" data-caption="Search &amp; Genres — Bollywood, Hollywood, Anime, Series &amp; Live Channel search" aria-label="Enlarge screenshot: Search and Genres" title="Tap to enlarge">
             <div class="showcase-device-chassis">
               <div class="showcase-screen-viewport">
@@ -497,52 +457,55 @@
       </div>
     </section>
 
-    <!-- 5. Side-by-Side Comparison Columns -->
+    <!-- 5. Official Distribution Comparison -->
     <section class="comparison-section" id="comparison">
       <div class="section-container">
-        <div class="section-intro-centered">
-          <h2 class="section-title">Official distribution vs. third-party clones</h2>
-          <p class="section-subtitle">Built clean from the ground up so installation stays light, fast, and verifiable.</p>
+        <div class="section-head-centered">
+          <h2 class="section-title">Why install the official CineVault build</h2>
+          <p class="section-subtitle">Delivered cleanly from our primary repository without wrapper ads, account prompts, or third-party bloat.</p>
         </div>
 
-        <div class="verdict-columns">
-          <div class="verdict-col verdict-official">
-            <div class="verdict-col-head">
-              <span class="verdict-col-title">CineVault Official (<span data-app-version>v3.1.0</span>)</span>
-              <span class="verdict-pill">Recommended</span>
+        <div class="compare-grid">
+          <div class="compare-panel compare-panel-official">
+            <div class="compare-panel-head">
+              <div class="compare-brand">
+                <img src="assets/cinevault_app_icon.png?v=3.1.0" alt="" width="28" height="28" class="compare-icon" loading="lazy" decoding="async">
+                <span>CineVault Official (<span data-app-version>v3.1.0</span>)</span>
+              </div>
+              <span class="compare-badge">Verified</span>
             </div>
-            <ul class="verdict-list">
-              <li><span class="v-check" aria-hidden="true">&#10003;</span>Zero banner ads or video pre-rolls</li>
-              <li><span class="v-check" aria-hidden="true">&#10003;</span>No phone number or email registration</li>
-              <li><span class="v-check" aria-hidden="true">&#10003;</span>Compact <span data-app-size>11.5 MB</span> universal APK</li>
-              <li><span class="v-check" aria-hidden="true">&#10003;</span>Resolution-selectable offline downloads</li>
-              <li><span class="v-check" aria-hidden="true">&#10003;</span>630+ Live TV channels built in</li>
+            <ul class="compare-list">
+              <li><span class="cmp-yes" aria-hidden="true">&#10003;</span><span><strong>Zero Ads</strong> &mdash; no video pre-rolls or pop-up redirects</span></li>
+              <li><span class="cmp-yes" aria-hidden="true">&#10003;</span><span><strong>No Sign-In</strong> &mdash; launch and watch right away</span></li>
+              <li><span class="cmp-yes" aria-hidden="true">&#10003;</span><span><strong><span data-app-size>11.5 MB</span> APK</strong> &mdash; compact, responsive footprint</span></li>
+              <li><span class="cmp-yes" aria-hidden="true">&#10003;</span><span><strong>Offline Saver</strong> &mdash; resolution-selectable downloads included</span></li>
+              <li><span class="cmp-yes" aria-hidden="true">&#10003;</span><span><strong>630+ Live TV</strong> &mdash; built-in channel guide &amp; PiP player</span></li>
             </ul>
           </div>
 
-          <div class="verdict-col verdict-other">
-            <div class="verdict-col-head">
-              <span class="verdict-col-title">Ad-Supported APK Mirrors</span>
-              <span class="verdict-pill-muted">Unofficial</span>
+          <div class="compare-panel compare-panel-other">
+            <div class="compare-panel-head">
+              <span>Third-Party Streaming APKs</span>
+              <span class="compare-badge-muted">Unofficial</span>
             </div>
-            <ul class="verdict-list">
-              <li><span class="v-minus" aria-hidden="true">&minus;</span>Interruptive pre-rolls &amp; pop-up redirects</li>
-              <li><span class="v-minus" aria-hidden="true">&minus;</span>Mandatory account or OTP gates</li>
-              <li><span class="v-minus" aria-hidden="true">&minus;</span>80&ndash;150 MB bloated wrapper packages</li>
-              <li><span class="v-minus" aria-hidden="true">&minus;</span>Offline downloads paywalled</li>
-              <li><span class="v-minus" aria-hidden="true">&minus;</span>Separate IPTV players required</li>
+            <ul class="compare-list">
+              <li><span class="cmp-no" aria-hidden="true">&minus;</span><span>Interruptive video pre-rolls &amp; banner overlays</span></li>
+              <li><span class="cmp-no" aria-hidden="true">&minus;</span><span>Email, phone, or Telegram bot login gates</span></li>
+              <li><span class="cmp-no" aria-hidden="true">&minus;</span><span>80&ndash;150 MB bloated installers with ad SDKs</span></li>
+              <li><span class="cmp-no" aria-hidden="true">&minus;</span><span>Offline downloads locked behind VIP keys</span></li>
+              <li><span class="cmp-no" aria-hidden="true">&minus;</span><span>Separate IPTV app or broken external links</span></li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 6. Installation & SHA-256 Trust Bar -->
+    <!-- 6. Installation & SHA-256 Verification -->
     <section class="install-section" id="installation">
       <div class="section-container">
-        <div class="section-intro-centered">
-          <h2 class="section-title">Sideload on mobile &amp; Fire TV</h2>
-          <p class="section-subtitle">Three quick steps on any Android device running Android 5.0 or higher.</p>
+        <div class="section-head-centered">
+          <h2 class="section-title">Install in under a minute</h2>
+          <p class="section-subtitle">Sideload seamlessly on Android phones, tablets, Google TV, or Amazon Fire TV.</p>
         </div>
 
         <div class="steps-grid">
@@ -550,21 +513,21 @@
             <span class="step-num">1</span>
             <div class="step-content">
               <h3 class="step-title">Download the APK</h3>
-              <p class="step-body">Fetch the <span data-app-size>11.5 MB</span> installer straight from <code>cinevaultapk.online</code> with no mirrors.</p>
+              <p class="step-body">Save the official <span data-app-size>11.5 MB</span> installer straight from <code>cinevaultapk.online</code> with no mirrors.</p>
             </div>
           </div>
           <div class="step-card">
             <span class="step-num">2</span>
             <div class="step-content">
               <h3 class="step-title">Allow browser installs</h3>
-              <p class="step-body">Tap the saved file, open <strong>Settings</strong> when Android prompts, and permit your browser.</p>
+              <p class="step-body">Tap the completed file, open <strong>Settings</strong> when prompted by Android, and enable installs from your browser.</p>
             </div>
           </div>
           <div class="step-card">
             <span class="step-num">3</span>
             <div class="step-content">
-              <h3 class="step-title">Open &amp; stream</h3>
-              <p class="step-body">Tap <strong>Install</strong> and launch CineVault—Watchlist and Live TV work right away.</p>
+              <h3 class="step-title">Open &amp; watch</h3>
+              <p class="step-body">Tap <strong>Install</strong> and launch CineVault. Watchlist, Continue Watching, and Live TV are immediately ready.</p>
             </div>
           </div>
         </div>
@@ -573,7 +536,7 @@
           <div class="tv-sideload-box">
             <div class="utility-head">
               <span class="utility-label">Fire TV &amp; Android TV (Downloader App)</span>
-              <span class="utility-meta">Short URL</span>
+              <span class="utility-meta">Direct Short URL</span>
             </div>
             <div class="downloader-code-box">
               <span class="downloader-code-text" id="firestickUrl">cinevaultapk.online/apk</span>
@@ -602,7 +565,7 @@
     <!-- 7. FAQ -->
     <section class="faq-section" id="faq">
       <div class="section-container faq-container-narrow">
-        <div class="section-intro-centered">
+        <div class="section-head-centered">
           <h2 class="section-title">Questions &amp; Answers</h2>
           <p class="section-subtitle">
             Need help sideloading or updating? Reach out on <a href="https://telegram.me/+0nZRFagm4wU1MDll" target="_blank" rel="noopener" class="inline-link">Telegram</a>.
@@ -673,16 +636,16 @@
       </div>
     </section>
 
-    <!-- 8. Closing Cinema Ticket CTA -->
+    <!-- 8. Closing Card -->
     <section class="conversion-section" id="download">
       <div class="section-container">
         <div class="conversion-card">
           <img src="assets/cinevault_app_icon.png?v=3.1.0" alt="CineVault App Icon" width="68" height="68" class="conversion-app-icon" loading="lazy" decoding="async">
-          <h2 class="conversion-title">Start streaming with CineVault</h2>
+          <h2 class="conversion-title">Download CineVault for Android</h2>
           <p class="conversion-sub">Release <span data-app-version>v3.1.0</span> &bull; <span data-app-size>11.5 MB</span> &bull; Android 5.0+ &bull; Zero Ads</p>
           <div class="conversion-btn-row">
             <a href="downloads/CineVault.apk" download="CineVault.apk" class="btn-hero-download trigger-download" title="Download CineVault APK for Android">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                 <polyline points="7 10 12 15 17 10"/>
                 <line x1="12" y1="15" x2="12" y2="3"/>
@@ -712,9 +675,9 @@
         </div>
 
         <div class="footer-nav-links">
-          <a href="#features" class="footer-link">Experience</a>
-          <a href="#showcase" class="footer-link">Screens</a>
-          <a href="#comparison" class="footer-link">Why Official</a>
+          <a href="#features" class="footer-link">Features</a>
+          <a href="#showcase" class="footer-link">Screenshots</a>
+          <a href="#comparison" class="footer-link">Why CineVault</a>
           <a href="#installation" class="footer-link">Install &amp; SHA-256</a>
           <a href="#faq" class="footer-link">FAQ</a>
           <a href="https://telegram.me/+0nZRFagm4wU1MDll" target="_blank" rel="noopener" class="footer-link">Telegram</a>
@@ -749,11 +712,11 @@
     <p class="lightbox-caption" id="lightboxCaption"></p>
   </div>
 
-  <!-- Toast Feedback -->
-  <div class="toast-notice" id="toastNotice" role="status" aria-live="polite">
-    <span id="toastMessage">Downloading CineVault v3.1.0...</span>
+  <!-- Quiet Status Region (Hidden on Download) -->
+  <div class="toast-notice" id="toastNotice" role="status" aria-live="polite" hidden>
+    <span id="toastMessage"></span>
   </div>
 
-  <script src="app.js?v=4.2.0"></script>
+  <script src="app.js?v=5.0.0"></script>
 </body>
 </html>

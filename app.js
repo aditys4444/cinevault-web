@@ -50,24 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let lastFocusedElement = null;
 
   // =========================================================================
-  // 1. Toast Feedback Helper
-  // =========================================================================
-  const toast = document.getElementById('toastNotice');
-  const toastMsg = document.getElementById('toastMessage');
-  let toastTimer = null;
-
-  function showToast(message) {
-    if (!toast || !toastMsg) return;
-    toastMsg.textContent = message;
-    toast.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => {
-      toast.classList.remove('show');
-    }, 3000);
-  }
-
-  // =========================================================================
-  // 2. Mobile Navigation Sheet
+  // 1. Mobile Navigation Sheet
   // =========================================================================
   const mobileMenuToggle = document.getElementById('mobileMenuToggle');
   const mobileNavDrawer = document.getElementById('mobileNavDrawer');
@@ -120,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 3. Showcase Gallery, Mobile Carousel Sync & Swipeable Lightbox
+  // 2. Showcase Gallery, Mobile Carousel Sync & Swipeable Lightbox
   // =========================================================================
   const deviceCards = Array.from(document.querySelectorAll('.showcase-device-card'));
   const showcaseGrid = document.getElementById('showcaseDevicesGrid');
@@ -201,7 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Touch swipe left/right navigation inside mobile lightbox
     let touchStartX = 0;
     let touchStartY = 0;
     lightboxModal.addEventListener(
@@ -315,13 +297,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 4. Download Analytics & Toast
+  // 3. Direct APK Download Analytics (No Blocking/Floating Popup)
   // =========================================================================
   const downloadBtns = document.querySelectorAll('.trigger-download');
 
   downloadBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
-      showToast(`Downloading CineVault v${APP_CONFIG.version} (${APP_CONFIG.sizeMB})...`);
       if (typeof gtag === 'function') {
         gtag('event', 'apk_download', {
           event_category: 'Downloads',
@@ -344,9 +325,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================================================
-  // 5. Clipboard Copy Helper (Fire TV URL & SHA-256 Hash)
+  // 4. Inline Clipboard Copy Helper (Fire TV URL & SHA-256 Hash)
   // =========================================================================
-  async function copyTextWithFeedback(text, btn, toastText) {
+  async function copyTextInline(text, btn) {
     let copied = false;
     try {
       if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -372,14 +353,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    showToast(toastText);
     const btnSpan = btn.querySelector('span');
     if (btnSpan) {
       const orig = btnSpan.textContent;
       btnSpan.textContent = 'Copied!';
       setTimeout(() => {
         btnSpan.textContent = orig;
-      }, 2200);
+      }, 2000);
     }
   }
 
@@ -389,7 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
     copyFirestickBtn.addEventListener('click', () => {
       const rawText = firestickUrl.textContent.trim();
       const urlText = rawText.startsWith('http') ? rawText : `https://${rawText}`;
-      copyTextWithFeedback(urlText, copyFirestickBtn, 'Downloader URL copied to clipboard!');
+      copyTextInline(urlText, copyFirestickBtn);
     });
   }
 
@@ -397,12 +377,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const apkHashEl = document.getElementById('apkHash');
   if (copyHashBtn && apkHashEl) {
     copyHashBtn.addEventListener('click', () => {
-      copyTextWithFeedback(apkHashEl.textContent.trim(), copyHashBtn, 'SHA-256 Checksum copied!');
+      copyTextInline(apkHashEl.textContent.trim(), copyHashBtn);
     });
   }
 
   // =========================================================================
-  // 6. Header Elevation Observer
+  // 5. Header Elevation Observer
   // =========================================================================
   const headerWrapper = document.getElementById('headerWrapper');
   const heroCtaRow = document.querySelector('.hero-cta-row');
@@ -421,7 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 7. Telegram Community Links & Mobile Deep-Link Intent
+  // 6. Telegram Community Links & Mobile Deep-Link Intent
   // =========================================================================
   const telegramBtns = document.querySelectorAll(
     '.btn-nav-telegram, .btn-hero-telegram, .mobile-nav-telegram, .footer-link[href*="telegram"]'
@@ -443,7 +423,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================================================
-  // 8. Accessible FAQ Accordion
+  // 7. Accessible FAQ Accordion
   // =========================================================================
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach((item) => {

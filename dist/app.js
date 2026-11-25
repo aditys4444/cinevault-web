@@ -4,9 +4,9 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const APP_CONFIG = {
-    version: '3.2.4',
+    version: '3.2.5',
     sizeMB: '5.2 MB',
-    sha256: '00DA343312DDE6B620AB2C0BEBD511033CBC50CEE36CB11E67BA41C28FE664A5',
+    sha256: '660AD31F330ACC64C2DFF9BA8DD70BEB339FEB9E706D216CE6A99AC54BA9F460',
     apkPath: 'downloads/CineVault.apk',
     websiteUrl: 'https://www.cinevaultapk.online/',
   };

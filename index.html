@@ -142,7 +142,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#050811">
 
-  <link rel="stylesheet" href="styles.css?v=8.0.0">
+  <link rel="stylesheet" href="styles.css?v=9.0.0">
 </head>
 <body>
 
@@ -171,7 +171,7 @@
         </a>
 
         <a href="downloads/CineVault.apk" download="CineVault.apk" class="btn-nav-download trigger-download" title="Download CineVault APK">
-          <span><span class="desktop-only-text">Download </span>APK</span>
+          <span>Get App</span>
         </a>
 
         <button type="button" class="btn-mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileNavDrawer">
@@ -211,18 +211,18 @@
       <div class="section-container">
         <div class="hero-grid">
           <div class="hero-content">
-            <div class="hero-release-pill">
+            <p class="hero-release-meta">
               <span class="release-dot" aria-hidden="true"></span>
               <span>Release <span data-app-version>v3.1.0</span> &middot; Android 5.0+ &middot; Ad-Free</span>
-            </div>
+            </p>
 
             <h1 class="hero-headline">
-              Movies, Series &amp; Live TV.
-              <span class="hero-headline-blue">Built Clean for Android.</span>
+              Cinema &amp; Live TV.
+              <span class="hero-headline-blue">Built for Android.</span>
             </h1>
 
             <p class="hero-description">
-              Stream movies and shows in up to 4K, download episodes locally for travel, and watch 630+ live television channels in a compact <span data-app-size>11.5 MB</span> build.
+              Stream 4K movies and shows, save episodes offline, and watch 630+ live channels in an <span data-app-size>11.5 MB</span> app.
             </p>
 
             <div class="hero-cta-row">
@@ -237,25 +237,17 @@
               </a>
 
               <a href="https://telegram.me/+0nZRFagm4wU1MDll" target="_blank" rel="noopener" class="btn-hero-telegram" title="Join CineVault Telegram Channel">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="17" height="17" aria-hidden="true">
-                  <path d="m22 2-7 20-4-9-9-4Z"/>
-                  <path d="M22 2 11 13"/>
-                </svg>
                 <span>Join Telegram</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true">
+                  <line x1="7" y1="17" x2="17" y2="7"/>
+                  <polyline points="7 7 17 7 17 17"/>
+                </svg>
               </a>
-            </div>
-
-            <div class="hero-facts-row">
-              <span>No account needed</span>
-              <span class="facts-sep" aria-hidden="true">&middot;</span>
-              <span>Fire TV &amp; Android TV ready</span>
-              <span class="facts-sep" aria-hidden="true">&middot;</span>
-              <span>Direct <span data-app-size>11.5 MB</span> APK</span>
             </div>
           </div>
 
           <!-- Bespoke Midnight Sapphire CineVault Flagship Phone Mockup -->
-          <div class="hero-mockup-wrapper" role="img" aria-label="CineVault Android app interface showing Featured Premieres, My Library cards, and Live Broadcast dock">
+          <div class="hero-mockup-wrapper" role="img" aria-label="CineVault Android app interface showing 4K Cinema Spotlight, Watchlist and Offline shelf, and Streaming dock bar">
             <div class="hero-device-glow" aria-hidden="true"></div>
             <div class="titanium-device-bezel hero-device-frame" aria-hidden="true">
               <span class="device-hw-btn device-btn-vol-up"></span>
@@ -274,21 +266,31 @@
                   </div>
 
                   <div class="cv-spotlight-banner">
-                    <span class="cv-spotlight-kicker">CINEVAULT ORIGINALS</span>
+                    <span class="cv-spotlight-kicker">CINEVAULT ORIGINALS &middot; 4K HDR</span>
                     <span class="cv-spotlight-title">4K CINEMA &amp; SHOWS</span>
+                    <span class="cv-spotlight-play">&#9654; Watch Now</span>
                   </div>
 
                   <div class="cv-section-label">WATCHLIST &amp; OFFLINE</div>
 
                   <div class="cv-cards-trio">
-                    <div class="cv-poster cv-poster-1"></div>
-                    <div class="cv-poster cv-poster-2"></div>
-                    <div class="cv-poster cv-poster-3"></div>
+                    <div class="cv-poster cv-poster-1">
+                      <span class="cv-poster-play">&#9654;</span>
+                      <div class="cv-poster-bar"><span style="width: 66%"></span></div>
+                    </div>
+                    <div class="cv-poster cv-poster-2">
+                      <span class="cv-poster-play">&#9654;</span>
+                      <div class="cv-poster-bar"><span style="width: 34%"></span></div>
+                    </div>
+                    <div class="cv-poster cv-poster-3">
+                      <span class="cv-poster-play">&#9654;</span>
+                      <div class="cv-poster-bar"><span style="width: 82%"></span></div>
+                    </div>
                   </div>
 
                   <div class="cv-player-dock">
                     <div class="cv-dock-play">
-                      <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12">
                         <polygon points="7,4 20,12 7,20"/>
                       </svg>
                     </div>
@@ -299,6 +301,8 @@
                       </div>
                     </div>
                   </div>
+
+                  <div class="cv-home-indicator"></div>
                 </div>
               </div>
             </div>
@@ -307,25 +311,25 @@
       </div>
     </section>
 
-    <!-- 2. Quick Stats Strip -->
+    <!-- 2. Quiet Open Stats Strip -->
     <section class="stats-section" aria-label="Key Application Specifications">
       <div class="section-container">
         <div class="stats-grid">
           <div class="stat-cell">
             <span class="stat-num" data-app-size>11.5 MB</span>
-            <span class="stat-lbl">Universal Installer</span>
+            <span class="stat-lbl">APK Size</span>
           </div>
           <div class="stat-cell">
             <span class="stat-num">630+</span>
-            <span class="stat-lbl">Live TV Channels</span>
+            <span class="stat-lbl">Live Channels</span>
           </div>
           <div class="stat-cell">
             <span class="stat-num">Zero Ads</span>
-            <span class="stat-lbl">No Pre-Rolls or Pop-Ups</span>
+            <span class="stat-lbl">Ad-Free Build</span>
           </div>
           <div class="stat-cell">
             <span class="stat-num">Offline</span>
-            <span class="stat-lbl">Local Episode Downloads</span>
+            <span class="stat-lbl">Saved Playback</span>
           </div>
         </div>
       </div>
@@ -335,8 +339,8 @@
     <section class="section-features" id="features">
       <div class="section-container">
         <div class="section-head-left">
-          <h2 class="section-title">Fast streaming, tuned for real devices</h2>
-          <p class="section-subtitle">Lightweight playback architecture built to run smoothly across flagship smartphones, budget handsets, tablets, and Android TV boxes.</p>
+          <h2 class="section-title">Fast streaming, tuned for every Android screen</h2>
+          <p class="section-subtitle">Lightweight playback engineered to feel smooth across flagship smartphones, budget phones, tablets, and Android TV.</p>
         </div>
 
         <div class="bento-grid">

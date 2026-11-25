@@ -1,6 +1,6 @@
 /* ==========================================================================
    CineVault — Official Distribution Stylesheet
-   Midnight Sapphire Blue & Obsidian Cinema System (#050811)
+   Midnight Sapphire Blue & Mobile-Native Cinema System (#050811)
    ========================================================================== */
 
 :root {
@@ -21,7 +21,7 @@
   --blue-ice: #93C5FD;
   --accent-ok: #22C55E;
 
-  --line-subtle: rgba(148, 163, 184, 0.14);
+  --line-subtle: rgba(148, 163, 184, 0.13);
   --line-strong: rgba(148, 197, 255, 0.24);
   --line-blue: rgba(59, 130, 246, 0.36);
 
@@ -220,9 +220,9 @@ code {
 }
 
 .nav-brand-logo-horizontal {
-  height: 28px;
+  height: 27px;
   width: auto;
-  max-width: 144px;
+  max-width: 140px;
   object-fit: contain;
   display: block;
 }
@@ -246,7 +246,7 @@ code {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .btn-nav-telegram {
@@ -264,13 +264,13 @@ code {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 9px 18px;
+  padding: 8px 17px;
   min-height: 36px;
   border-radius: var(--radius-full);
   background: linear-gradient(180deg, var(--blue-bright) 0%, var(--blue-primary) 100%);
   color: #FFFFFF;
   font-family: var(--font-heading);
-  font-size: 0.83rem;
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 6px 18px rgba(37, 99, 235, 0.35);
@@ -287,9 +287,8 @@ code {
 
 .btn-mobile-menu-toggle {
   display: none;
-  background: var(--bg-surface);
-  border: 1px solid var(--line-subtle);
-  border-radius: var(--radius-sm);
+  background: transparent;
+  border: none;
   width: 38px;
   height: 38px;
   padding: 8px;
@@ -302,22 +301,17 @@ code {
   flex-shrink: 0;
 }
 
-.btn-mobile-menu-toggle:hover {
-  border-color: var(--line-blue);
-  background: var(--bg-elevated);
-}
-
 .hamburger-line {
   display: block;
-  width: 17px;
-  height: 1.7px;
+  width: 19px;
+  height: 1.8px;
   background-color: currentColor;
   border-radius: 2px;
   transition: transform 0.2s ease, opacity 0.16s ease;
 }
 
 .btn-mobile-menu-toggle.is-active .line-1 {
-  transform: translateY(6.7px) rotate(45deg);
+  transform: translateY(6.8px) rotate(45deg);
 }
 
 .btn-mobile-menu-toggle.is-active .line-2 {
@@ -325,7 +319,7 @@ code {
 }
 
 .btn-mobile-menu-toggle.is-active .line-3 {
-  transform: translateY(-6.7px) rotate(-45deg);
+  transform: translateY(-6.8px) rotate(-45deg);
 }
 
 .mobile-nav-drawer {
@@ -437,19 +431,15 @@ code {
   gap: 18px;
 }
 
-.hero-release-pill {
+.hero-release-meta {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  padding: 6px 14px;
-  border-radius: var(--radius-full);
-  background: rgba(37, 99, 235, 0.12);
-  border: 1px solid rgba(56, 189, 248, 0.28);
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: 0.76rem;
   font-weight: 500;
   color: var(--blue-ice);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
 }
 
 .release-dot {
@@ -482,14 +472,14 @@ code {
   font-size: clamp(0.98rem, 1.12vw, 1.1rem);
   line-height: 1.62;
   color: var(--text-secondary);
-  max-width: 495px;
+  max-width: 480px;
 }
 
 .hero-cta-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   padding-top: 4px;
 }
 
@@ -526,22 +516,22 @@ code {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .btn-hero-telegram {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 14px 22px;
-  min-height: 52px;
+  gap: 6px;
+  padding: 12px 18px;
+  min-height: 46px;
   border-radius: var(--radius-full);
-  background: rgba(15, 23, 45, 0.85);
+  background: rgba(15, 23, 45, 0.82);
   border: 1px solid var(--line-strong);
   color: var(--text-high);
   font-family: var(--font-heading);
-  font-size: 0.94rem;
+  font-size: 0.92rem;
   font-weight: 600;
 }
 
@@ -549,24 +539,6 @@ code {
   background: rgba(30, 48, 92, 0.72);
   border-color: var(--blue-sky);
   transform: translateY(-1px);
-}
-
-.btn-hero-telegram:active {
-  transform: scale(0.98);
-}
-
-.hero-facts-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-  padding-top: 4px;
-  font-size: 0.82rem;
-  color: var(--text-faint);
-}
-
-.facts-sep {
-  color: rgba(148, 163, 184, 0.45);
 }
 
 /* ==========================================================================
@@ -594,9 +566,9 @@ code {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 308px;
-  padding: 11px;
-  border-radius: 48px;
+  max-width: 304px;
+  padding: 10px;
+  border-radius: 46px;
   background: linear-gradient(155deg, #212C45 0%, #0E1422 48%, #162036 100%);
   border: 1px solid rgba(147, 197, 253, 0.24);
   box-shadow:
@@ -615,31 +587,31 @@ code {
 
 .device-btn-vol-up {
   left: -3px;
-  top: 120px;
+  top: 118px;
   width: 3px;
-  height: 34px;
+  height: 32px;
 }
 
 .device-btn-vol-down {
   left: -3px;
-  top: 166px;
+  top: 162px;
   width: 3px;
-  height: 34px;
+  height: 32px;
 }
 
 .device-btn-power {
   right: -3px;
-  top: 146px;
+  top: 142px;
   width: 3px;
-  height: 48px;
+  height: 46px;
 }
 
 .device-screen-frame {
   position: relative;
   width: 100%;
-  border-radius: 37px;
+  border-radius: 36px;
   overflow: hidden;
-  aspect-ratio: 824 / 1784;
+  aspect-ratio: 9 / 18.6;
   border: 1px solid rgba(147, 197, 253, 0.1);
 }
 
@@ -649,11 +621,11 @@ code {
 
 .device-dynamic-island {
   position: absolute;
-  top: 12px;
+  top: 11px;
   left: 50%;
   transform: translateX(-50%);
-  width: 86px;
-  height: 23px;
+  width: 82px;
+  height: 21px;
   border-radius: var(--radius-full);
   background: #040710;
   box-shadow: inset 0 0 0 1px rgba(147, 197, 253, 0.08);
@@ -664,7 +636,7 @@ code {
 .cv-phone-shell {
   width: 100%;
   height: 100%;
-  padding: 58px 17px 26px;
+  padding: 52px 17px 14px;
   display: flex;
   flex-direction: column;
 }
@@ -673,12 +645,12 @@ code {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .cv-phone-logo {
   font-family: var(--font-condensed);
-  font-size: 1.46rem;
+  font-size: 1.42rem;
   font-weight: 800;
   letter-spacing: 0.04em;
   line-height: 1;
@@ -693,67 +665,84 @@ code {
 }
 
 .cv-phone-avatar {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  background: rgba(147, 197, 253, 0.14);
-  border: 1px solid rgba(147, 197, 253, 0.16);
+  background: rgba(147, 197, 253, 0.16);
+  border: 1px solid rgba(147, 197, 253, 0.22);
 }
 
 .cv-spotlight-banner {
   width: 100%;
-  aspect-ratio: 16 / 9.2;
+  aspect-ratio: 16 / 9.5;
   border-radius: 15px;
-  padding: 18px;
+  padding: 16px;
   background:
-    radial-gradient(ellipse 80% 85% at 80% 26%, rgba(56, 189, 248, 0.55) 0%, rgba(29, 78, 216, 0.78) 46%, #0B1530 100%);
-  border: 1px solid rgba(147, 197, 253, 0.18);
+    radial-gradient(ellipse 80% 85% at 80% 26%, rgba(56, 189, 248, 0.56) 0%, rgba(29, 78, 216, 0.8) 46%, #0B1530 100%);
+  border: 1px solid rgba(147, 197, 253, 0.2);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  align-items: flex-start;
   gap: 4px;
   box-shadow: 0 14px 32px rgba(2, 6, 18, 0.55);
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 }
 
 .cv-spotlight-kicker {
   font-family: var(--font-main);
-  font-size: 0.61rem;
+  font-size: 0.58rem;
   font-weight: 600;
-  letter-spacing: 0.16em;
-  color: rgba(224, 242, 254, 0.72);
+  letter-spacing: 0.14em;
+  color: rgba(224, 242, 254, 0.78);
 }
 
 .cv-spotlight-title {
   font-family: var(--font-condensed);
   font-size: 1.24rem;
   font-weight: 700;
-  letter-spacing: 0.025em;
+  letter-spacing: 0.02em;
   line-height: 1.05;
   color: #FFFFFF;
 }
 
+.cv-spotlight-play {
+  margin-top: 6px;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  background: #FFFFFF;
+  color: #060B18;
+  font-family: var(--font-heading);
+  font-size: 0.62rem;
+  font-weight: 700;
+}
+
 .cv-section-label {
   font-family: var(--font-main);
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.14em;
-  color: rgba(148, 163, 184, 0.78);
-  margin-bottom: 12px;
+  color: rgba(148, 163, 184, 0.82);
+  margin-bottom: 10px;
 }
 
 .cv-cards-trio {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 9px;
-  margin-bottom: 18px;
+  gap: 8px;
+  margin-bottom: 16px;
 }
 
 .cv-poster {
-  aspect-ratio: 3 / 3.9;
-  border-radius: 11px;
-  border: 1px solid rgba(147, 197, 253, 0.14);
-  box-shadow: inset 0 1px 0 rgba(191, 219, 254, 0.14);
+  position: relative;
+  aspect-ratio: 3 / 3.75;
+  border-radius: 10px;
+  padding: 7px;
+  border: 1px solid rgba(147, 197, 253, 0.16);
+  box-shadow: inset 0 1px 0 rgba(191, 219, 254, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .cv-poster-1 {
@@ -768,20 +757,52 @@ code {
   background: linear-gradient(155deg, #16306B 0%, #0F1D40 60%, #080E1E 100%);
 }
 
+.cv-poster-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -56%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1px;
+}
+
+.cv-poster-bar {
+  width: 100%;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(191, 219, 254, 0.18);
+  overflow: hidden;
+}
+
+.cv-poster-bar span {
+  display: block;
+  height: 100%;
+  background: var(--blue-sky);
+}
+
 .cv-player-dock {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 13px 14px;
+  gap: 11px;
+  padding: 12px 13px;
   border-radius: 13px;
   background: linear-gradient(135deg, rgba(30, 58, 138, 0.55) 0%, rgba(12, 21, 46, 0.92) 100%);
-  border: 1px solid rgba(56, 189, 248, 0.32);
+  border: 1px solid rgba(56, 189, 248, 0.34);
   box-shadow: 0 10px 24px rgba(2, 6, 18, 0.45);
 }
 
 .cv-dock-play {
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: linear-gradient(180deg, #38BDF8 0%, #2563EB 100%);
   color: #FFFFFF;
@@ -798,12 +819,12 @@ code {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 6px;
 }
 
 .cv-dock-heading {
   font-family: var(--font-condensed);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   color: #F8FAFC;
@@ -825,8 +846,16 @@ code {
   background: #38BDF8;
 }
 
+.cv-home-indicator {
+  margin: auto auto 0;
+  width: 82px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: rgba(248, 250, 252, 0.24);
+}
+
 /* ==========================================================================
-   3. Stats Strip
+   3. Quiet Open Stats Strip
    ========================================================================== */
 .stats-section {
   border-top: 1px solid var(--line-subtle);
@@ -882,7 +911,7 @@ code {
 }
 
 .section-title {
-  font-size: clamp(1.8rem, 2.9vw, 2.5rem);
+  font-size: clamp(1.75rem, 2.9vw, 2.5rem);
   font-weight: 800;
   letter-spacing: -0.035em;
   margin-bottom: 12px;
@@ -1223,7 +1252,7 @@ code {
 }
 
 /* ==========================================================================
-   7. Smooth Grid FAQ Accordion
+   7. Smooth Grid FAQ Accordion (Clean Open Dividers)
    ========================================================================== */
 .faq-section {
   padding: 84px 0;
@@ -1231,7 +1260,7 @@ code {
 }
 
 .faq-container-narrow {
-  max-width: 800px;
+  max-width: 780px;
 }
 
 .inline-link {
@@ -1244,22 +1273,11 @@ code {
 }
 
 .faq-accordion {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  border-top: 1px solid var(--line-subtle);
 }
 
 .faq-item {
-  border-radius: var(--radius-md);
-  background: var(--bg-surface);
-  border: 1px solid var(--line-subtle);
-  padding: 0 22px;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
-}
-
-.faq-item.active {
-  background: var(--bg-elevated);
-  border-color: var(--line-strong);
+  border-bottom: 1px solid var(--line-subtle);
 }
 
 .faq-question {
@@ -1593,8 +1611,7 @@ code {
     max-width: 520px;
   }
 
-  .hero-cta-row,
-  .hero-facts-row {
+  .hero-cta-row {
     justify-content: center;
   }
 
@@ -1614,10 +1631,6 @@ code {
 }
 
 @media (max-width: 768px) {
-  .desktop-only-text {
-    display: none !important;
-  }
-
   .section-container,
   .nav-bar {
     padding-left: 20px;
@@ -1630,8 +1643,8 @@ code {
   }
 
   .nav-brand-logo-horizontal {
-    height: 24px;
-    max-width: 118px;
+    height: 23px;
+    max-width: 114px;
   }
 
   .btn-nav-download {
@@ -1640,108 +1653,116 @@ code {
     font-size: 0.78rem;
   }
 
+  /* Compact Above-the-Fold Mobile Hero */
   .hero-section {
-    padding-top: 76px;
-    padding-bottom: 44px;
+    padding-top: 72px;
+    padding-bottom: 36px;
   }
 
   .hero-grid {
-    gap: 26px;
+    gap: 22px;
   }
 
   .hero-content {
     align-items: center;
     text-align: center;
-    gap: 12px;
+    gap: 10px;
   }
 
-  .hero-release-pill {
+  .hero-release-meta {
     font-size: 0.68rem;
-    padding: 5px 12px;
+    gap: 7px;
   }
 
   .hero-headline {
-    font-size: clamp(1.9rem, 7.6vw, 2.45rem);
+    font-size: clamp(1.92rem, 8.2vw, 2.35rem);
     line-height: 1.08;
   }
 
   .hero-description {
-    font-size: 0.92rem;
-    line-height: 1.54;
-    max-width: 340px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    max-width: 330px;
   }
 
   .hero-cta-row {
     width: 100%;
-    max-width: 330px;
+    max-width: 310px;
     flex-direction: column;
-    gap: 8px;
-    padding-top: 4px;
+    gap: 6px;
+    padding-top: 2px;
   }
 
-  .btn-hero-download,
-  .btn-hero-telegram {
+  .btn-hero-download {
     width: 100%;
     min-height: 48px;
-    padding: 12px 18px;
+    padding: 12px 20px;
+    font-size: 0.94rem;
   }
 
-  .hero-facts-row {
-    font-size: 0.74rem;
-    gap: 8px;
+  .btn-hero-telegram {
+    width: auto;
+    min-height: 36px;
+    padding: 6px 12px;
+    background: transparent;
+    border: none;
+    color: var(--blue-ice);
+    font-size: 0.84rem;
+    font-weight: 500;
   }
 
   .titanium-device-bezel {
-    max-width: 268px;
-    border-radius: 42px;
+    max-width: 264px;
+    border-radius: 40px;
     padding: 9px;
   }
 
   .device-screen-frame {
-    border-radius: 33px;
+    border-radius: 32px;
+    aspect-ratio: 9 / 18.2;
   }
 
   .device-dynamic-island {
-    width: 76px;
-    height: 20px;
-    top: 10px;
+    width: 72px;
+    height: 18px;
+    top: 9px;
   }
 
   .cv-phone-shell {
-    padding: 48px 14px 20px;
+    padding: 44px 14px 12px;
   }
 
   .cv-phone-logo {
-    font-size: 1.3rem;
+    font-size: 1.28rem;
   }
 
   .cv-phone-avatar {
-    width: 24px;
-    height: 24px;
+    width: 23px;
+    height: 23px;
   }
 
   .cv-spotlight-banner {
-    padding: 14px;
-    margin-bottom: 18px;
+    padding: 13px;
+    margin-bottom: 14px;
   }
 
   .cv-spotlight-title {
-    font-size: 1.08rem;
+    font-size: 1.06rem;
   }
 
   .cv-section-label {
-    font-size: 0.58rem;
-    margin-bottom: 10px;
+    font-size: 0.56rem;
+    margin-bottom: 8px;
   }
 
   .cv-cards-trio {
     gap: 7px;
-    margin-bottom: 14px;
+    margin-bottom: 13px;
   }
 
   .cv-player-dock {
-    padding: 10px 12px;
-    gap: 10px;
+    padding: 10px 11px;
+    gap: 9px;
   }
 
   .cv-dock-play {
@@ -1753,6 +1774,7 @@ code {
     font-size: 0.68rem;
   }
 
+  /* Clean Stats Grid */
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1773,22 +1795,45 @@ code {
   .showcase-section,
   .install-section,
   .faq-section {
-    padding: 52px 0;
+    padding: 48px 0;
   }
 
-  .bento-grid,
-  .steps-grid {
+  .section-head-left,
+  .section-head-centered {
+    margin-bottom: 24px;
+  }
+
+  /* Native Grouped Panel for Capabilities on Mobile (Zero Box Clutter) */
+  .bento-grid {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 0;
+    border-radius: var(--radius-md);
+    background: var(--bg-surface);
+    border: 1px solid var(--line-subtle);
+    overflow: hidden;
   }
 
   .bento-card {
-    padding: 22px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid var(--line-subtle);
+    padding: 20px;
+    gap: 7px;
+  }
+
+  .bento-card:last-child {
+    border-bottom: none;
+  }
+
+  .bento-card:hover {
+    transform: none;
   }
 
   .showcase-header {
-    gap: 16px;
-    margin-bottom: 24px;
+    gap: 14px;
+    margin-bottom: 20px;
   }
 
   .showcase-tabs {
@@ -1803,13 +1848,14 @@ code {
     text-align: center;
   }
 
+  /* Centered Card-0 Start with Peeking Next Card */
   .showcase-devices-grid {
     display: flex;
     gap: 16px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     margin: 0 -20px;
-    padding: 6px 20px 14px;
+    padding: 6px calc(50% - 130px) 14px;
     scrollbar-width: none;
   }
 
@@ -1818,8 +1864,7 @@ code {
   }
 
   .showcase-device-card {
-    flex: 0 0 70vw;
-    max-width: 264px;
+    flex: 0 0 260px;
     scroll-snap-align: center;
   }
 
@@ -1859,15 +1904,39 @@ code {
     background: var(--blue-sky);
   }
 
-  .step-card {
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 20px;
-    gap: 14px;
+  /* Clean Connected Vertical Timeline for Install Steps (Unboxed) */
+  .steps-grid {
+    position: relative;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-left: 44px;
   }
 
-  .faq-item {
-    padding: 0 18px;
+  .steps-grid::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 16px;
+    bottom: 24px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--blue-primary) 0%, rgba(37, 99, 235, 0.2) 100%);
+  }
+
+  .step-card {
+    position: relative;
+    background: transparent;
+    border: none;
+    padding: 0;
+    gap: 6px;
+  }
+
+  .step-num {
+    position: absolute;
+    left: -44px;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
   }
 
   .faq-question {
@@ -1876,7 +1945,7 @@ code {
   }
 
   .conversion-section {
-    padding: 16px 0 60px;
+    padding: 12px 0 56px;
   }
 
   .conversion-card {
@@ -1913,7 +1982,11 @@ code {
 
   .showcase-devices-grid {
     margin: 0 -16px;
-    padding: 6px 16px 14px;
+    padding: 6px calc(50% - 122px) 14px;
+  }
+
+  .showcase-device-card {
+    flex: 0 0 244px;
   }
 
   .downloader-code-box {

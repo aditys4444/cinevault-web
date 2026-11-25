@@ -1,6 +1,5 @@
 /**
- * CineVault — Official Website Interactive Logic
- * Design System: Obsidian Void
+ * CineVault — Official Distribution Interactive Logic
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -29,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Hydrate dynamic release badges from version.json
   fetch('version.json')
     .then((res) => res.json())
     .then((data) => {
@@ -46,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
       syncVersionDom(APP_CONFIG.version, APP_CONFIG.sizeMB, APP_CONFIG.sha256);
     })
     .catch(() => {
-      // Keep static fallback constants
+      // Retain static fallback constants
     });
 
   let lastFocusedElement = null;
@@ -69,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 2. Mobile Navigation Drawer
+  // 2. Mobile Navigation Sheet
   // =========================================================================
   const mobileMenuToggle = document.getElementById('mobileMenuToggle');
   const mobileNavDrawer = document.getElementById('mobileNavDrawer');
@@ -122,44 +120,46 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 3. Lightbox Modal with Clean Focus Handling (Single Bound Listener)
+  // 3. Showcase Gallery, Mobile Carousel Sync & Swipeable Lightbox
   // =========================================================================
-  const deviceCards = document.querySelectorAll('.showcase-device-card');
+  const deviceCards = Array.from(document.querySelectorAll('.showcase-device-card'));
+  const showcaseGrid = document.getElementById('showcaseDevicesGrid');
+  const showcaseDots = document.querySelectorAll('.showcase-dot');
+  const showcaseTabs = document.querySelectorAll('.showcase-tab');
   const lightboxModal = document.getElementById('lightboxModal');
   const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
   const closeLightboxBtn = document.getElementById('closeLightboxBtn');
+  const lightboxPrevBtn = document.getElementById('lightboxPrevBtn');
+  const lightboxNextBtn = document.getElementById('lightboxNextBtn');
 
-  let currentActiveImg = 'assets/home_screenshot.webp?v=3.1.0';
+  let activeLightboxIndex = 0;
 
-  if (lightboxModal) {
-    lightboxModal.addEventListener('keydown', (e) => {
-      if (e.key !== 'Tab') return;
-      const focusables = Array.from(
-        lightboxModal.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])')
-      ).filter((el) => !el.hasAttribute('disabled'));
-      if (focusables.length === 0) return;
-
-      const firstEl = focusables[0];
-      const lastEl = focusables[focusables.length - 1];
-      if (e.shiftKey && document.activeElement === firstEl) {
-        lastEl.focus();
-        e.preventDefault();
-      } else if (!e.shiftKey && document.activeElement === lastEl) {
-        firstEl.focus();
-        e.preventDefault();
-      }
-    });
-
-    lightboxModal.addEventListener('click', (e) => {
-      if (e.target === lightboxModal) closeLightbox();
+  function setActiveShowcaseIndex(idx) {
+    deviceCards.forEach((card, i) => card.classList.toggle('is-highlighted', i === idx));
+    showcaseDots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+    showcaseTabs.forEach((tab, i) => {
+      const isSelected = i === idx;
+      tab.classList.toggle('active', isSelected);
+      tab.setAttribute('aria-selected', String(isSelected));
     });
   }
 
-  function openLightbox(src, triggerEl) {
+  function showLightboxAt(index) {
+    if (!deviceCards.length || !lightboxImg) return;
+    activeLightboxIndex = ((index % deviceCards.length) + deviceCards.length) % deviceCards.length;
+    const card = deviceCards[activeLightboxIndex];
+    const imgSrc = card.dataset.img;
+    const caption = card.dataset.caption || '';
+    if (imgSrc) lightboxImg.src = imgSrc;
+    if (lightboxCaption) lightboxCaption.textContent = caption;
+    setActiveShowcaseIndex(activeLightboxIndex);
+  }
+
+  function openLightbox(index, triggerEl) {
     if (!lightboxModal || !lightboxImg) return;
     lastFocusedElement = triggerEl || document.activeElement;
-    currentActiveImg = src || currentActiveImg;
-    lightboxImg.src = currentActiveImg;
+    showLightboxAt(index);
     lightboxModal.classList.add('active');
     document.body.style.overflow = 'hidden';
     if (closeLightboxBtn) closeLightboxBtn.focus();
@@ -174,17 +174,84 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  deviceCards.forEach((card) => {
-    card.addEventListener('click', () => {
-      const imgSrc = card.dataset.img;
-      if (imgSrc) openLightbox(imgSrc, card);
+  if (lightboxModal) {
+    lightboxModal.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        showLightboxAt(activeLightboxIndex - 1);
+        return;
+      }
+      if (e.key === 'ArrowRight') {
+        showLightboxAt(activeLightboxIndex + 1);
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      const focusables = Array.from(
+        lightboxModal.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])')
+      ).filter((el) => !el.hasAttribute('disabled') && el.offsetParent !== null);
+      if (focusables.length === 0) return;
+
+      const firstEl = focusables[0];
+      const lastEl = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === firstEl) {
+        lastEl.focus();
+        e.preventDefault();
+      } else if (!e.shiftKey && document.activeElement === lastEl) {
+        firstEl.focus();
+        e.preventDefault();
+      }
     });
 
+    // Touch swipe left/right navigation inside mobile lightbox
+    let touchStartX = 0;
+    let touchStartY = 0;
+    lightboxModal.addEventListener(
+      'touchstart',
+      (e) => {
+        if (e.touches.length !== 1) return;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      },
+      { passive: true }
+    );
+
+    lightboxModal.addEventListener(
+      'touchend',
+      (e) => {
+        if (e.changedTouches.length !== 1) return;
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        const dy = e.changedTouches[0].clientY - touchStartY;
+        if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+          showLightboxAt(dx < 0 ? activeLightboxIndex + 1 : activeLightboxIndex - 1);
+        }
+      },
+      { passive: true }
+    );
+
+    lightboxModal.addEventListener('click', (e) => {
+      if (e.target === lightboxModal) closeLightbox();
+    });
+  }
+
+  if (lightboxPrevBtn) {
+    lightboxPrevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showLightboxAt(activeLightboxIndex - 1);
+    });
+  }
+
+  if (lightboxNextBtn) {
+    lightboxNextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showLightboxAt(activeLightboxIndex + 1);
+    });
+  }
+
+  deviceCards.forEach((card, index) => {
+    card.addEventListener('click', () => openLightbox(index, card));
     card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        const imgSrc = card.dataset.img;
-        if (imgSrc) openLightbox(imgSrc, card);
+        openLightbox(index, card);
       }
     });
   });
@@ -193,9 +260,18 @@ document.addEventListener('DOMContentLoaded', () => {
     closeLightboxBtn.addEventListener('click', closeLightbox);
   }
 
-  // Mobile Carousel Pagination Dots
-  const showcaseGrid = document.getElementById('showcaseDevicesGrid');
-  const showcaseDots = document.querySelectorAll('.showcase-dot');
+  function selectShowcaseCard(idx) {
+    setActiveShowcaseIndex(idx);
+    if (showcaseGrid && window.innerWidth <= 1024 && deviceCards[idx]) {
+      deviceCards[idx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+  }
+
+  showcaseTabs.forEach((tab, idx) => {
+    tab.addEventListener('click', () => {
+      selectShowcaseCard(idx);
+    });
+  });
 
   if (showcaseGrid && showcaseDots.length > 0) {
     let dotTicking = false;
@@ -206,15 +282,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if (dotTicking) return;
         dotTicking = true;
         requestAnimationFrame(() => {
-          const firstCard = deviceCards[0];
-          const stepWidth = firstCard ? firstCard.getBoundingClientRect().width + 16 : 266;
-          const activeIndex = Math.min(
-            showcaseDots.length - 1,
-            Math.max(0, Math.round(showcaseGrid.scrollLeft / stepWidth))
-          );
-          showcaseDots.forEach((dot, idx) => {
-            dot.classList.toggle('active', idx === activeIndex);
+          const gridRect = showcaseGrid.getBoundingClientRect();
+          const gridCenter = gridRect.left + gridRect.width / 2;
+          let activeIndex = 0;
+          let closestDist = Infinity;
+
+          deviceCards.forEach((card, idx) => {
+            const rect = card.getBoundingClientRect();
+            const cardCenter = rect.left + rect.width / 2;
+            const dist = Math.abs(cardCenter - gridCenter);
+            if (dist < closestDist) {
+              closestDist = dist;
+              activeIndex = idx;
+            }
           });
+
+          setActiveShowcaseIndex(activeIndex);
           dotTicking = false;
         });
       },
@@ -225,6 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
       dot.addEventListener('click', () => {
         if (deviceCards[idx]) {
           deviceCards[idx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          setActiveShowcaseIndex(idx);
         }
       });
     });
@@ -248,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Global ESC key closes lightbox or mobile navigation drawer
+  // Global ESC key closes lightbox or mobile drawer
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape') return;
     if (lightboxModal && lightboxModal.classList.contains('active')) {
@@ -318,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 6. Header Elevation Observer (Zero Scroll-Event Overhead)
+  // 6. Header Elevation Observer
   // =========================================================================
   const headerWrapper = document.getElementById('headerWrapper');
   const heroCtaRow = document.querySelector('.hero-cta-row');

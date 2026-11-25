@@ -5,18 +5,17 @@
   "updatePageUrl": "https://www.cinevaultapk.online/",
   "apkDownloadUrl": "https://www.cinevaultapk.online/downloads/CineVault.apk",
   "directApkUrl": "https://www.cinevaultapk.online/downloads/CineVault.apk",
-  "updateMessage": "CineVault 3.2.0 Studio Release is ready—signed release build (6.8 MB) with enforced Family Safe Mode, fresh 2024+ Hero Banners, universal search, and smooth landscape playback.",
+  "updateMessage": "Upgrading from v3.1.0 or older: Uninstall the old app first, then install this signed v3.2.0 build (6.8 MB) to avoid a package conflict error. Future updates will install directly.",
   "forceUpdate": true,
   "version": "3.2.0",
   "versionCode": 3200,
   "releaseDate": "2026-11-25",
   "changelog": [
-    "CineVault 3.2.0 Signed Release Edition (6.8 MB)",
-    "Play Protect Hardened: dedicated release keystore, R8 optimization, removed REQUEST_INSTALL_PACKAGES, enabled WebView Safe Browsing",
-    "Family Mode Setting: Hides all 18+/19+ mature content when ON and unlocks the full catalog when OFF",
+    "IMPORTANT: If installing over v3.1.0 shows 'package conflicts', uninstall old CineVault first, then install v3.2.0",
+    "Signed Release Build (6.8 MB) with dedicated developer certificate & Play Protect hardening",
+    "Family Mode Setting: Hides all 18+/19+ mature content when ON and unlocks all content when OFF",
     "Fresh Live Hero Banners prioritizing latest 2024+ & trending releases",
-    "Universal related Search showing all matching movies, series, and channels",
-    "Instant responsive Landscape Mode lock and smoother hardware-accelerated video controls"
+    "Universal related Search & instant responsive Landscape Mode playback controls"
   ],
   "apkUrl": "https://www.cinevaultapk.online/downloads/CineVault.apk",
   "mandatory": true,

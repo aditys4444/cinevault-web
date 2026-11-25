@@ -325,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================================================
-  // 4. Inline Clipboard Copy Helper (Fire TV URL & SHA-256 Hash)
+  // 4. Inline Clipboard Copy Helper (Fire TV URL)
   // =========================================================================
   async function copyTextInline(text, btn) {
     let copied = false;
@@ -370,14 +370,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const rawText = firestickUrl.textContent.trim();
       const urlText = rawText.startsWith('http') ? rawText : `https://${rawText}`;
       copyTextInline(urlText, copyFirestickBtn);
-    });
-  }
-
-  const copyHashBtn = document.getElementById('btnCopyHash');
-  const apkHashEl = document.getElementById('apkHash');
-  if (copyHashBtn && apkHashEl) {
-    copyHashBtn.addEventListener('click', () => {
-      copyTextInline(apkHashEl.textContent.trim(), copyHashBtn);
     });
   }
 

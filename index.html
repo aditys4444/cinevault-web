@@ -107,10 +107,10 @@
           },
           {
             "@type": "Question",
-            "name": "How can I verify that the APK is genuine?",
+            "name": "Can I save movies and episodes for offline playback?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Compare your downloaded file against the official SHA-256 checksum published on this page before installing."
+              "text": "Yes. Choose your preferred stream resolution and save movies or episodes directly inside CineVault for travel and offline playback."
             }
           },
           {
@@ -130,7 +130,7 @@
   <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
   <!-- Icons & Manifest -->
   <link rel="icon" href="/favicon.ico?v=3.1.0" sizes="any">
@@ -142,7 +142,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#050811">
 
-  <link rel="stylesheet" href="styles.css?v=7.0.0">
+  <link rel="stylesheet" href="styles.css?v=8.0.0">
 </head>
 <body>
 
@@ -161,8 +161,7 @@
       <nav class="nav-links" id="desktopNavLinks" aria-label="Main Navigation">
         <a href="#features" class="nav-link">Features</a>
         <a href="#showcase" class="nav-link">Screenshots</a>
-        <a href="#comparison" class="nav-link">Why CineVault</a>
-        <a href="#installation" class="nav-link">Install &amp; SHA-256</a>
+        <a href="#installation" class="nav-link">Install</a>
         <a href="#faq" class="nav-link">FAQ</a>
       </nav>
 
@@ -188,8 +187,7 @@
       <nav class="mobile-nav-menu" aria-label="Mobile Navigation Menu">
         <a href="#features" class="mobile-nav-link"><span>Features</span></a>
         <a href="#showcase" class="mobile-nav-link"><span>Screenshots</span></a>
-        <a href="#comparison" class="mobile-nav-link"><span>Why CineVault</span></a>
-        <a href="#installation" class="mobile-nav-link"><span>Install &amp; SHA-256</span></a>
+        <a href="#installation" class="mobile-nav-link"><span>Install</span></a>
         <a href="#faq" class="mobile-nav-link"><span>FAQ</span></a>
         <div class="mobile-nav-divider"></div>
         <a href="downloads/CineVault.apk" download="CineVault.apk" class="mobile-nav-link mobile-nav-download trigger-download">
@@ -252,28 +250,56 @@
               <span class="facts-sep" aria-hidden="true">&middot;</span>
               <span>Fire TV &amp; Android TV ready</span>
               <span class="facts-sep" aria-hidden="true">&middot;</span>
-              <span>SHA-256 verified</span>
+              <span>Direct <span data-app-size>11.5 MB</span> APK</span>
             </div>
           </div>
 
-          <!-- Flagship Sculpted Phone Frame with Real CineVault Interface -->
-          <div class="hero-mockup-wrapper" aria-label="CineVault Android Interface">
+          <!-- Bespoke Midnight Sapphire CineVault Flagship Phone Mockup -->
+          <div class="hero-mockup-wrapper" role="img" aria-label="CineVault Android app interface showing Featured Premieres, My Library cards, and Live Broadcast dock">
             <div class="hero-device-glow" aria-hidden="true"></div>
-            <div class="titanium-device-bezel hero-device-frame">
-              <span class="device-hw-btn device-btn-vol-up" aria-hidden="true"></span>
-              <span class="device-hw-btn device-btn-vol-down" aria-hidden="true"></span>
-              <span class="device-hw-btn device-btn-power" aria-hidden="true"></span>
-              <div class="device-screen-frame">
-                <div class="device-dynamic-island" aria-hidden="true"></div>
-                <img
-                  src="assets/v3_mini_player_screen.webp?v=3.1.0"
-                  alt="CineVault Android App showing featured premiere banner, Continue Watching shelves, and floating mini-player"
-                  class="hero-app-screen-img"
-                  width="824"
-                  height="1784"
-                  decoding="async"
-                  fetchpriority="high"
-                >
+            <div class="titanium-device-bezel hero-device-frame" aria-hidden="true">
+              <span class="device-hw-btn device-btn-vol-up"></span>
+              <span class="device-hw-btn device-btn-vol-down"></span>
+              <span class="device-hw-btn device-btn-power"></span>
+
+              <div class="device-screen-frame cv-blue-screen">
+                <div class="device-dynamic-island"></div>
+
+                <div class="cv-phone-shell">
+                  <div class="cv-phone-topbar">
+                    <div class="cv-phone-logo">
+                      <span class="cv-logo-cine">CINE</span><span class="cv-logo-vault">VAULT</span>
+                    </div>
+                    <div class="cv-phone-avatar"></div>
+                  </div>
+
+                  <div class="cv-spotlight-banner">
+                    <span class="cv-spotlight-kicker">CINEVAULT ORIGINALS</span>
+                    <span class="cv-spotlight-title">4K CINEMA &amp; SHOWS</span>
+                  </div>
+
+                  <div class="cv-section-label">WATCHLIST &amp; OFFLINE</div>
+
+                  <div class="cv-cards-trio">
+                    <div class="cv-poster cv-poster-1"></div>
+                    <div class="cv-poster cv-poster-2"></div>
+                    <div class="cv-poster cv-poster-3"></div>
+                  </div>
+
+                  <div class="cv-player-dock">
+                    <div class="cv-dock-play">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13">
+                        <polygon points="7,4 20,12 7,20"/>
+                      </svg>
+                    </div>
+                    <div class="cv-dock-meta">
+                      <span class="cv-dock-heading">STREAMING IN 4K HDR</span>
+                      <div class="cv-dock-bar">
+                        <div class="cv-dock-bar-fill"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -457,50 +483,7 @@
       </div>
     </section>
 
-    <!-- 5. Official Distribution Comparison -->
-    <section class="comparison-section" id="comparison">
-      <div class="section-container">
-        <div class="section-head-centered">
-          <h2 class="section-title">Why install the official CineVault build</h2>
-          <p class="section-subtitle">Delivered cleanly from our primary repository without wrapper ads, account prompts, or third-party bloat.</p>
-        </div>
-
-        <div class="compare-grid">
-          <div class="compare-panel compare-panel-official">
-            <div class="compare-panel-head">
-              <div class="compare-brand">
-                <img src="assets/cinevault_app_icon.png?v=3.1.0" alt="" width="28" height="28" class="compare-icon" loading="lazy" decoding="async">
-                <span>CineVault Official (<span data-app-version>v3.1.0</span>)</span>
-              </div>
-              <span class="compare-badge">Verified</span>
-            </div>
-            <ul class="compare-list">
-              <li><span class="cmp-yes" aria-hidden="true">&#10003;</span><span><strong>Zero Ads</strong> &mdash; no video pre-rolls or pop-up redirects</span></li>
-              <li><span class="cmp-yes" aria-hidden="true">&#10003;</span><span><strong>No Sign-In</strong> &mdash; launch and watch right away</span></li>
-              <li><span class="cmp-yes" aria-hidden="true">&#10003;</span><span><strong><span data-app-size>11.5 MB</span> APK</strong> &mdash; compact, responsive footprint</span></li>
-              <li><span class="cmp-yes" aria-hidden="true">&#10003;</span><span><strong>Offline Saver</strong> &mdash; resolution-selectable downloads included</span></li>
-              <li><span class="cmp-yes" aria-hidden="true">&#10003;</span><span><strong>630+ Live TV</strong> &mdash; built-in channel guide &amp; PiP player</span></li>
-            </ul>
-          </div>
-
-          <div class="compare-panel compare-panel-other">
-            <div class="compare-panel-head">
-              <span>Third-Party Streaming APKs</span>
-              <span class="compare-badge-muted">Unofficial</span>
-            </div>
-            <ul class="compare-list">
-              <li><span class="cmp-no" aria-hidden="true">&minus;</span><span>Interruptive video pre-rolls &amp; banner overlays</span></li>
-              <li><span class="cmp-no" aria-hidden="true">&minus;</span><span>Email, phone, or Telegram bot login gates</span></li>
-              <li><span class="cmp-no" aria-hidden="true">&minus;</span><span>80&ndash;150 MB bloated installers with ad SDKs</span></li>
-              <li><span class="cmp-no" aria-hidden="true">&minus;</span><span>Offline downloads locked behind VIP keys</span></li>
-              <li><span class="cmp-no" aria-hidden="true">&minus;</span><span>Separate IPTV app or broken external links</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. Installation & SHA-256 Verification -->
+    <!-- 5. Installation & Fire TV Shortcut -->
     <section class="install-section" id="installation">
       <div class="section-container">
         <div class="section-head-centered">
@@ -545,24 +528,11 @@
               </button>
             </div>
           </div>
-
-          <div class="checksum-container">
-            <div class="utility-head">
-              <span class="utility-label">Official SHA-256 Digest</span>
-              <span class="utility-meta"><span data-app-version>v3.1.0</span> &bull; <span data-app-size>11.5 MB</span></span>
-            </div>
-            <div class="downloader-code-box">
-              <code class="checksum-hash" id="apkHash">F08A143FE6F4258C3048006CE52C9DA0DAA917756FD6EDCA66801919B3C594B6</code>
-              <button type="button" class="btn-copy-hash" id="btnCopyHash" aria-label="Copy SHA-256 Checksum">
-                <span>Copy Hash</span>
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- 7. FAQ -->
+    <!-- 6. FAQ -->
     <section class="faq-section" id="faq">
       <div class="section-container faq-container-narrow">
         <div class="section-head-centered">
@@ -599,12 +569,12 @@
 
           <div class="faq-item">
             <button type="button" class="faq-question" id="faqBtn3" aria-expanded="false" aria-controls="faqAns3">
-              <span>How can I verify the APK file before installing?</span>
+              <span>Can I save movies and episodes for offline playback?</span>
               <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </button>
             <div class="faq-answer" id="faqAns3" role="region" aria-labelledby="faqBtn3">
               <div class="faq-answer-inner">
-                <p>Only download directly from <code>cinevaultapk.online</code> and verify that your file's SHA-256 digest matches the checksum listed in the Install &amp; SHA-256 section above.</p>
+                <p>Yes. Pick your preferred resolution and save movies or episodes directly to local device storage for offline viewing anywhere.</p>
               </div>
             </div>
           </div>
@@ -636,7 +606,7 @@
       </div>
     </section>
 
-    <!-- 8. Closing Card -->
+    <!-- 7. Closing Card -->
     <section class="conversion-section" id="download">
       <div class="section-container">
         <div class="conversion-card">
@@ -677,8 +647,7 @@
         <div class="footer-nav-links">
           <a href="#features" class="footer-link">Features</a>
           <a href="#showcase" class="footer-link">Screenshots</a>
-          <a href="#comparison" class="footer-link">Why CineVault</a>
-          <a href="#installation" class="footer-link">Install &amp; SHA-256</a>
+          <a href="#installation" class="footer-link">Install</a>
           <a href="#faq" class="footer-link">FAQ</a>
           <a href="https://telegram.me/+0nZRFagm4wU1MDll" target="_blank" rel="noopener" class="footer-link">Telegram</a>
         </div>
@@ -712,11 +681,11 @@
     <p class="lightbox-caption" id="lightboxCaption"></p>
   </div>
 
-  <!-- Quiet Status Region (Hidden on Download) -->
+  <!-- Quiet Status Region -->
   <div class="toast-notice" id="toastNotice" role="status" aria-live="polite" hidden>
     <span id="toastMessage"></span>
   </div>
 
-  <script src="app.js?v=5.0.0"></script>
+  <script src="app.js?v=5.1.0"></script>
 </body>
 </html>

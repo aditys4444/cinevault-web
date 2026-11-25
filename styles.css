@@ -224,9 +224,9 @@ code {
 }
 
 .nav-brand-logo-horizontal {
-  height: 27px;
+  height: 28px;
   width: auto;
-  max-width: 140px;
+  max-width: 150px;
   object-fit: contain;
   display: block;
 }
@@ -1783,8 +1783,8 @@ code {
   }
 
   .nav-brand-logo-horizontal {
-    height: 22px;
-    max-width: 112px;
+    height: 25px;
+    max-width: 120px;
   }
 
   .btn-nav-download {

@@ -311,8 +311,8 @@ button:focus:not(:focus-visible),
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 28px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
   align-items: center;
 }
 
@@ -338,13 +338,13 @@ button:focus:not(:focus-visible),
 
 .hero-headline {
   font-family: var(--font-heading);
-  font-size: clamp(1.85rem, 7.2vw, 3.35rem);
+  font-size: clamp(1.8rem, 7.2vw, 3.35rem);
   font-weight: 800;
-  line-height: 1.07;
+  line-height: 1.08;
   letter-spacing: -0.03em;
   color: var(--text-high);
   margin-bottom: 10px;
-  max-width: 16ch;
+  max-width: 15ch;
 }
 
 .hero-description {
@@ -466,6 +466,7 @@ button:focus:not(:focus-visible),
   display: flex;
   justify-content: center;
   width: 100%;
+  min-width: 0;
 }
 
 .cv-phone-chassis {
@@ -600,7 +601,7 @@ button:focus:not(:focus-visible),
 
 .cv-phone-featured {
   position: relative;
-  padding: 16px 14px 14px;
+  padding: 20px 15px 18px;
   border-radius: 15px;
   background:
     radial-gradient(circle at 92% 18%, rgba(56, 189, 248, 0.34), transparent 54%),
@@ -609,7 +610,7 @@ button:focus:not(:focus-visible),
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 4px;
+  gap: 6px;
 }
 
 .cv-featured-kicker {
@@ -629,38 +630,23 @@ button:focus:not(:focus-visible),
   color: #FFFFFF;
 }
 
-.cv-featured-sub {
-  font-size: 10px;
-  color: rgba(226, 232, 240, 0.8);
-  margin-bottom: 6px;
-}
-
 .cv-featured-actions {
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-top: 6px;
 }
 
 .cv-btn-watch {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 5px 11px;
+  padding: 6px 12px;
   border-radius: 999px;
   background-color: #FFFFFF;
   color: #081124;
   font-size: 10.5px;
   font-weight: 700;
-}
-
-.cv-tag-live {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  color: #DBEAFE;
-  padding: 4px 8px;
-  border-radius: 999px;
-  background-color: rgba(8, 17, 36, 0.38);
-  border: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .cv-phone-shelf {
@@ -867,8 +853,15 @@ button:focus:not(:focus-visible),
 
 .features-layout {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 32px;
+}
+
+.features-aside,
+.bento-grid,
+.faq-intro,
+.faq-accordion {
+  min-width: 0;
 }
 
 .aside-telemetry {
@@ -898,7 +891,7 @@ button:focus:not(:focus-visible),
 
 .bento-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   border-top: 1px solid var(--line-hairline);
 }
 
@@ -1097,7 +1090,7 @@ button:focus:not(:focus-visible),
 
 .steps-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   border-top: 1px solid var(--line-hairline);
   margin-bottom: 28px;
 }
@@ -1106,9 +1099,13 @@ button:focus:not(:focus-visible),
   padding: 20px 0;
   border-bottom: 1px solid var(--line-hairline);
   display: grid;
-  grid-template-columns: 34px 1fr;
+  grid-template-columns: 34px minmax(0, 1fr);
   gap: 10px;
   align-items: start;
+}
+
+.step-content {
+  min-width: 0;
 }
 
 .step-num {
@@ -1232,7 +1229,7 @@ button:focus:not(:focus-visible),
 
 .faq-layout {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 28px;
 }
 

@@ -142,9 +142,9 @@
   <link rel="icon" type="image/png" sizes="512x512" href="/assets/cinevault_app_icon.png?v=3.2.3">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png?v=3.2.3">
   <link rel="manifest" href="/site.webmanifest?v=3.2.3">
-  <meta name="theme-color" content="#050811">
+  <meta name="theme-color" content="#060709">
 
-  <link rel="stylesheet" href="styles.css?v=9.4.0">
+  <link rel="stylesheet" href="styles.css?v=10.0.0">
 </head>
 <body>
 
@@ -209,22 +209,23 @@
 
     <!-- 1. Hero Stage -->
     <section class="hero-section">
-      <div class="hero-radial-glow" aria-hidden="true"></div>
       <div class="section-container">
         <div class="hero-grid">
           <div class="hero-content">
-            <p class="hero-release-meta">
-              <span class="release-badge"><span data-app-version>v3.2.5</span></span>
+            <div class="hero-release-meta">
+              <span class="release-dot" aria-hidden="true"></span>
+              <span class="release-badge">Official Release <span data-app-version>v3.2.5</span></span>
+              <span class="hero-meta-sep" aria-hidden="true">&middot;</span>
               <span>Android 5.0+ &middot; Ad-Free</span>
-            </p>
+            </div>
 
             <h1 class="hero-headline">
               Cinema &amp; Live TV,
-              <span class="hero-headline-blue">built for Android.</span>
+              <span class="hero-headline-muted">built for Android.</span>
             </h1>
 
             <p class="hero-description">
-              Stream 4K cinema, offline downloads, and 630+ live TV channels in <span class="nowrap" data-app-size>5.2 MB</span>.
+              Stream 4K movies, save series offline, and watch 630+ live TV channels in a clean <span class="nowrap" data-app-size>5.2 MB</span> app.
             </p>
 
             <div class="hero-cta-row">
@@ -234,7 +235,7 @@
                   <polyline points="7 10 12 15 17 10"/>
                   <line x1="12" y1="15" x2="12" y2="3"/>
                 </svg>
-                <span>Download APK</span>
+                <span class="nowrap">Download APK</span>
                 <span class="btn-meta-size nowrap" data-app-size>5.2 MB</span>
               </a>
 
@@ -243,113 +244,30 @@
                   <path d="m22 2-7 20-4-9-9-4Z"/>
                   <path d="M22 2 11 13"/>
                 </svg>
-                <span>Telegram</span>
+                <span class="nowrap">Join Telegram</span>
               </a>
             </div>
           </div>
 
-          <!-- Bespoke Midnight Sapphire CineVault Flagship Phone Mockup -->
-          <div class="hero-mockup-wrapper" role="img" aria-label="CineVault Android app interface showing 4K Cinema Spotlight, Watchlist and Offline shelf, Streaming dock bar, and navigation">
-            <div class="hero-device-glow" aria-hidden="true"></div>
-            <div class="titanium-device-bezel hero-device-frame" aria-hidden="true">
-              <span class="device-hw-btn device-btn-vol-up"></span>
-              <span class="device-hw-btn device-btn-vol-down"></span>
-              <span class="device-hw-btn device-btn-power"></span>
+          <!-- Real CineVault Android App Showcase Device -->
+          <div class="hero-mockup-wrapper">
+            <div class="titanium-device-bezel hero-device-frame">
+              <span class="device-hw-btn device-btn-vol-up" aria-hidden="true"></span>
+              <span class="device-hw-btn device-btn-vol-down" aria-hidden="true"></span>
+              <span class="device-hw-btn device-btn-power" aria-hidden="true"></span>
 
-              <div class="device-screen-frame cv-blue-screen">
-                <div class="device-dynamic-island"></div>
-
-                <div class="cv-phone-shell">
-                  <div class="cv-phone-topbar">
-                    <div class="cv-phone-brand">
-                      <img src="assets/logo-emblem.svg?v=3.2.3" alt="" class="cv-phone-badge-img" width="19" height="19">
-                      <div class="cv-phone-logo">
-                        <span class="cv-logo-cine">CINE</span><span class="cv-logo-vault">VAULT</span>
-                      </div>
-                    </div>
-                    <div class="cv-phone-actions">
-                      <span class="cv-phone-icon-btn">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="11" height="11">
-                          <circle cx="11" cy="11" r="7"/>
-                          <path d="m20 20-3.5-3.5"/>
-                        </svg>
-                      </span>
-                      <span class="cv-phone-quality-pill">4K HDR</span>
-                    </div>
-                  </div>
-
-                  <div class="cv-spotlight-banner">
-                    <div class="cv-spotlight-glow" aria-hidden="true"></div>
-                    <span class="cv-spotlight-kicker">FEATURED &middot; 4K ULTRA HD</span>
-                    <span class="cv-spotlight-title">TOP PICKS THIS WEEK</span>
-                    <div class="cv-spotlight-meta">
-                      <span class="cv-meta-star">&#9733; 9.1</span>
-                      <span>2026</span>
-                      <span>HDR10+</span>
-                      <span>Zero Ads</span>
-                    </div>
-                    <div class="cv-spotlight-btns">
-                      <span class="cv-spotlight-play">&#9654; Watch Now</span>
-                      <span class="cv-spotlight-info">+ My List</span>
-                    </div>
-                  </div>
-
-                  <div class="cv-section-row">
-                    <span class="cv-section-label">CONTINUE &amp; OFFLINE</span>
-                    <span class="cv-section-count">3 Saved</span>
-                  </div>
-
-                  <div class="cv-cards-trio">
-                    <div class="cv-poster cv-poster-1">
-                      <span class="cv-poster-badge">4K UHD</span>
-                      <div class="cv-poster-foot">
-                        <span class="cv-poster-name">Kalki 2898</span>
-                        <span class="cv-poster-sub">1h 42m left</span>
-                        <div class="cv-poster-bar"><span style="width: 68%"></span></div>
-                      </div>
-                    </div>
-                    <div class="cv-poster cv-poster-2">
-                      <span class="cv-poster-badge">SERIES</span>
-                      <div class="cv-poster-foot">
-                        <span class="cv-poster-name">Hanuman</span>
-                        <span class="cv-poster-sub">S1 &middot; Ep 4</span>
-                        <div class="cv-poster-bar"><span style="width: 38%"></span></div>
-                      </div>
-                    </div>
-                    <div class="cv-poster cv-poster-3">
-                      <span class="cv-poster-badge cv-badge-live">LIVE TV</span>
-                      <div class="cv-poster-foot">
-                        <span class="cv-poster-name">Sports HD</span>
-                        <span class="cv-poster-sub">630+ Ch</span>
-                        <div class="cv-poster-bar"><span style="width: 84%"></span></div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="cv-player-dock">
-                    <div class="cv-dock-play">
-                      <svg viewBox="0 0 24 24" fill="currentColor" width="11" height="11">
-                        <polygon points="7,4 20,12 7,20"/>
-                      </svg>
-                    </div>
-                    <div class="cv-dock-meta">
-                      <div class="cv-dock-top">
-                        <span class="cv-dock-heading">NOW STREAMING &middot; AUTO 4K</span>
-                        <span class="cv-dock-eq" aria-hidden="true"><i></i><i></i><i></i></span>
-                      </div>
-                      <div class="cv-dock-bar">
-                        <div class="cv-dock-bar-fill"></div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="cv-phone-tabbar">
-                    <span class="cv-tab-item active">Home</span>
-                    <span class="cv-tab-item">Search</span>
-                    <span class="cv-tab-item">Live TV</span>
-                    <span class="cv-tab-item">Saved</span>
-                  </div>
-                </div>
+              <div class="device-screen-frame">
+                <span class="device-camera-cutout" aria-hidden="true"></span>
+                <img
+                  src="assets/home_screenshot.webp?v=3.2.5"
+                  alt="CineVault Android app home screen featuring 4K showcase, Continue Watching, and Live TV"
+                  class="hero-real-screen"
+                  width="824"
+                  height="1784"
+                  fetchpriority="high"
+                  decoding="async"
+                >
+                <div class="hero-screen-fade" aria-hidden="true"></div>
               </div>
             </div>
           </div>
@@ -368,9 +286,11 @@
         <div class="bento-grid">
           <div class="bento-card">
             <div class="bento-head">
-              <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
-                <polygon points="6 3 20 12 6 21 6 3"/>
-              </svg>
+              <span class="bento-icon-wrap" aria-hidden="true">
+                <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="17" height="17">
+                  <polygon points="6 3 20 12 6 21 6 3"/>
+                </svg>
+              </span>
               <h3 class="bento-title">Adaptive Video Player</h3>
             </div>
             <p class="bento-body">Auto resolution, 0.5&times;&ndash;2&times; speed, subtitles, and mini-player dock.</p>
@@ -378,10 +298,12 @@
 
           <div class="bento-card">
             <div class="bento-head">
-              <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
-                <rect width="20" height="15" x="2" y="7" rx="2" ry="2"/>
-                <polyline points="17 2 12 7 7 2"/>
-              </svg>
+              <span class="bento-icon-wrap" aria-hidden="true">
+                <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="17" height="17">
+                  <rect width="20" height="15" x="2" y="7" rx="2" ry="2"/>
+                  <polyline points="17 2 12 7 7 2"/>
+                </svg>
+              </span>
               <h3 class="bento-title">630+ Live TV Channels</h3>
             </div>
             <p class="bento-body">Sports, news, and movies with failover and Picture-in-Picture.</p>
@@ -389,11 +311,13 @@
 
           <div class="bento-card">
             <div class="bento-head">
-              <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="7 10 12 15 17 10"/>
-                <line x1="12" y1="15" x2="12" y2="3"/>
-              </svg>
+              <span class="bento-icon-wrap" aria-hidden="true">
+                <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="17" height="17">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+              </span>
               <h3 class="bento-title">Offline Downloads</h3>
             </div>
             <p class="bento-body">Save movies and series episodes locally in your chosen quality.</p>
@@ -401,10 +325,12 @@
 
           <div class="bento-card">
             <div class="bento-head">
-              <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
-                <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>
-                <path d="M12 18h.01"/>
-              </svg>
+              <span class="bento-icon-wrap" aria-hidden="true">
+                <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="17" height="17">
+                  <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>
+                  <path d="M12 18h.01"/>
+                </svg>
+              </span>
               <h3 class="bento-title">Edge Gestures &amp; Lock</h3>
             </div>
             <p class="bento-body">Swipe edges for brightness or volume, double-tap seek, and screen lock.</p>
@@ -412,9 +338,11 @@
 
           <div class="bento-card">
             <div class="bento-head">
-              <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-              </svg>
+              <span class="bento-icon-wrap" aria-hidden="true">
+                <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="17" height="17">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg>
+              </span>
               <h3 class="bento-title">Compact <span class="nowrap" data-app-size>5.2 MB</span> Build</h3>
             </div>
             <p class="bento-body">Instant cold start and smooth frame pacing on older or flagship phones.</p>
@@ -422,10 +350,12 @@
 
           <div class="bento-card">
             <div class="bento-head">
-              <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
-                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-              </svg>
+              <span class="bento-icon-wrap" aria-hidden="true">
+                <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" width="17" height="17">
+                  <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+              </span>
               <h3 class="bento-title">Zero Accounts or Ads</h3>
             </div>
             <p class="bento-body">No sign-up, OTP, or ad banners. Watchlist stays stored on your device.</p>
@@ -630,12 +560,12 @@
                 <polyline points="7 10 12 15 17 10"/>
                 <line x1="12" y1="15" x2="12" y2="3"/>
               </svg>
-              <span>Download APK</span>
+              <span class="nowrap">Download APK</span>
               <span class="btn-meta-size nowrap" data-app-size>5.2 MB</span>
             </a>
 
             <a href="https://telegram.me/+0nZRFagm4wU1MDll" target="_blank" rel="noopener" class="btn-hero-telegram" title="Join CineVault Telegram Channel">
-              <span>Telegram</span>
+              <span>Join Telegram</span>
             </a>
           </div>
         </div>

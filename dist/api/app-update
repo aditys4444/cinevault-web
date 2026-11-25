@@ -5,24 +5,24 @@
   "updatePageUrl": "https://www.cinevaultapk.online/",
   "apkDownloadUrl": "https://www.cinevaultapk.online/downloads/CineVault.apk",
   "directApkUrl": "https://www.cinevaultapk.online/downloads/CineVault.apk",
-  "updateMessage": "CineVault 3.2.0 Studio Edition is a mandatory upgrade featuring enforced Family Safe Mode controls, fresh 2024+ live trending Hero Banners, universal search, and smooth landscape playback.",
+  "updateMessage": "CineVault 3.2.0 Studio Release is ready—signed release build (6.8 MB) with enforced Family Safe Mode, fresh 2024+ Hero Banners, universal search, and smooth landscape playback.",
   "forceUpdate": true,
   "version": "3.2.0",
   "versionCode": 3200,
   "releaseDate": "2026-11-25",
   "changelog": [
-    "CineVault 3.2.0 Mandatory Studio Update",
+    "CineVault 3.2.0 Signed Release Edition (6.8 MB)",
+    "Play Protect Hardened: dedicated release keystore, R8 optimization, removed REQUEST_INSTALL_PACKAGES, enabled WebView Safe Browsing",
     "Family Mode Setting: Hides all 18+/19+ mature content when ON and unlocks the full catalog when OFF",
     "Fresh Live Hero Banners prioritizing latest 2024+ & trending releases",
     "Universal related Search showing all matching movies, series, and channels",
-    "Instant responsive Landscape Mode lock and smoother hardware-accelerated video controls",
-    "Restored quick-access Telegram community shortcut in the top header"
+    "Instant responsive Landscape Mode lock and smoother hardware-accelerated video controls"
   ],
   "apkUrl": "https://www.cinevaultapk.online/downloads/CineVault.apk",
   "mandatory": true,
   "isRequired": true,
   "minVersion": "3.2.0",
-  "sha256": "FB15EBF7974C35738A21E72C1E66B2B433F4E55042CD6C559D1D7B83A69824C2",
-  "fileSizeBytes": 11616596,
-  "fileSizeMB": "11.1 MB"
+  "sha256": "E2A92420CA910A18C24FD8426944E8FA37C25A89F931D24A83169D42B7E2EB0D",
+  "fileSizeBytes": 7180261,
+  "fileSizeMB": "6.8 MB"
 }

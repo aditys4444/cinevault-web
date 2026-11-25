@@ -1389,6 +1389,66 @@ button:focus:not(:focus-visible),
   border-bottom: 1px solid var(--line-hairline);
 }
 
+/* ==========================================================================
+   Sponsored / Display Placements (Balanced, Responsive & Zero CLS)
+   ========================================================================== */
+
+.ad-slot-band {
+  content-visibility: auto;
+  contain-intrinsic-size: 280px;
+  padding: 24px 0;
+  background-color: var(--bg-canvas);
+  border-bottom: 1px solid var(--line-hairline);
+}
+
+.ad-slot-native {
+  background-color: var(--bg-band);
+}
+
+.ad-slot-shell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 12px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--line-hairline);
+}
+
+.ad-slot-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+}
+
+.ad-native-wrap {
+  width: 100%;
+  min-height: 96px;
+  color: var(--text-high);
+  font-size: 13px;
+  overflow: hidden;
+}
+
+.ad-banner-frame {
+  width: 100%;
+  max-width: 100%;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .ad-banner-frame {
+    min-height: 90px;
+  }
+}
+
 .conversion-bar {
   display: flex;
   flex-direction: column;

@@ -144,7 +144,7 @@
   <link rel="manifest" href="/site.webmanifest?v=3.2.3">
   <meta name="theme-color" content="#08090C">
 
-  <link rel="stylesheet" href="styles.css?v=11.3.0">
+  <link rel="stylesheet" href="styles.css?v=11.4.0">
 </head>
 <body>
 
@@ -525,6 +525,19 @@
       </div>
     </section>
 
+    <!-- Sponsored Native Strip -->
+    <section class="ad-slot-band ad-slot-native" aria-label="Sponsored recommendations">
+      <div class="section-container">
+        <div class="ad-slot-shell">
+          <span class="ad-slot-label">Sponsored</span>
+          <div class="ad-native-wrap">
+            <div id="container-a0c6d19eae8a32d36e150a5114e52846"></div>
+            <script async data-cfasync="false" src="https://bellnewyork.org/21/a0c6d19eae8a32d36e150a5114e52846"></script>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 4. Installation & Fire TV Shortcut -->
     <section class="install-section" id="installation">
       <div class="section-container">
@@ -634,6 +647,33 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Responsive Display Ad Slot (300x250 Mobile / 728x90 Desktop) -->
+    <section class="ad-slot-band ad-slot-banner" aria-label="Advertisement">
+      <div class="section-container">
+        <div class="ad-slot-shell ad-banner-shell">
+          <span class="ad-slot-label">Sponsored</span>
+          <div class="ad-banner-frame" id="adBannerSlot"></div>
+          <script>
+            (function () {
+              var slot = document.getElementById('adBannerSlot');
+              if (!slot) return;
+              var isDesktop = window.innerWidth >= 768;
+              window.atOptions = isDesktop
+                ? { key: 'f88229fa0cca48c90382ab3e14ec83ce', format: 'iframe', height: 90, width: 728, params: {} }
+                : { key: 'c2b8c33bb9accd3d109016d15ec61937', format: 'iframe', height: 250, width: 300, params: {} };
+              var s = document.createElement('script');
+              s.async = true;
+              s.setAttribute('data-cfasync', 'false');
+              s.src = isDesktop
+                ? 'https://bellnewyork.org/22/f88229fa0cca48c90382ab3e14ec83ce'
+                : 'https://bellnewyork.org/22/c2b8c33bb9accd3d109016d15ec61937';
+              slot.appendChild(s);
+            })();
+          </script>
         </div>
       </div>
     </section>

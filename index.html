@@ -130,7 +130,7 @@
   <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
   <!-- Icons & Manifest -->
   <link rel="icon" href="/favicon.ico?v=3.1.0" sizes="any">
@@ -140,9 +140,9 @@
   <link rel="icon" type="image/png" sizes="512x512" href="/assets/cinevault_app_icon.png?v=3.1.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png?v=3.1.0">
   <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#06070A">
+  <meta name="theme-color" content="#070709">
 
-  <link rel="stylesheet" href="styles.css?v=4.2.0">
+  <link rel="stylesheet" href="styles.css?v=5.0.0">
 </head>
 <body>
 
@@ -160,8 +160,8 @@
 
       <nav class="nav-links" id="desktopNavLinks" aria-label="Main Navigation">
         <a href="#features" class="nav-link">Features</a>
-        <a href="#showcase" class="nav-link">App Tour</a>
-        <a href="#comparison" class="nav-link">Specs</a>
+        <a href="#showcase" class="nav-link">Preview</a>
+        <a href="#comparison" class="nav-link">Compare</a>
         <a href="#installation" class="nav-link">Install &amp; Verify</a>
         <a href="#faq" class="nav-link">FAQ</a>
       </nav>
@@ -187,8 +187,8 @@
     <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
       <nav class="mobile-nav-menu" aria-label="Mobile Navigation Menu">
         <a href="#features" class="mobile-nav-link"><span>Features</span></a>
-        <a href="#showcase" class="mobile-nav-link"><span>App Tour</span></a>
-        <a href="#comparison" class="mobile-nav-link"><span>Official vs Clones</span></a>
+        <a href="#showcase" class="mobile-nav-link"><span>App Preview</span></a>
+        <a href="#comparison" class="mobile-nav-link"><span>Compare</span></a>
         <a href="#installation" class="mobile-nav-link"><span>Install &amp; Verify</span></a>
         <a href="#faq" class="mobile-nav-link"><span>FAQ</span></a>
         <div class="mobile-nav-divider"></div>
@@ -214,9 +214,10 @@
         <div class="hero-grid">
           <div class="hero-content">
             <p class="hero-meta-line">
-              <span>CineVault <span data-app-version>v3.1.0</span></span>
-              <span class="meta-sep" aria-hidden="true">&middot;</span>
+              <span class="hero-meta-dot" aria-hidden="true"></span>
               <span>Android 5.0+</span>
+              <span class="meta-sep" aria-hidden="true">&middot;</span>
+              <span>Release <span data-app-version>v3.1.0</span></span>
               <span class="meta-sep" aria-hidden="true">&middot;</span>
               <span>Ad-Free</span>
             </p>
@@ -227,7 +228,7 @@
             </h1>
 
             <p class="hero-description">
-              Stream movies and series, save episodes offline, and flip between 630+ live TV channels in one compact <span data-app-size>11.5 MB</span> Android app.
+              Stream movies and series in up to 4K, save episodes offline for travel, and watch 630+ live television channels in a compact <span data-app-size>11.5 MB</span> package.
             </p>
 
             <div class="hero-cta-row">
@@ -251,7 +252,7 @@
             </div>
 
             <div class="hero-spec-strip">
-              <span>No account needed</span>
+              <span>No account required</span>
               <span class="spec-dot" aria-hidden="true"></span>
               <span>Fire TV &amp; Android TV ready</span>
               <span class="spec-dot" aria-hidden="true"></span>
@@ -259,23 +260,53 @@
             </div>
           </div>
 
-          <div class="hero-mockup-wrapper" aria-label="CineVault Android Interface Preview">
+          <!-- Sculpted Matte Obsidian & Crimson Flagship Device Mockup -->
+          <div class="hero-mockup-wrapper" role="img" aria-label="CineVault minimalist dark cinema mobile app interface displaying Top Picks This Week, Continue Watching shelves, and Now Playing player bar">
             <div class="hero-device-glow" aria-hidden="true"></div>
-            <div class="titanium-device-bezel hero-device-frame">
-              <span class="device-hw-btn device-btn-vol-up" aria-hidden="true"></span>
-              <span class="device-hw-btn device-btn-vol-down" aria-hidden="true"></span>
-              <span class="device-hw-btn device-btn-power" aria-hidden="true"></span>
-              <div class="device-screen-frame">
-                <div class="device-dynamic-island" aria-hidden="true"></div>
-                <img
-                  src="assets/v3_mini_player_screen.webp?v=3.1.0"
-                  alt="CineVault Android home screen featuring Hanu-Man premiere banner, Continue Watching, and floating mini-player"
-                  class="hero-app-screen-img"
-                  width="824"
-                  height="1784"
-                  decoding="async"
-                  fetchpriority="high"
-                >
+            <div class="titanium-device-bezel hero-device-frame" aria-hidden="true">
+              <span class="device-hw-btn device-btn-vol-up"></span>
+              <span class="device-hw-btn device-btn-vol-down"></span>
+              <span class="device-hw-btn device-btn-power"></span>
+
+              <div class="device-screen-frame hero-ui-screen">
+                <div class="device-dynamic-island"></div>
+
+                <!-- Minimalist Cinema App Canvas -->
+                <div class="mock-app-shell">
+                  <div class="mock-app-topbar">
+                    <div class="mock-brand-wordmark">
+                      <span class="mock-word-cine">CINE</span><span class="mock-word-vault">VAULT</span>
+                    </div>
+                    <div class="mock-profile-orb"></div>
+                  </div>
+
+                  <div class="mock-featured-card">
+                    <span class="mock-featured-kicker">FEATURED</span>
+                    <span class="mock-featured-title">TOP PICKS THIS WEEK</span>
+                  </div>
+
+                  <div class="mock-shelf-label">CONTINUE WATCHING</div>
+
+                  <div class="mock-poster-trio">
+                    <div class="mock-poster-card mock-poster-1"></div>
+                    <div class="mock-poster-card mock-poster-2"></div>
+                    <div class="mock-poster-card mock-poster-3"></div>
+                  </div>
+
+                  <div class="mock-now-playing">
+                    <div class="mock-play-circle">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+                        <polygon points="7,4 20,12 7,20"/>
+                      </svg>
+                    </div>
+                    <div class="mock-now-meta">
+                      <span class="mock-now-title">NOW PLAYING &mdash; EP. 4</span>
+                      <div class="mock-progress-track">
+                        <div class="mock-progress-fill"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -289,7 +320,7 @@
         <div class="section-head-split">
           <div class="section-head-copy">
             <h2 class="section-title">Engineered for smooth playback everywhere.</h2>
-            <p class="section-subtitle">Lightweight architecture designed for quick cold starts, responsive gesture navigation, and crisp streaming on any screen size.</p>
+            <p class="section-subtitle">Fast navigation, tuned adaptive streaming, and tactile gesture controls across phones, tablets, and Android TV.</p>
           </div>
           <div class="section-head-metrics" aria-label="Key Metrics">
             <div class="metric-cell">
@@ -381,7 +412,7 @@
       <div class="section-container">
         <div class="showcase-header">
           <div>
-            <h2 class="section-title">Inside CineVault Studio</h2>
+            <h2 class="section-title">Inside CineVault</h2>
             <p class="section-subtitle">Captures directly from the v3.1.0 Android build. Tap any screen to inspect full resolution.</p>
           </div>
           <div class="showcase-tabs" id="showcaseTabs" role="tablist" aria-label="Jump to app screen">
@@ -407,7 +438,7 @@
           </div>
 
           <!-- Screen 2: Player -->
-          <div class="showcase-device-card" role="button" tabindex="0" data-category="player" data-img="assets/player_screenshot.webp?v=3.1.0" data-caption="Cinema Player — Speed selector, Auto resolution, Screen lock &amp; offline save" aria-label="Enlarge screenshot: Video Player controls" title="Tap to enlarge">
+          <div class="showcase-device-card" role="button" tabindex="0" data-category="player" data-img="assets/player_screenshot.webp?v=3.1.0" data-caption="Playback Studio — Speed selector, Auto resolution, Screen lock &amp; offline save" aria-label="Enlarge screenshot: Video Player controls" title="Tap to enlarge">
             <div class="showcase-device-chassis">
               <div class="showcase-screen-viewport">
                 <img src="assets/player_screenshot.webp?v=3.1.0" alt="CineVault Video Player interface with speed and lock controls" class="showcase-screen-img" loading="lazy" decoding="async" width="824" height="1784">
@@ -433,7 +464,7 @@
           </div>
 
           <!-- Screen 4: Search -->
-          <div class="showcase-device-card" role="button" tabindex="0" data-category="search" data-img="assets/v3_search_screen.webp?v=3.1.0" data-caption="Genre Discovery — Bollywood, Hollywood, Anime, Series &amp; Live Channel search" aria-label="Enlarge screenshot: Search and Genres" title="Tap to enlarge">
+          <div class="showcase-device-card" role="button" tabindex="0" data-category="search" data-img="assets/v3_search_screen.webp?v=3.1.0" data-caption="Search &amp; Genres — Bollywood, Hollywood, Anime, Series &amp; Live Channel search" aria-label="Enlarge screenshot: Search and Genres" title="Tap to enlarge">
             <div class="showcase-device-chassis">
               <div class="showcase-screen-viewport">
                 <img src="assets/v3_search_screen.webp?v=3.1.0" alt="CineVault Search screen with recent searches and genres grid" class="showcase-screen-img" loading="lazy" decoding="async" width="824" height="1784">
@@ -455,13 +486,13 @@
       </div>
     </section>
 
-    <!-- 4. Official Build Guarantee (Clean Editorial Contrast) -->
+    <!-- 4. Official Build Guarantee -->
     <section class="comparison-section" id="comparison">
       <div class="section-container">
         <div class="editorial-split">
           <div class="editorial-lead">
             <h2 class="section-title">What stays out matters just as much.</h2>
-            <p class="section-subtitle">Direct APK distribution from the studio repository—clean of wrapper adware, forced login walls, and bloated background trackers.</p>
+            <p class="section-subtitle">Direct APK distribution from the official repository—clean of wrapper adware, forced sign-in walls, and bloated background trackers.</p>
           </div>
 
           <div class="spec-ledger" role="list">
@@ -671,8 +702,8 @@
 
         <div class="footer-nav-links">
           <a href="#features" class="footer-link">Features</a>
-          <a href="#showcase" class="footer-link">App Tour</a>
-          <a href="#comparison" class="footer-link">Specs</a>
+          <a href="#showcase" class="footer-link">Preview</a>
+          <a href="#comparison" class="footer-link">Compare</a>
           <a href="#installation" class="footer-link">Install &amp; Verify</a>
           <a href="#faq" class="footer-link">FAQ</a>
           <a href="https://telegram.me/+0nZRFagm4wU1MDll" target="_blank" rel="noopener" class="footer-link">Telegram</a>

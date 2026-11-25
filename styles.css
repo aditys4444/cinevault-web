@@ -1427,7 +1427,7 @@ button:focus:not(:focus-visible),
 
 .ad-native-wrap {
   width: 100%;
-  min-height: 96px;
+  min-height: 0;
   color: var(--text-high);
   font-size: 13px;
   overflow: hidden;
@@ -1436,11 +1436,17 @@ button:focus:not(:focus-visible),
 .ad-banner-frame {
   width: 100%;
   max-width: 100%;
-  min-height: 250px;
+  min-height: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+.ad-banner-frame iframe {
+  max-width: 100%;
+  border-radius: 10px;
+  display: block;
 }
 
 @media (min-width: 768px) {

@@ -761,5 +761,28 @@
   </div>
 
   <script src="app.js?v=5.1.0"></script>
+
+  <!-- Adsterra Social Bar (Mainstream Only — Deferred After Load) -->
+  <script data-cfasync="false">
+    (function loadAdsterraSocialBar() {
+      var injected = false;
+      function inject() {
+        if (injected) return;
+        injected = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.setAttribute('data-cfasync', 'false');
+        s.src = 'https://bellnewyork.org/14/988d7689cdda3ab4adffabef912612e1';
+        (document.body || document.documentElement).appendChild(s);
+      }
+      if (document.readyState === 'complete') {
+        setTimeout(inject, 2000);
+      } else {
+        window.addEventListener('load', function () {
+          setTimeout(inject, 2000);
+        }, { once: true });
+      }
+    })();
+  </script>
 </body>
 </html>

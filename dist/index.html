@@ -772,7 +772,7 @@
     <p class="lightbox-caption" id="lightboxCaption"></p>
   </div>
 
-  <!-- Adsterra Social Bar (Mainstream Only — Deferred After Load) -->
+  <!-- Adsterra Social Bar (Mainstream Only — Deferred After Hero Paint) -->
   <script data-cfasync="false">
     (function loadAdsterraSocialBar() {
       var injected = false;
@@ -785,12 +785,12 @@
         s.src = 'https://bellnewyork.org/14/988d7689cdda3ab4adffabef912612e1';
         (document.body || document.documentElement).appendChild(s);
       }
-      if (document.readyState === 'complete') {
-        setTimeout(inject, 2000);
-      } else {
-        window.addEventListener('load', function () {
-          setTimeout(inject, 2000);
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function () {
+          setTimeout(inject, 1500);
         }, { once: true });
+      } else {
+        setTimeout(inject, 1500);
       }
     })();
   </script>

@@ -1686,6 +1686,7 @@ button:focus:not(:focus-visible),
   display: flex;
   align-items: center;
   gap: 10px;
+  width: max-content;
   max-width: calc(100vw - 24px);
   padding: 10px 12px 10px 14px;
   border-radius: 12px;

@@ -375,7 +375,26 @@ button:focus:not(:focus-visible),
   gap: 8px;
   flex-wrap: wrap;
   width: 100%;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
+}
+
+.hero-download-note {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-bottom: 14px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+.download-note-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background-color: #22C55E;
+  flex-shrink: 0;
 }
 
 .btn-hero-download {
@@ -1500,12 +1519,29 @@ button:focus:not(:focus-visible),
   color: var(--text-muted);
 }
 
+.conversion-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
 .conversion-btn-row {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   flex-wrap: wrap;
+}
+
+.conversion-download-note {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: var(--text-muted);
 }
 
 .official-footer {
@@ -1644,15 +1680,74 @@ button:focus:not(:focus-visible),
 .toast-notice {
   position: fixed;
   left: 50%;
-  bottom: 24px;
+  bottom: 20px;
   transform: translateX(-50%);
   z-index: 300;
-  padding: 10px 18px;
-  border-radius: 999px;
-  background-color: var(--bg-elevated);
-  border: 1px solid var(--line-mid);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: calc(100vw - 24px);
+  padding: 10px 12px 10px 14px;
+  border-radius: 12px;
+  background-color: #111622;
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.55);
   font-size: 13px;
+  line-height: 1.35;
   color: var(--text-high);
+}
+
+.toast-notice[hidden] {
+  display: none;
+}
+
+.toast-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background-color: #22C55E;
+  flex-shrink: 0;
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+}
+
+.toast-retry-link {
+  color: #60A5FA;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  white-space: nowrap;
+}
+
+.toast-retry-link:hover {
+  color: #93C5FD;
+}
+
+.toast-close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-left: 2px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.toast-close-btn:hover {
+  color: var(--text-high);
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 /* ==========================================================================
@@ -1737,7 +1832,12 @@ button:focus:not(:focus-visible),
   .hero-cta-row {
     justify-content: flex-start;
     gap: 10px;
-    margin-bottom: 28px;
+    margin-bottom: 12px;
+  }
+
+  .hero-download-note {
+    justify-content: flex-start;
+    margin-bottom: 24px;
   }
 
   .btn-hero-download {
@@ -1886,9 +1986,17 @@ button:focus:not(:focus-visible),
     gap: 14px;
   }
 
+  .conversion-actions {
+    align-items: flex-end;
+  }
+
   .conversion-btn-row {
     justify-content: flex-end;
     gap: 10px;
+  }
+
+  .conversion-download-note {
+    justify-content: flex-end;
   }
 
   .footer-row {

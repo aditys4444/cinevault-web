@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     sha256: '0A86F94552FC7C03963E44323C3E545A9D2E4AC504C4EB166F3355C800ED330D',
     apkPath: 'downloads/CineVault.apk',
     websiteUrl: 'https://www.cinevaultapk.online/',
+    smartlinkUrl: 'https://ardance.org/4/15f68818f84e32dbc91d7753325d58f3',
+    sponsorCooldownMs: 15 * 60 * 1000,
+    sponsorStorageKey: 'cv_sponsor_ts',
   };
 
   function syncVersionDom(version, sizeMB, sha256) {
@@ -297,9 +300,86 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 3. Direct APK Download Analytics (No Blocking/Floating Popup)
+  // 3. APK Download Handler + Cooldown-Protected Mainstream Sponsor Tab
   // =========================================================================
   const downloadBtns = document.querySelectorAll('.trigger-download');
+  const toastNotice = document.getElementById('toastNotice');
+  let toastHideTimer = null;
+  let lastSponsorOpenedAt = 0;
+
+  function canOpenSponsorTab() {
+    const now = Date.now();
+    if (now - lastSponsorOpenedAt < APP_CONFIG.sponsorCooldownMs) return false;
+    try {
+      const storedTs = Number(sessionStorage.getItem(APP_CONFIG.sponsorStorageKey) || '0');
+      if (storedTs && now - storedTs < APP_CONFIG.sponsorCooldownMs) {
+        return false;
+      }
+    } catch {
+      // sessionStorage disabled in strict privacy contexts
+    }
+    return true;
+  }
+
+  function markSponsorTabOpened() {
+    const now = Date.now();
+    lastSponsorOpenedAt = now;
+    try {
+      sessionStorage.setItem(APP_CONFIG.sponsorStorageKey, String(now));
+    } catch {
+      // Ignore storage write errors
+    }
+  }
+
+  function hideDownloadToast() {
+    if (!toastNotice) return;
+    toastNotice.hidden = true;
+    if (toastHideTimer) {
+      clearTimeout(toastHideTimer);
+      toastHideTimer = null;
+    }
+  }
+
+  function showDownloadToast() {
+    if (!toastNotice) return;
+
+    toastNotice.textContent = '';
+
+    const dot = document.createElement('span');
+    dot.className = 'toast-dot';
+    dot.setAttribute('aria-hidden', 'true');
+
+    const content = document.createElement('span');
+    content.className = 'toast-content';
+
+    const label = document.createElement('span');
+    label.id = 'toastMessage';
+    label.textContent = `Downloading CineVault v${APP_CONFIG.version} (${APP_CONFIG.sizeMB})`;
+
+    const retryLink = document.createElement('a');
+    retryLink.href = APP_CONFIG.apkPath;
+    retryLink.download = 'CineVault.apk';
+    retryLink.className = 'toast-retry-link';
+    retryLink.setAttribute('data-direct-download', 'true');
+    retryLink.textContent = 'Download again';
+
+    const closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'toast-close-btn';
+    closeBtn.setAttribute('aria-label', 'Dismiss download status');
+    closeBtn.textContent = '\u00D7';
+    closeBtn.addEventListener('click', hideDownloadToast);
+
+    content.appendChild(label);
+    content.appendChild(retryLink);
+    toastNotice.appendChild(dot);
+    toastNotice.appendChild(content);
+    toastNotice.appendChild(closeBtn);
+    toastNotice.hidden = false;
+
+    if (toastHideTimer) clearTimeout(toastHideTimer);
+    toastHideTimer = setTimeout(hideDownloadToast, 8000);
+  }
 
   downloadBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -310,6 +390,25 @@ document.addEventListener('DOMContentLoaded', () => {
           value: 1,
         });
       }
+
+      if (!btn.hasAttribute('data-direct-download') && canOpenSponsorTab()) {
+        markSponsorTabOpened();
+        window.open(APP_CONFIG.smartlinkUrl, '_blank', 'noopener,noreferrer');
+      }
+
+      const labelSpan = btn.querySelector('span:first-of-type');
+      if (labelSpan && labelSpan.children.length === 0 && !btn.dataset.origLabel) {
+        btn.dataset.origLabel = labelSpan.textContent;
+        labelSpan.textContent = 'Starting APK...';
+        setTimeout(() => {
+          if (btn.dataset.origLabel) {
+            labelSpan.textContent = btn.dataset.origLabel;
+            delete btn.dataset.origLabel;
+          }
+        }, 3500);
+      }
+
+      showDownloadToast();
     });
   });
 

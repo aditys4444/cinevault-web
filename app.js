@@ -9,7 +9,7 @@ const APP_CONFIG = {
   apkPath: 'downloads/CineVault.apk',
   websiteUrl: 'https://www.cinevaultapk.online/',
   smartlinkUrl: 'https://ardance.org/4/15f68818f84e32dbc91d7753325d58f3',
-  sponsorCooldownMs: 15 * 60 * 1000,
+  sponsorCooldownMs: 60 * 1000,
   sponsorStorageKey: 'cv_sponsor_ts',
 };
 
